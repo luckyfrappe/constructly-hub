@@ -59,7 +59,9 @@
 
 ### Page-Specific Features
 
-**404 Page**
+<!-- **404 Page** -->
+<!-- **401 Page** -->
+<!-- **503 Page** -->
 
 ### Future Implementations
 
@@ -83,22 +85,22 @@
 ### Frameworks, Libraries & Programs Used
 
 - **[Git & GitHub](https://github.com/)** – Version control and hosting.
-- **[Google Fonts](https://fonts.google.com/)** – Typography.
+<!-- - **[Google Fonts](https://fonts.google.com/)** – Typography. -->
 - **[Google DevTools](https://developer.chrome.com/docs/devtools/)** – Development & debugging.
-- **[Font Awesome](https://fontawesome.com/)** – Icons via CDN.
-- **[FreeConvert](https://www.freeconvert.com/)** – Video compression.
-- **[Favicon.io](https://favicon.io/)** – Favicon generation.
-- **[TinyPNG](https://tinypng.com/)** – Image optimization.
-- **[Polypane](https://polypane.app/)** – Responsive device previews.
-- **[Autoprefixer](https://autoprefixer.github.io/)** – Vendor prefixes for CSS.
-- **[ColorSpace](https://mycolor.space/)** – Palette generation.
-- **[HTML Validator](https://validator.w3.org/)** – Markup Validation Service.
-- **[CSS Validator](https://jigsaw.w3.org/css-validator/)** – CSS Validation Service.
-- **[WAVE](https://wave.webaim.org/)** – Web Accessibility Evaluation Tools.
-- **[JSLint](https://www.jslint.com/)** – JavaScript validation.
-- **[JSHint](https://jshint.com/)** – JavaScript validation.
-- **[Custom JS Lint API](https://luckyfrappe.github.io/jsapi/)** – JavaScript validation.
-- **[ChatGPT (OpenAI)](https://chat.openai.com/)** & **[Gemini (Google)](https://gemini.google.com/)** – Used for generating service descriptions, debugging support, exploring different approaches, and clarifying code concepts during development.
+<!-- - **[Font Awesome](https://fontawesome.com/)** – Icons via CDN. -->
+<!-- - **[FreeConvert](https://www.freeconvert.com/)** – Video compression. -->
+<!-- - **[Favicon.io](https://favicon.io/)** – Favicon generation. -->
+<!-- - **[TinyPNG](https://tinypng.com/)** – Image optimization. -->
+<!-- - **[Polypane](https://polypane.app/)** – Responsive device previews. -->
+<!-- - **[Autoprefixer](https://autoprefixer.github.io/)** – Vendor prefixes for CSS. -->
+<!-- - **[ColorSpace](https://mycolor.space/)** – Palette generation. -->
+<!-- - **[HTML Validator](https://validator.w3.org/)** – Markup Validation Service. -->
+<!-- - **[CSS Validator](https://jigsaw.w3.org/css-validator/)** – CSS Validation Service. -->
+<!-- - **[WAVE](https://wave.webaim.org/)** – Web Accessibility Evaluation Tools. -->
+<!-- - **[JSLint](https://www.jslint.com/)** – JavaScript validation. -->
+<!-- - **[JSHint](https://jshint.com/)** – JavaScript validation. -->
+<!-- - **[Custom JS Lint API](https://luckyfrappe.github.io/jsapi/)** – JavaScript validation. -->
+<!-- - **[ChatGPT (OpenAI)](https://chat.openai.com/)** & **[Gemini (Google)](https://gemini.google.com/)** – Used for generating service descriptions, debugging support, exploring different approaches, and clarifying code concepts during development. -->
 
 ---
 
@@ -108,7 +110,7 @@
 
 ## Testing
 
-<--! See **[TESTING.md](TESTING.md)** for test cases, known issues, and resolved bugs. -->
+See **[TESTING.md](TESTING.md)** for test cases, known issues, and resolved bugs.
 
 ---
 

@@ -1,0 +1,106 @@
+# Constructly Hub - Testing Documentation
+
+![alt text]( "Overview image of landing page")
+
+🔗 [**Live site**]()
+
+Testing for this project was a continuous and integral part of the development process. The focus was on achieving **pixel-perfect responsiveness** and **flawless feature functionality**.
+
+---
+
+## Contents
+
+- [User Stories](#user-stories)
+- [Automated Testing](#automated-testing)
+- [Manual Testing](#manual-testing)
+- [Full Testing](#full-testing)
+- [Bugs](#bugs)
+  - [Known Bugs](#known-bugs)
+  - [Solved Bugs](#solved-bugs)
+
+---
+
+### User Stories
+
+| User Story | Test Case | Expected Outcome | Pass/Fail |
+| --- | --- | --- | --- |
+
+---
+
+### Automated Testing
+
+Automated tools were used throughout the project to ensure code quality and accessibility.
+
+**Google Lighthouse:**
+
+| Page | Performance | Accessibility | Best Practices | SEO | Notes |
+| --- | --- | --- | --- | --- | --- |
+| Landing Page |   |   |   |   |   |
+<!-- | [Another Page] |   |   |   |   |   | -->
+| 404 Page |   |   |   |   |   |
+<!-- | 401 Page |   |   |   |   |   | -->
+<!-- | 503 Page |   |   |   |   |   | -->
+
+**HTML & CSS Validation:**  
+Use the **W3C HTML** and **CSS validators** to ensure clean, semantic, and standards-compliant code.  
+
+- [ ] Check HTML syntax, nesting, and semantics.
+- [ ] Check CSS syntax, prefixes, and warnings.
+
+**JavaScript Validation:**  
+Validate JavaScript using **JSLint/JSHint** and fix formatting or functional issues.
+
+**Python**
+
+<!-- I have used the recommended [PEP8 CI Python Linter](https://pep8ci.herokuapp.com) to validate all of my Python files. -->
+
+**Accessibility Testing:**  
+Use the **WAVE** tool to ensure compliance with accessibility standards.
+
+---
+
+### Manual Testing
+
+Extensive manual testing ensures consistent layout, functionality, and responsiveness across devices and browsers.
+
+**Common to all pages:**
+
+| Test # | Test Description | Expected Result | Actual Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+
+---
+
+### Main Page Testing
+
+| Test # | Test Description | Expected Result | Actual Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+
+---
+
+### Form Testing (Multi-Step or Single-Step)
+
+| Test # | Test Description | Expected Result | Actual Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+
+---
+
+### Full Testing
+
+All major flows, features, and responsiveness were tested across:
+
+<!-- - Desktop, tablet, and mobile devices. -->
+<!-- - Browsers: **Chrome, Firefox, Safari, Edge, Opera**. -->
+
+---
+
+## Bugs
+
+### Known Bugs
+List any remaining issues that are out of scope for the current release.
+
+### Solved Bugs
+Document resolved issues to track fixes:
+
+---
+
+[Back to README.md](README.md) • [Back to Top](#constructly-hub---testing-documentation)
