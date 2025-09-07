@@ -51,6 +51,9 @@
 
 ### Wireframes
 
+![alt text](assets/documentation/flowcharts/logic/constructly-hub.jpg "Sitemap and User Flow Manifest")
+See in PDF format **[Sitemap and User Flow Manifest](assets/documentation/flowcharts/logic/constructly-hub.pdf)**
+
 ---
 
 ## Features
@@ -87,6 +90,7 @@
 - **[Git & GitHub](https://github.com/)** – Version control and hosting.
 <!-- - **[Google Fonts](https://fonts.google.com/)** – Typography. -->
 - **[Google DevTools](https://developer.chrome.com/docs/devtools/)** – Development & debugging.
+- **[FigJam](https://www.figma.com/figjam/)** - Flowcharts
 <!-- - **[Font Awesome](https://fontawesome.com/)** – Icons via CDN. -->
 <!-- - **[FreeConvert](https://www.freeconvert.com/)** – Video compression. -->
 <!-- - **[Favicon.io](https://favicon.io/)** – Favicon generation. -->
