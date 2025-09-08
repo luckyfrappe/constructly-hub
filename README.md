@@ -103,6 +103,8 @@ See in PDF format **[Sitemap and User Flow Manifest](assets/documentation/flowch
 <!-- - **[WAVE](https://wave.webaim.org/)** – Web Accessibility Evaluation Tools. -->
 <!-- - **[JSLint](https://www.jslint.com/)** – JavaScript validation. -->
 <!-- - **[JSHint](https://jshint.com/)** – JavaScript validation. -->
+- **[Tailwind CLI](https://tailwindcss.com/docs/installation/tailwind-cli)** – Tailwind CSS compiler.
+- **[Jest](https://jestjs.io/)** – JavaScript testing framework.
 <!-- - **[Custom JS Lint API](https://luckyfrappe.github.io/jsapi/)** – JavaScript validation. -->
 <!-- - **[ChatGPT (OpenAI)](https://chat.openai.com/)** & **[Gemini (Google)](https://gemini.google.com/)** – Used for generating service descriptions, debugging support, exploring different approaches, and clarifying code concepts during development. -->
 
