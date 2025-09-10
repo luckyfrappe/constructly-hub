@@ -1,4 +1,7 @@
-# Constructly Hub
+# Constructly Hub — A better way of Construction
+
+Constructly Hub is a modern marketplace platform designed to simplify construction project management. Clients can post project requests, browse available subcontractors, and compare offers, while subcontractors can create profiles, showcase their expertise, and apply for relevant projects. The platform streamlines the entire process, making it easier for both sides to connect and collaborate effectively.
+
 
 ![Mockup image of Constructly Hub website on different devices]()
 
