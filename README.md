@@ -127,11 +127,13 @@ See **[TESTING.md](TESTING.md)** for test cases, known issues, and resolved bugs
 
 ## Credits
 
-<a href="https://iconscout.com/icons/link" class="text-underline font-size-sm" target="_blank">Link</a> by <a href="https://iconscout.com/contributors/unicons" class="text-underline font-size-sm" target="_blank">Unicons Font</a>
+See **[Unicons](https://iconscout.com/contributors/unicons)**  Company logo.
 
 ### Code Used
 
-- **[Tailwind CSS hero template](https://tailwindcss.com/plus/ui-blocks/marketing/sections/heroes)** – Tailwind CSS hero template, simple centered used for the initial wireframe and design.
+- **[Tailwind CSS hero template](https://tailwindcss.com/plus/ui-blocks/marketing/sections/heroes)** – Tailwind CSS hero template - simple centered, used for the initial wireframe and design.
+- **[Tailwind CSS stacked layout](https://tailwindcss.com/plus/ui-blocks/application-ui/application-shells/stacked)** – Tailwind CSS stacked layout template, used for the initial wireframe and design.
+
 
 ### Content
 
