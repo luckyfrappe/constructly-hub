@@ -57,7 +57,15 @@ Constructly Hub is a modern marketplace platform designed to simplify constructi
 ![alt text](assets/documentation/flowcharts/logic/constructly-hub.jpg "Sitemap and User Flow Manifest")
 See in PDF format **[Sitemap and User Flow Manifest](assets/documentation/flowcharts/logic/constructly-hub.pdf)**
 
+
+<!-- Hero page -->
 ![alt text](assets/documentation/wireframes/hero.png "Hero page initial draft")
+
+<!-- Main app layout -->
+![alt text](assets/documentation/wireframes/main-app.png "Main app layout")
+
+<!-- Main app dropdown -->
+![alt text](assets/documentation/wireframes/main-app-dropdown.png "Main app dropdown menu")
 
 ---
 
