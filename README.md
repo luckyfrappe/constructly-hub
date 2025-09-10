@@ -57,6 +57,8 @@ Constructly Hub is a modern marketplace platform designed to simplify constructi
 ![alt text](assets/documentation/flowcharts/logic/constructly-hub.jpg "Sitemap and User Flow Manifest")
 See in PDF format **[Sitemap and User Flow Manifest](assets/documentation/flowcharts/logic/constructly-hub.pdf)**
 
+![alt text](assets/documentation/wireframes/hero.png "Hero page initial draft")
+
 ---
 
 ## Features
@@ -125,7 +127,11 @@ See **[TESTING.md](TESTING.md)** for test cases, known issues, and resolved bugs
 
 ## Credits
 
+<a href="https://iconscout.com/icons/link" class="text-underline font-size-sm" target="_blank">Link</a> by <a href="https://iconscout.com/contributors/unicons" class="text-underline font-size-sm" target="_blank">Unicons Font</a>
+
 ### Code Used
+
+- **[Tailwind CSS hero template](https://tailwindcss.com/plus/ui-blocks/marketing/sections/heroes)** – Tailwind CSS hero template, simple centered used for the initial wireframe and design.
 
 ### Content
 
