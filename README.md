@@ -68,6 +68,10 @@ See in PDF format **[Sitemap and User Flow Manifest](assets/documentation/flowch
 
 ![alt text](assets/documentation/wireframes/main-app-dropdown.png "Main app dropdown menu")
 
+<!-- 404 Page -->
+
+![alt text](assets/documentation/wireframes/lost.png "404 Page wireframe")
+
 ---
 
 ## Features
@@ -108,7 +112,7 @@ See in PDF format **[Sitemap and User Flow Manifest](assets/documentation/flowch
   <!-- - **[Font Awesome](https://fontawesome.com/)** – Icons via CDN. -->
   <!-- - **[FreeConvert](https://www.freeconvert.com/)** – Video compression. -->
   <!-- - **[Favicon.io](https://favicon.io/)** – Favicon generation. -->
-  <!-- - **[TinyPNG](https://tinypng.com/)** – Image optimization. -->
+- **[TinyPNG](https://tinypng.com/)** – Image optimization.
   <!-- - **[Polypane](https://polypane.app/)** – Responsive device previews. -->
   <!-- - **[Autoprefixer](https://autoprefixer.github.io/)** – Vendor prefixes for CSS. -->
   <!-- - **[ColorSpace](https://mycolor.space/)** – Palette generation. -->
@@ -119,6 +123,10 @@ See in PDF format **[Sitemap and User Flow Manifest](assets/documentation/flowch
   <!-- - **[JSHint](https://jshint.com/)** – JavaScript validation. -->
 - **[Tailwind CLI](https://tailwindcss.com/docs/installation/tailwind-cli)** – Tailwind CSS compiler.
 - **[Jest](https://jestjs.io/)** – JavaScript testing framework.
+- **[ESLint](https://eslint.org/)** – JavaScript linter for finding and fixing code issues, enforcing consistent style, and preventing bugs.
+- **[Prettier](https://prettier.io/)** – Code formatter that ensures consistent style across your JavaScript, CSS, JSON, and other files.
+- **[Husky](https://typicode.github.io/husky/)** – Git hooks made easy. Used to automatically run Prettier, ESLint, and tests before each commit.
+- **[lint-staged](https://github.com/okonet/lint-staged)** – Runs linters or formatters only on staged files, making pre-commit hooks faster and more efficient.
   <!-- - **[Custom JS Lint API](https://luckyfrappe.github.io/jsapi/)** – JavaScript validation. -->
   <!-- - **[ChatGPT (OpenAI)](https://chat.openai.com/)** & **[Gemini (Google)](https://gemini.google.com/)** – Used for generating service descriptions, debugging support, exploring different approaches, and clarifying code concepts during development. -->
 
@@ -141,14 +149,12 @@ See **[Unicons](https://iconscout.com/contributors/unicons)** Company logo.
 ### Code Used
 
 - **[Tailwind Plus UI Blocks](https://tailwindcss.com/plus)** – Tailwind Plus templates, built by the makers of Tailwind CSS.
-- **[ESLint](https://eslint.org/)** – JavaScript linter for finding and fixing code issues, enforcing consistent style, and preventing bugs.
-- **[Prettier](https://prettier.io/)** – Code formatter that ensures consistent style across your JavaScript, CSS, JSON, and other files.
-- **[Husky](https://typicode.github.io/husky/)** – Git hooks made easy. Used to automatically run Prettier, ESLint, and tests before each commit.
-- **[lint-staged](https://github.com/okonet/lint-staged)** – Runs linters or formatters only on staged files, making pre-commit hooks faster and more efficient.
 <!-- https://medium.com/@bkn020612/using-eslint-husky-lint-staged-6d6609b02fc2  -->
 
 ### Content
 
 ### Media
+
+- **[Image for 404 page](https://unsplash.com/id/foto/ekskavator-oranye-menggali-daerah-berbatu-RzwixD6C67s)** - View of excavator working at a excavation site.
 
 ### Acknowledgments
