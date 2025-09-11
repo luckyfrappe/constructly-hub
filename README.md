@@ -2,7 +2,6 @@
 
 Constructly Hub is a modern marketplace platform designed to simplify construction project management. Clients can post project requests, browse available subcontractors, and compare offers, while subcontractors can create profiles, showcase their expertise, and apply for relevant projects. The platform streamlines the entire process, making it easier for both sides to connect and collaborate effectively.
 
-
 ![Mockup image of Constructly Hub website on different devices]()
 
 🔗 [**Live site**]()
@@ -57,14 +56,16 @@ Constructly Hub is a modern marketplace platform designed to simplify constructi
 ![alt text](assets/documentation/flowcharts/logic/constructly-hub.jpg "Sitemap and User Flow Manifest")
 See in PDF format **[Sitemap and User Flow Manifest](assets/documentation/flowcharts/logic/constructly-hub.pdf)**
 
-
 <!-- Hero page -->
+
 ![alt text](assets/documentation/wireframes/hero.png "Hero page initial draft")
 
 <!-- Main app layout -->
+
 ![alt text](assets/documentation/wireframes/main-app.png "Main app layout")
 
 <!-- Main app dropdown -->
+
 ![alt text](assets/documentation/wireframes/main-app-dropdown.png "Main app dropdown menu")
 
 ---
@@ -104,22 +105,22 @@ See in PDF format **[Sitemap and User Flow Manifest](assets/documentation/flowch
 <!-- - **[Google Fonts](https://fonts.google.com/)** – Typography. -->
 - **[Google DevTools](https://developer.chrome.com/docs/devtools/)** – Development & debugging.
 - **[FigJam](https://www.figma.com/figjam/)** - Flowcharts
-<!-- - **[Font Awesome](https://fontawesome.com/)** – Icons via CDN. -->
-<!-- - **[FreeConvert](https://www.freeconvert.com/)** – Video compression. -->
-<!-- - **[Favicon.io](https://favicon.io/)** – Favicon generation. -->
-<!-- - **[TinyPNG](https://tinypng.com/)** – Image optimization. -->
-<!-- - **[Polypane](https://polypane.app/)** – Responsive device previews. -->
-<!-- - **[Autoprefixer](https://autoprefixer.github.io/)** – Vendor prefixes for CSS. -->
-<!-- - **[ColorSpace](https://mycolor.space/)** – Palette generation. -->
-<!-- - **[HTML Validator](https://validator.w3.org/)** – Markup Validation Service. -->
-<!-- - **[CSS Validator](https://jigsaw.w3.org/css-validator/)** – CSS Validation Service. -->
-<!-- - **[WAVE](https://wave.webaim.org/)** – Web Accessibility Evaluation Tools. -->
-<!-- - **[JSLint](https://www.jslint.com/)** – JavaScript validation. -->
-<!-- - **[JSHint](https://jshint.com/)** – JavaScript validation. -->
+  <!-- - **[Font Awesome](https://fontawesome.com/)** – Icons via CDN. -->
+  <!-- - **[FreeConvert](https://www.freeconvert.com/)** – Video compression. -->
+  <!-- - **[Favicon.io](https://favicon.io/)** – Favicon generation. -->
+  <!-- - **[TinyPNG](https://tinypng.com/)** – Image optimization. -->
+  <!-- - **[Polypane](https://polypane.app/)** – Responsive device previews. -->
+  <!-- - **[Autoprefixer](https://autoprefixer.github.io/)** – Vendor prefixes for CSS. -->
+  <!-- - **[ColorSpace](https://mycolor.space/)** – Palette generation. -->
+  <!-- - **[HTML Validator](https://validator.w3.org/)** – Markup Validation Service. -->
+  <!-- - **[CSS Validator](https://jigsaw.w3.org/css-validator/)** – CSS Validation Service. -->
+  <!-- - **[WAVE](https://wave.webaim.org/)** – Web Accessibility Evaluation Tools. -->
+  <!-- - **[JSLint](https://www.jslint.com/)** – JavaScript validation. -->
+  <!-- - **[JSHint](https://jshint.com/)** – JavaScript validation. -->
 - **[Tailwind CLI](https://tailwindcss.com/docs/installation/tailwind-cli)** – Tailwind CSS compiler.
 - **[Jest](https://jestjs.io/)** – JavaScript testing framework.
-<!-- - **[Custom JS Lint API](https://luckyfrappe.github.io/jsapi/)** – JavaScript validation. -->
-<!-- - **[ChatGPT (OpenAI)](https://chat.openai.com/)** & **[Gemini (Google)](https://gemini.google.com/)** – Used for generating service descriptions, debugging support, exploring different approaches, and clarifying code concepts during development. -->
+  <!-- - **[Custom JS Lint API](https://luckyfrappe.github.io/jsapi/)** – JavaScript validation. -->
+  <!-- - **[ChatGPT (OpenAI)](https://chat.openai.com/)** & **[Gemini (Google)](https://gemini.google.com/)** – Used for generating service descriptions, debugging support, exploring different approaches, and clarifying code concepts during development. -->
 
 ---
 
@@ -135,13 +136,17 @@ See **[TESTING.md](TESTING.md)** for test cases, known issues, and resolved bugs
 
 ## Credits
 
-See **[Unicons](https://iconscout.com/contributors/unicons)**  Company logo.
+See **[Unicons](https://iconscout.com/contributors/unicons)** Company logo.
 
 ### Code Used
 
 - **[Tailwind CSS hero template](https://tailwindcss.com/plus/ui-blocks/marketing/sections/heroes)** – Tailwind CSS hero template - simple centered, used for the initial wireframe and design.
 - **[Tailwind CSS stacked layout](https://tailwindcss.com/plus/ui-blocks/application-ui/application-shells/stacked)** – Tailwind CSS stacked layout template, used for the initial wireframe and design.
-
+- **[ESLint](https://eslint.org/)** – JavaScript linter for finding and fixing code issues, enforcing consistent style, and preventing bugs.
+- **[Prettier](https://prettier.io/)** – Code formatter that ensures consistent style across your JavaScript, CSS, JSON, and other files.
+- **[Husky](https://typicode.github.io/husky/)** – Git hooks made easy. Used to automatically run Prettier, ESLint, and tests before each commit.
+- **[lint-staged](https://github.com/okonet/lint-staged)** – Runs linters or formatters only on staged files, making pre-commit hooks faster and more efficient.
+<!-- https://medium.com/@bkn020612/using-eslint-husky-lint-staged-6d6609b02fc2  -->
 
 ### Content
 
