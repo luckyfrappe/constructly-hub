@@ -140,8 +140,7 @@ See **[Unicons](https://iconscout.com/contributors/unicons)** Company logo.
 
 ### Code Used
 
-- **[Tailwind CSS hero template](https://tailwindcss.com/plus/ui-blocks/marketing/sections/heroes)** – Tailwind CSS hero template - simple centered, used for the initial wireframe and design.
-- **[Tailwind CSS stacked layout](https://tailwindcss.com/plus/ui-blocks/application-ui/application-shells/stacked)** – Tailwind CSS stacked layout template, used for the initial wireframe and design.
+- **[Tailwind Plus UI Blocks](https://tailwindcss.com/plus)** – Tailwind Plus templates, built by the makers of Tailwind CSS.
 - **[ESLint](https://eslint.org/)** – JavaScript linter for finding and fixing code issues, enforcing consistent style, and preventing bugs.
 - **[Prettier](https://prettier.io/)** – Code formatter that ensures consistent style across your JavaScript, CSS, JSON, and other files.
 - **[Husky](https://typicode.github.io/husky/)** – Git hooks made easy. Used to automatically run Prettier, ESLint, and tests before each commit.
