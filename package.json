@@ -20,7 +20,9 @@
   "homepage": "https://github.com/luckyfrappe/constructly-hub#readme",
   "devDependencies": {
     "husky": "^9.1.7",
-    "jest": "^30.1.3"
+    "jest": "^30.1.3",
+    "jest-environment-jsdom": "^30.1.2",
+    "prettier": "^3.6.2"
   },
   "dependencies": {
     "@tailwindcss/cli": "^4.1.13",

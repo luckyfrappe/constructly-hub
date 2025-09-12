@@ -1,5 +1,8 @@
-function add(a, b) {
-  return a + b;
-}
+const banner = document.querySelector(".banner");
+const closeButton = banner.querySelector("button");
 
-module.exports = { add };
+closeButton.addEventListener("click", () => {
+  banner.style.display = "none";
+});
+
+module.exports = { banner, closeButton };
