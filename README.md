@@ -64,6 +64,10 @@ See in PDF format **[Sitemap and User Flow Manifest](assets/documentation/flowch
 
 ![alt text](assets/documentation/wireframes/main-app.png "Main app layout")
 
+<!-- Insights -->
+
+![alt text](assets/documentation/wireframes/insights.png "Insights layout")
+
 <!-- Main app dropdown -->
 
 ![alt text](assets/documentation/wireframes/main-app-dropdown.png "Main app dropdown menu")
