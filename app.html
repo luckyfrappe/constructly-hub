@@ -34,9 +34,9 @@
       crossorigin="anonymous"
     ></script>
   </head>
-  <body class="h-full bg-gray-100 dark:bg-gray-900">
+  <body>
     <header class="sticky top-0 z-50 w-full backdrop-blur-sm">
-      <nav class="bg-gray-800 dark:bg-gray-800/50">
+      <nav>
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div class="flex h-16 items-center justify-between">
             <div class="flex items-center">
@@ -49,106 +49,53 @@
               </div>
               <div class="hidden md:block">
                 <div class="ml-10 flex items-baseline space-x-4">
-                  <!-- Current: "bg-gray-900 dark:bg-gray-950/50 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
                   <a
                     href="#"
                     aria-current="page"
-                    class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white dark:bg-gray-950/50"
+                    class="rounded-md px-3 py-2 text-sm current"
                     >Insights</a
                   >
-                  <a
-                    href="#"
-                    class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white"
-                    >Projects</a
-                  >
-                  <a
-                    href="#"
-                    class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white"
-                    >Bids</a
-                  >
-                  <a
-                    href="#"
-                    class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white"
-                    >Tenders</a
-                  >
-                  <a
-                    href="#"
-                    class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white"
+                  <a href="#" class="rounded-md px-3 py-2 text-sm">Projects</a>
+                  <a href="#" class="rounded-md px-3 py-2 text-sm">Bids</a>
+                  <a href="#" class="rounded-md px-3 py-2 text-sm">Tenders</a>
+                  <a href="#" class="rounded-md px-3 py-2 text-sm"
                     >Subcontractors</a
                   >
                 </div>
               </div>
             </div>
-            <div class="hidden md:block">
-              <div class="ml-4 flex items-center md:ml-6">
-                <button
-                  type="button"
-                  class="relative rounded-full p-1 text-gray-400 hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500"
-                >
+            <div class="hidden md:block ml-4 flex items-center md:ml-6">
+              <!-- Profile dropdown -->
+              <el-dropdown class="relative ml-3">
+                <button>
                   <span class="absolute -inset-1.5"></span>
-                  <span class="sr-only">View notifications</span>
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                    data-slot="icon"
-                    aria-hidden="true"
-                    class="size-6"
-                  >
-                    <path
-                      d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
+                  <span class="sr-only">Open user menu</span>
+                  <img
+                    src="assets/documentation/wireframes/profilepic.jpeg"
+                    alt="Profile Picture"
+                    class="size-8 rounded-full outline -outline-offset-1 outline-white/10"
+                  />
                 </button>
 
-                <!-- Profile dropdown -->
-                <el-dropdown class="relative ml-3">
-                  <button
-                    class="relative flex max-w-xs items-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
-                  >
-                    <span class="absolute -inset-1.5"></span>
-                    <span class="sr-only">Open user menu</span>
-                    <img
-                      src="assets/documentation/wireframes/profilepic.jpeg"
-                      alt="Profile Picture"
-                      class="size-8 rounded-full outline -outline-offset-1 outline-white/10"
-                    />
-                  </button>
-
-                  <el-menu
-                    anchor="bottom end"
-                    popover
-                    class="w-48 origin-top-right rounded-md bg-white py-1 shadow-lg outline-1 outline-black/5 transition transition-discrete [--anchor-gap:--spacing(2)] data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in dark:bg-gray-800 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10"
-                  >
-                    <a
-                      href="#"
-                      class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:outline-hidden dark:text-gray-300 dark:focus:bg-white/5"
-                      >Your profile</a
-                    >
-                    <a
-                      href="#"
-                      class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:outline-hidden dark:text-gray-300 dark:focus:bg-white/5"
-                      >Settings</a
-                    >
-                    <a
-                      href="#"
-                      class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:outline-hidden dark:text-gray-300 dark:focus:bg-white/5"
-                      >Sign out</a
-                    >
-                  </el-menu>
-                </el-dropdown>
-              </div>
+                <el-menu
+                  anchor="bottom end"
+                  popover
+                  class="dropdown w-48 py-1 shadow-lg transition transition-discrete [--anchor-gap:--spacing(2)] data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in dark:shadow-none dark:-outline-offset-1"
+                >
+                  <a href="#" class="block px-4 py-2 text-sm">Your profile</a>
+                  <a href="#" class="block px-4 py-2 text-sm">Settings</a>
+                  <a href="#" class="block px-4 py-2 text-sm">Sign out</a>
+                </el-menu>
+              </el-dropdown>
             </div>
-            <div class="-mr-2 flex md:hidden">
+
+            <div class="-mr-2 flex md:hidden mobile-menu">
               <!-- Mobile menu button -->
               <button
                 type="button"
                 command="--toggle"
                 commandfor="mobile-menu"
-                class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-white/5 hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500"
+                class="relative inline-flex items-center justify-center rounded-md p-2 focus:outline-2 focus:outline-offset-2"
               >
                 <span class="absolute -inset-0.5"></span>
                 <span class="sr-only">Open main menu</span>
@@ -189,31 +136,22 @@
 
         <el-disclosure id="mobile-menu" hidden class="block md:hidden">
           <div class="space-y-1 px-2 pt-2 pb-3 sm:px-3">
-            <!-- Current: "bg-gray-900 dark:bg-gray-950/50 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
             <a
               href="#"
               aria-current="page"
-              class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white dark:bg-gray-950/50"
+              class="block rounded-md px-3 py-2 text-base font-medium current"
               >Insights</a
             >
-            <a
-              href="#"
-              class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white"
+            <a href="#" class="block rounded-md px-3 py-2 text-base font-medium"
               >Projects</a
             >
-            <a
-              href="#"
-              class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white"
+            <a href="#" class="block rounded-md px-3 py-2 text-base font-medium"
               >Bids</a
             >
-            <a
-              href="#"
-              class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white"
+            <a href="#" class="block rounded-md px-3 py-2 text-base font-medium"
               >Tenders</a
             >
-            <a
-              href="#"
-              class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white"
+            <a href="#" class="block rounded-md px-3 py-2 text-base font-medium"
               >Subcontractors</a
             >
           </div>
@@ -227,33 +165,9 @@
                 />
               </div>
               <div class="ml-3">
-                <div class="text-base/5 font-medium text-white">Tom Cook</div>
-                <div class="text-sm font-medium text-gray-400">
-                  tom@example.com
-                </div>
+                <div class="text-base/5 font-medium">Tom Cook</div>
+                <div class="text-sm font-medium">tom@example.com</div>
               </div>
-              <button
-                type="button"
-                class="relative ml-auto shrink-0 rounded-full p-1 text-gray-400 hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500"
-              >
-                <span class="absolute -inset-1.5"></span>
-                <span class="sr-only">View notifications</span>
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  data-slot="icon"
-                  aria-hidden="true"
-                  class="size-6"
-                >
-                  <path
-                    d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </button>
             </div>
             <div class="mt-3 space-y-1 px-2">
               <a
@@ -276,7 +190,7 @@
         </el-disclosure>
       </nav>
       <div
-        class="banner relative isolate flex items-center gap-x-6 overflow-hidden bg-gray-50 px-6 py-2.5 sm:px-3.5 sm:before:flex-1 dark:bg-gray-800/50 dark:after:pointer-events-none dark:after:absolute dark:after:inset-x-0 dark:after:bottom-0 dark:after:h-px dark:after:bg-white/10"
+        class="banner z-10 relative isolate flex items-center gap-x-6 overflow-hidden px-6 py-2.5 sm:px-3.5 sm:before:flex-1 dark:bg-gray-800/50 dark:after:pointer-events-none dark:after:absolute dark:after:inset-x-0 dark:after:bottom-0 dark:after:h-px dark:after:bg-white/10"
       >
         <div
           aria-hidden="true"
@@ -335,12 +249,12 @@
           ></div>
         </div>
         <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
-          <p class="text-sm/6 text-gray-900 dark:text-gray-100">
+          <p class="text-sm/6 dark:text-gray-100">
             Welcome back, {userFirstName}
           </p>
           <a
             href="#"
-            class="flex-none rounded-full bg-gray-900 px-3.5 py-1 text-sm font-semibold text-white shadow-xs hover:bg-gray-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 dark:bg-white/10 dark:inset-ring-white/20 dark:hover:bg-white/15 dark:focus-visible:outline-white"
+            class="flex-none rounded-full px-3.5 py-1 text-sm font-semibold shadow-xs focus-visible:outline-2 focus-visible:outline-offset-2"
             >Check new updates <span aria-hidden="true">&rarr;</span></a
           >
         </div>
@@ -355,7 +269,7 @@
               fill="currentColor"
               data-slot="icon"
               aria-hidden="true"
-              class="size-5 text-gray-900 dark:text-gray-100"
+              class="size-5"
             >
               <path
                 d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z"
@@ -368,306 +282,143 @@
     <main class="py-6">
       <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
         <div class="grid gap-6 lg:grid-cols-4 md:grid-cols-2">
-          <div class="relative lg:col-span-2">
-            <div
-              class="absolute inset-px rounded-lg bg-white dark:bg-gray-800"
-            ></div>
-            <div
-              class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] max-lg:rounded-t-[calc(2rem+1px)]"
+          <!-- Card 1: Create RFP -->
+          <div class="card relative lg:col-span-2">
+            <p
+              class="mt-2 text-lg font-medium tracking-tight max-lg:text-center"
             >
-              <div class="px-8 pt-8 sm:px-10 sm:pt-10">
-                <p
-                  class="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center dark:text-white"
-                >
-                  Create RFP
-                </p>
-                <p
-                  class="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center dark:text-gray-400"
-                >
-                  Create a project and start a new Request for Proposal for
-                  upcoming construction projects.
-                </p>
-              </div>
-              <div
-                class="flex flex-1 items-center justify-center px-8 max-lg:pt-10 max-lg:pb-12 sm:px-10 lg:pb-2"
-              >
-                <img
-                  src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png"
-                  alt=""
-                  class="w-full max-lg:max-w-xs dark:hidden"
-                />
-                <img
-                  src="https://tailwindcss.com/plus-assets/img/component-images/dark-bento-03-performance.png"
-                  alt=""
-                  class="w-full not-dark:hidden max-lg:max-w-xs"
-                />
-              </div>
-            </div>
-            <div
-              class="pointer-events-none absolute inset-px rounded-lg shadow-sm outline outline-black/5 dark:outline-white/15"
-            ></div>
+              Create RFP
+            </p>
+            <p class="mt-2 max-w-lg text-sm/6 max-lg:text-center">
+              Create a project and start a new Request for Proposal for upcoming
+              construction projects.
+            </p>
+            <img
+              src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png"
+              alt=""
+              class="w-full max-lg:max-w-xs mt-2"
+            />
           </div>
-          <div class="relative">
-            <div
-              class="absolute inset-px rounded-lg bg-white dark:bg-gray-800"
-            ></div>
-            <div
-              class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] max-lg:rounded-t-[calc(2rem+1px)]"
+
+          <!-- Card 2: Active Projects -->
+          <div class="card relative">
+            <p
+              class="mt-2 text-lg font-medium tracking-tight max-lg:text-center"
             >
-              <div class="px-8 pt-8 sm:px-10 sm:pt-10">
-                <p
-                  class="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center dark:text-white"
-                >
-                  Active Projects
-                </p>
-                <p
-                  class="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center dark:text-gray-400"
-                >
-                  View all your ongoing construction projects in one place.
-                </p>
-              </div>
-              <div
-                class="flex flex-1 items-center justify-center px-8 max-lg:pt-10 max-lg:pb-12 sm:px-10 lg:pb-2"
-              >
-                <img
-                  src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png"
-                  alt=""
-                  class="w-full max-lg:max-w-xs dark:hidden"
-                />
-                <img
-                  src="https://tailwindcss.com/plus-assets/img/component-images/dark-bento-03-performance.png"
-                  alt=""
-                  class="w-full not-dark:hidden max-lg:max-w-xs"
-                />
-              </div>
-            </div>
-            <div
-              class="pointer-events-none absolute inset-px rounded-lg shadow-sm outline outline-black/5 dark:outline-white/15"
-            ></div>
+              Active Projects
+            </p>
+            <p class="mt-2 max-w-lg text-sm/6 max-lg:text-center">
+              View all your ongoing construction projects in one place.
+            </p>
+            <img
+              src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png"
+              alt=""
+              class="w-full max-lg:max-w-xs mt-2"
+            />
           </div>
-          <div class="relative lg:row-span-2">
-            <div
-              class="absolute inset-px rounded-lg bg-white dark:bg-gray-800"
-            ></div>
-            <div
-              class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] max-lg:rounded-t-[calc(2rem+1px)]"
+
+          <!-- Card 3: Find RFPs -->
+          <div class="card relative lg:row-span-2">
+            <p
+              class="mt-2 text-lg font-medium tracking-tight max-lg:text-center"
             >
-              <div class="px-8 pt-8 sm:px-10 sm:pt-10">
-                <p
-                  class="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center dark:text-white"
-                >
-                  Find RFPs
-                </p>
-                <p
-                  class="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center dark:text-gray-400"
-                >
-                  Browse and bid on new Requests for Proposals from project
-                  owners.
-                </p>
-              </div>
-              <div
-                class="flex flex-1 items-center justify-center px-8 max-lg:pt-10 max-lg:pb-12 sm:px-10 lg:pb-2"
-              >
-                <img
-                  src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png"
-                  alt=""
-                  class="w-full max-lg:max-w-xs dark:hidden"
-                />
-                <img
-                  src="https://tailwindcss.com/plus-assets/img/component-images/dark-bento-03-performance.png"
-                  alt=""
-                  class="w-full not-dark:hidden max-lg:max-w-xs"
-                />
-              </div>
-            </div>
-            <div
-              class="pointer-events-none absolute inset-px rounded-lg shadow-sm outline outline-black/5 dark:outline-white/15"
-            ></div>
+              Find RFPs
+            </p>
+            <p class="mt-2 max-w-lg text-sm/6 max-lg:text-center">
+              Browse and bid on new Requests for Proposals from project owners.
+            </p>
+            <img
+              src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png"
+              alt=""
+              class="w-full max-lg:max-w-xs mt-2"
+            />
           </div>
-          <div class="relative lg:col-span-2 row-span-2">
-            <div
-              class="absolute inset-px rounded-lg bg-white dark:bg-gray-800"
-            ></div>
-            <div
-              class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] max-lg:rounded-t-[calc(2rem+1px)]"
+
+          <!-- Card 4: Favorite Subcontractors -->
+          <div class="card relative lg:col-span-2 row-span-2">
+            <p
+              class="mt-2 text-lg font-medium tracking-tight max-lg:text-center"
             >
-              <div class="px-8 pt-8 sm:px-10 sm:pt-10">
-                <p
-                  class="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center dark:text-white"
-                >
-                  Favorite Subcontractors
-                </p>
-                <p
-                  class="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center dark:text-gray-400"
-                >
-                  Track all your favorite subcontractors in one place.
-                </p>
-              </div>
-              <div
-                class="flex flex-1 items-center justify-center px-8 max-lg:pt-10 max-lg:pb-12 sm:px-10 lg:pb-2"
-              >
-                <img
-                  src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png"
-                  alt=""
-                  class="w-full max-lg:max-w-xs dark:hidden"
-                />
-                <img
-                  src="https://tailwindcss.com/plus-assets/img/component-images/dark-bento-03-performance.png"
-                  alt=""
-                  class="w-full not-dark:hidden max-lg:max-w-xs"
-                />
-              </div>
-            </div>
-            <div
-              class="pointer-events-none absolute inset-px rounded-lg shadow-sm outline outline-black/5 dark:outline-white/15"
-            ></div>
+              Favorite Subcontractors
+            </p>
+            <p class="mt-2 max-w-lg text-sm/6 max-lg:text-center">
+              Track all your favorite subcontractors in one place.
+            </p>
+            <img
+              src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png"
+              alt=""
+              class="w-full max-lg:max-w-xs mt-2"
+            />
           </div>
-          <div class="relative">
-            <div
-              class="absolute inset-px rounded-lg bg-white dark:bg-gray-800"
-            ></div>
-            <div
-              class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] max-lg:rounded-t-[calc(2rem+1px)]"
+
+          <!-- Card 5: Active Bidding -->
+          <div class="card relative">
+            <p
+              class="mt-2 text-lg font-medium tracking-tight max-lg:text-center"
             >
-              <div class="px-8 pt-8 sm:px-10 sm:pt-10">
-                <p
-                  class="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center dark:text-white"
-                >
-                  Active bidding
-                </p>
-                <p
-                  class="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center dark:text-gray-400"
-                >
-                  Browse and review all your active bids on RFPs.
-                </p>
-              </div>
-              <div
-                class="flex flex-1 items-center justify-center px-8 max-lg:pt-10 max-lg:pb-12 sm:px-10 lg:pb-2"
-              >
-                <img
-                  src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png"
-                  alt=""
-                  class="w-full max-lg:max-w-xs dark:hidden"
-                />
-                <img
-                  src="https://tailwindcss.com/plus-assets/img/component-images/dark-bento-03-performance.png"
-                  alt=""
-                  class="w-full not-dark:hidden max-lg:max-w-xs"
-                />
-              </div>
-            </div>
-            <div
-              class="pointer-events-none absolute inset-px rounded-lg shadow-sm outline outline-black/5 dark:outline-white/15"
-            ></div>
+              Active Bidding
+            </p>
+            <p class="mt-2 max-w-lg text-sm/6 max-lg:text-center">
+              Browse and review all your active bids on RFPs.
+            </p>
+            <img
+              src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png"
+              alt=""
+              class="w-full max-lg:max-w-xs mt-2"
+            />
           </div>
-          <div class="relative">
-            <div
-              class="absolute inset-px rounded-lg bg-white dark:bg-gray-800"
-            ></div>
-            <div
-              class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] max-lg:rounded-t-[calc(2rem+1px)]"
+
+          <!-- Card 6: Total Spend -->
+          <div class="card relative">
+            <p
+              class="mt-2 text-lg font-medium tracking-tight max-lg:text-center"
             >
-              <div class="px-8 pt-8 sm:px-10 sm:pt-10">
-                <p
-                  class="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center dark:text-white"
-                >
-                  Total Spend
-                </p>
-                <p
-                  class="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center dark:text-gray-400"
-                >
-                  $12,345.67
-                </p>
-              </div>
-              <div
-                class="flex flex-1 items-center justify-center px-8 max-lg:pt-10 max-lg:pb-12 sm:px-10 lg:pb-2"
-              >
-                <img
-                  src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png"
-                  alt=""
-                  class="w-full max-lg:max-w-xs dark:hidden"
-                />
-                <img
-                  src="https://tailwindcss.com/plus-assets/img/component-images/dark-bento-03-performance.png"
-                  alt=""
-                  class="w-full not-dark:hidden max-lg:max-w-xs"
-                />
-              </div>
-            </div>
-            <div
-              class="pointer-events-none absolute inset-px rounded-lg shadow-sm outline outline-black/5 dark:outline-white/15"
-            ></div>
+              Total Spend
+            </p>
+            <p class="mt-2 max-w-lg text-sm/6 max-lg:text-center">$12,345.67</p>
+            <img
+              src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png"
+              alt=""
+              class="w-full max-lg:max-w-xs mt-2"
+            />
           </div>
-          <div class="relative">
-            <div
-              class="absolute inset-px rounded-lg bg-white dark:bg-gray-800"
-            ></div>
-            <div
-              class="relative flex h-full flex-col overflow-hidden rounded-[calc(var(--radius-lg)+1px)] max-lg:rounded-t-[calc(2rem+1px)]"
+
+          <!-- Card 7: Total Earned -->
+          <div class="card relative">
+            <p
+              class="mt-2 text-lg font-medium tracking-tight max-lg:text-center"
             >
-              <div class="px-8 pt-8 sm:px-10 sm:pt-10">
-                <p
-                  class="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center dark:text-white"
-                >
-                  Total Earned
-                </p>
-                <p
-                  class="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center dark:text-gray-400"
-                >
-                  $12,345.67
-                </p>
-              </div>
-              <div
-                class="flex flex-1 items-center justify-center px-8 max-lg:pt-10 max-lg:pb-12 sm:px-10 lg:pb-2"
-              >
-                <img
-                  src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png"
-                  alt=""
-                  class="w-full max-lg:max-w-xs dark:hidden"
-                />
-                <img
-                  src="https://tailwindcss.com/plus-assets/img/component-images/dark-bento-03-performance.png"
-                  alt=""
-                  class="w-full not-dark:hidden max-lg:max-w-xs"
-                />
-              </div>
-            </div>
-            <div
-              class="pointer-events-none absolute inset-px rounded-lg shadow-sm outline outline-black/5 dark:outline-white/15"
-            ></div>
+              Total Earned
+            </p>
+            <p class="mt-2 max-w-lg text-sm/6 max-lg:text-center">$12,345.67</p>
+            <img
+              src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png"
+              alt=""
+              class="w-full max-lg:max-w-xs mt-2"
+            />
           </div>
         </div>
       </div>
     </main>
-    <footer class="bg-white">
-      <div class="mx-auto max-w-screen-xl px-4 pb-8 sm:px-6 lg:px-8">
-        <div
-          class="mt-16 pt-8 sm:flex sm:items-center sm:justify-between lg:mt-24"
-        >
+    <footer>
+      <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 py-8">
+        <div class="sm:flex sm:items-center sm:justify-between">
           <ul
             class="flex flex-wrap justify-center gap-6 text-xs lg:justify-end"
           >
             <li>
-              <p class="text-gray-500">
-                &copy; 2025. Constructly Hub. All rights reserved.
-              </p>
+              <p>&copy; 2025. Constructly Hub. All rights reserved.</p>
             </li>
             <li>
-              <a href="#" class="text-gray-500 transition hover:opacity-75">
-                Terms & Conditions
-              </a>
+              <a href="#"> Terms & Conditions </a>
             </li>
 
             <li>
-              <a href="#" class="text-gray-500 transition hover:opacity-75">
-                Privacy Policy
-              </a>
+              <a href="#"> Privacy Policy </a>
             </li>
 
             <li>
-              <a href="#" class="text-gray-500 transition hover:opacity-75">
-                Cookies
-              </a>
+              <a href="#"> Cookies </a>
             </li>
           </ul>
 
@@ -677,7 +428,6 @@
                 href="https://www.facebook.com/"
                 rel="noopener noreferrer"
                 target="_blank"
-                class="text-gray-700 transition hover:opacity-75"
               >
                 <i
                   class="fab fa-facebook-f"
@@ -691,7 +441,6 @@
                 href="https://www.instagram.com/"
                 rel="noopener noreferrer"
                 target="_blank"
-                class="text-gray-700 transition hover:opacity-75"
               >
                 <i
                   class="fab fa-instagram"
@@ -701,12 +450,7 @@
             </li>
 
             <li>
-              <a
-                href="#"
-                rel="noopener noreferrer"
-                target="_blank"
-                class="text-gray-700 transition hover:opacity-75"
-              >
+              <a href="#" rel="noopener noreferrer" target="_blank">
                 <i
                   class="fab fa-x-twitter"
                   aria-label="X, opens in a new tab"
@@ -719,7 +463,6 @@
                 href="https://github.com/luckyfrappe/constructly-hub"
                 rel="noopener noreferrer"
                 target="_blank"
-                class="text-gray-700 transition hover:opacity-75"
               >
                 <i
                   class="fab fa-github"
@@ -733,7 +476,6 @@
                 href="https://www.linkedin.com/"
                 rel="noopener noreferrer"
                 target="_blank"
-                class="text-gray-700 transition hover:opacity-75"
               >
                 <i
                   class="fab fa-linkedin-in"

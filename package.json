@@ -27,10 +27,5 @@
   "dependencies": {
     "@tailwindcss/cli": "^4.1.13",
     "tailwindcss": "^4.1.13"
-  },
-  "lint-staged": {
-    "*.{js,ts,jsx,tsx,json,css,md,html}": [
-      "prettier --write"
-    ]
   }
 }
