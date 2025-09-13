@@ -101,6 +101,8 @@ List any remaining issues that are out of scope for the current release.
 ### Solved Bugs
 Document resolved issues to track fixes:
 
+Prettier crash deletes staged files - removed from the set-up.
+
 ---
 
 [Back to README.md](README.md) • [Back to Top](#constructly-hub---testing-documentation)

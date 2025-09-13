@@ -76,6 +76,9 @@ See in PDF format **[Sitemap and User Flow Manifest](assets/documentation/flowch
 
 ![alt text](assets/documentation/wireframes/lost.png "404 Page wireframe")
 
+<!-- Sign In -->
+![alt text](assets/documentation/wireframes/sign-in.png "Sign In page")
+
 ---
 
 ## Features
@@ -153,7 +156,6 @@ See **[Unicons](https://iconscout.com/contributors/unicons)** Company logo.
 ### Code Used
 
 - **[Tailwind Plus UI Blocks](https://tailwindcss.com/plus)** – Tailwind Plus templates, built by the makers of Tailwind CSS.
-<!-- https://medium.com/@bkn020612/using-eslint-husky-lint-staged-6d6609b02fc2  -->
 
 - **[HyperUI](https://www.hyperui.dev/components/marketing/footershttps://www.hyperui.dev/components/marketing/footers)** - Footer Component.
 
