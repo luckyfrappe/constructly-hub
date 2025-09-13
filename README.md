@@ -155,6 +155,8 @@ See **[Unicons](https://iconscout.com/contributors/unicons)** Company logo.
 - **[Tailwind Plus UI Blocks](https://tailwindcss.com/plus)** – Tailwind Plus templates, built by the makers of Tailwind CSS.
 <!-- https://medium.com/@bkn020612/using-eslint-husky-lint-staged-6d6609b02fc2  -->
 
+- **[HyperUI](https://www.hyperui.dev/components/marketing/footershttps://www.hyperui.dev/components/marketing/footers)** - Footer Component.
+
 ### Content
 
 ### Media
