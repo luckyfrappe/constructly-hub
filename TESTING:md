@@ -102,6 +102,7 @@ List any remaining issues that are out of scope for the current release.
 Document resolved issues to track fixes:
 
 Prettier crash deletes staged files - removed from the set-up.
+Main closing tag in footer on home page causng footer take container width. Moved main closing tag outside of footer on top. 
 
 ---
 
