@@ -134,6 +134,7 @@ See in PDF format **[Sitemap and User Flow Manifest](assets/documentation/flowch
 - **[Prettier](https://prettier.io/)** – Code formatter that ensures consistent style across your JavaScript, CSS, JSON, and other files.
 - **[Husky](https://typicode.github.io/husky/)** – Git hooks made easy. Used to automatically run Prettier, ESLint, and tests before each commit.
 - **[lint-staged](https://github.com/okonet/lint-staged)** – Runs linters or formatters only on staged files, making pre-commit hooks faster and more efficient.
+<!-- canva för collage -->
   <!-- - **[Custom JS Lint API](https://luckyfrappe.github.io/jsapi/)** – JavaScript validation. -->
   <!-- - **[ChatGPT (OpenAI)](https://chat.openai.com/)** & **[Gemini (Google)](https://gemini.google.com/)** – Used for generating service descriptions, debugging support, exploring different approaches, and clarifying code concepts during development. -->
 
@@ -164,5 +165,23 @@ See **[Unicons](https://iconscout.com/contributors/unicons)** Company logo.
 ### Media
 
 - **[Image for 404 page](https://unsplash.com/id/foto/ekskavator-oranye-menggali-daerah-berbatu-RzwixD6C67s)** - View of excavator working at a excavation site.
+
+https://www.freepik.com/free-photo/man-builder-uniform-holding-older-looking-building-plan_21298651.htm#fromView=keyword&page=1&position=1&uuid=91fa161a-f9ba-4363-841a-47d9747408f8&query=Building+inspector 
+
+https://www.freepik.com/free-photo/low-view-modern-skyscrapers-office-buildings_12396223.htm#fromView=search&page=1&position=0&uuid=187d61fd-0f7e-405a-951c-027e80324f34&query=building
+
+https://www.pexels.com/photo/low-angle-shot-of-a-tower-crane-11654553/
+
+https://www.pexels.com/photo/yellow-excavator-2101137/
+
+https://www.pexels.com/photo/heavy-duty-mining-bulldozer-in-quarry-31543919/
+
+https://www.pexels.com/photo/heavy-equipment-on-construction-site-10421763/
+
+https://www.pexels.com/sv-se/foto/sand-arbetssatt-fordon-hjullastare-12835355/
+
+https://www.pexels.com/photo/close-up-of-metal-grinding-sparks-in-workshop-30858409/
+
+https://www.freepik.com/free-photo/eyeglasses-paper-plan-table_3716871.htm#fromView=search&page=1&position=2&uuid=e50412dd-24e6-4977-b4db-33afa9f271b4&query=blueprint+construction+
 
 ### Acknowledgments

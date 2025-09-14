@@ -9,7 +9,6 @@
       "Courier New", monospace;
     --color-gray-100: oklch(96.7% 0.003 264.542);
     --color-gray-400: oklch(70.7% 0.022 261.325);
-    --color-gray-500: oklch(55.1% 0.027 264.364);
     --color-gray-800: oklch(27.8% 0.033 256.848);
     --color-white: #fff;
     --spacing: 0.25rem;
@@ -355,9 +354,6 @@
   .min-h-full {
     min-height: 100%;
   }
-  .min-h-screen {
-    min-height: 100vh;
-  }
   .w-48 {
     width: calc(var(--spacing) * 48);
   }
@@ -598,9 +594,6 @@
   }
   .text-gray-400 {
     color: var(--color-gray-400);
-  }
-  .text-gray-500 {
-    color: var(--color-gray-500);
   }
   .opacity-30 {
     opacity: 30%;
@@ -975,9 +968,15 @@
   --color-darker-gray: #e5e7eb;
   --color-darker-gray-static: #e5e7eb;
   --color-dark-gray: #727478;
-  --color-special: rgb(146, 250, 146);
-  --text-lime: #32CD32;
-  --color-box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.3);
+  --color-special: #ccff33;
+  --color-special-original: #92fb92;
+  --color-special-2: #9ef01a;
+  --text-lime: #70e000;
+  --text-lime-2: #38b000;
+  --color-lime-darker: #008000;
+  --color-lime-dark: #007200;
+  --color-lime-darkest: #004b23;
+  --color-box-shadow: 0 0 0 3px rgba(204, 255, 51, 0.5);
   --color-dark: #435064;
   --color-dark-static: #435064;
   --color-darkest: #1f2937;
@@ -992,7 +991,6 @@
     --color-light-gray: #435064;
     --color-darker-gray: #e5e7eb;
     --color-dark-gray: #e5e7eb;
-    --color-special: rgb(34, 197, 94);
     --color-dark: #f9fafb;
     --color-darkest: #ffffff;
     --color-darkest-static-50: rgba(31, 41, 55, 0.8);
@@ -1093,6 +1091,18 @@ button[aria-expanded="true"] {
   outline: 2px solid var(--color-special);
   outline-offset: 2px;
   border-radius: var(--border-radius);
+}
+main.hero {
+  background-image: url('/assets/images/design/hero-img.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 93vh;
+}
+@media (prefers-color-scheme: dark) {
+  main.hero {
+    background-image: url('/assets/images/design/hero-img-dark.png');
+  }
 }
 .card {
   background-color: var(--color-white);

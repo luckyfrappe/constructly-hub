@@ -9,9 +9,15 @@
   --color-darker-gray: #e5e7eb;
   --color-darker-gray-static: #e5e7eb;
   --color-dark-gray: #727478;
-  --color-special: rgb(146, 250, 146);
-  --text-lime: #32CD32;
-  --color-box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.3);
+  --color-special: #ccff33;
+  --color-special-original: #92fb92;
+  --color-special-2: #9ef01a;
+  --text-lime: #70e000;
+  --text-lime-2: #38b000;
+  --color-lime-darker: #008000;
+  --color-lime-dark: #007200;
+  --color-lime-darkest: #004b23;
+  --color-box-shadow: 0 0 0 3px rgba(204, 255, 51, 0.5);
   --color-dark: #435064;
   --color-dark-static: #435064; /* Static for light theme navbar text */
   --color-darkest: #1f2937;
@@ -28,7 +34,6 @@
     --color-light-gray: #435064;
     --color-darker-gray: #e5e7eb;
     --color-dark-gray: #e5e7eb;
-    --color-special: rgb(34, 197, 94);
     --color-dark: #f9fafb;
     --color-darkest: #ffffff;
     --color-darkest-static-50: rgba(31, 41, 55, 0.8);
@@ -160,6 +165,20 @@ button[aria-expanded="true"] {
   outline: 2px solid var(--color-special);
   outline-offset: 2px;
   border-radius: var(--border-radius);
+}
+
+main.hero {
+  background-image: url('/assets/images/design/hero-img.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 93vh;
+}
+
+@media (prefers-color-scheme: dark) {
+  main.hero {
+    background-image: url('/assets/images/design/hero-img-dark.png');
+  }
 }
 
 .card {
