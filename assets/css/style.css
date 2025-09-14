@@ -7,7 +7,6 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-indigo-400: oklch(67.3% 0.182 276.935);
     --color-indigo-500: oklch(58.5% 0.233 277.117);
     --color-indigo-600: oklch(51.1% 0.262 276.966);
     --color-gray-100: oklch(96.7% 0.003 264.542);
@@ -352,6 +351,9 @@
   .h-16 {
     height: calc(var(--spacing) * 16);
   }
+  .h-full {
+    height: 100%;
+  }
   .h-screen {
     height: 100vh;
   }
@@ -372,9 +374,6 @@
   }
   .w-full {
     width: 100%;
-  }
-  .w-screen {
-    width: 100vw;
   }
   .max-w-2xl {
     max-width: var(--container-2xl);
@@ -623,9 +622,6 @@
   }
   .text-gray-900 {
     color: var(--color-gray-900);
-  }
-  .text-indigo-400 {
-    color: var(--color-indigo-400);
   }
   .text-indigo-600 {
     color: var(--color-indigo-600);
@@ -1158,13 +1154,22 @@ p {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   transition: background-color 0.2s, opacity 0.2s;
 }
+button {
+  padding: 0.5rem;
+}
 .my-button:hover {
   opacity: var(--hover-opacity);
   cursor: pointer;
 }
-button:focus {
+button:focus-visible {
   outline: 2px solid var(--color-special);
   outline-offset: 2px;
+  border-radius: var(--border-radius);
+}
+button[aria-expanded="true"] {
+  outline: 2px solid var(--color-special);
+  outline-offset: 2px;
+  border-radius: var(--border-radius);
 }
 .card {
   background-color: var(--color-white);

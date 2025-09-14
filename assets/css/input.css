@@ -133,14 +133,25 @@ p {
     opacity 0.2s;
 }
 
+button{
+  padding: 0.5rem;
+}
+
 .my-button:hover {
   opacity: var(--hover-opacity);
   cursor: pointer;
 }
 
-button:focus {
+button:focus-visible {
   outline: 2px solid var(--color-special);
   outline-offset: 2px;
+  border-radius: var(--border-radius);
+}
+
+button[aria-expanded="true"] {
+  outline: 2px solid var(--color-special);
+  outline-offset: 2px;
+  border-radius: var(--border-radius);
 }
 
 .card {
