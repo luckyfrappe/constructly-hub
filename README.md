@@ -118,7 +118,7 @@ See in PDF format **[Sitemap and User Flow Manifest](assets/documentation/flowch
 - **[FigJam](https://www.figma.com/figjam/)** - Flowcharts
   <!-- - **[Font Awesome](https://fontawesome.com/)** – Icons via CDN. -->
   <!-- - **[FreeConvert](https://www.freeconvert.com/)** – Video compression. -->
-  <!-- - **[Favicon.io](https://favicon.io/)** – Favicon generation. -->
+- **[Favicon.io](https://favicon.io/)** – Favicon generation.
 - **[TinyPNG](https://tinypng.com/)** – Image optimization.
   <!-- - **[Polypane](https://polypane.app/)** – Responsive device previews. -->
   <!-- - **[Autoprefixer](https://autoprefixer.github.io/)** – Vendor prefixes for CSS. -->
@@ -134,7 +134,7 @@ See in PDF format **[Sitemap and User Flow Manifest](assets/documentation/flowch
 - **[Prettier](https://prettier.io/)** – Code formatter that ensures consistent style across your JavaScript, CSS, JSON, and other files.
 - **[Husky](https://typicode.github.io/husky/)** – Git hooks made easy. Used to automatically run Prettier, ESLint, and tests before each commit.
 - **[lint-staged](https://github.com/okonet/lint-staged)** – Runs linters or formatters only on staged files, making pre-commit hooks faster and more efficient.
-<!-- canva för collage -->
+<!-- canva för collage and favicon design -->
   <!-- - **[Custom JS Lint API](https://luckyfrappe.github.io/jsapi/)** – JavaScript validation. -->
   <!-- - **[ChatGPT (OpenAI)](https://chat.openai.com/)** & **[Gemini (Google)](https://gemini.google.com/)** – Used for generating service descriptions, debugging support, exploring different approaches, and clarifying code concepts during development. -->
 
