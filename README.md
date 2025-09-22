@@ -137,12 +137,56 @@ See in PDF format **[Sitemap and User Flow Manifest](assets/documentation/flowch
 <!-- canva för collage and favicon design -->
   <!-- - **[Custom JS Lint API](https://luckyfrappe.github.io/jsapi/)** – JavaScript validation. -->
   <!-- - **[ChatGPT (OpenAI)](https://chat.openai.com/)** & **[Gemini (Google)](https://gemini.google.com/)** – Used for generating service descriptions, debugging support, exploring different approaches, and clarifying code concepts during development. -->
-
+<!-- Installing venv from Code institute instructions -->
+<!-- Django -->
 ---
 
 ## Deployment
 
 ## Local Development
+
+<!-- 1. Create virtual environment in VS Code
+
+Open the Command Palette (F1 or gear icon → Command Palette).
+
+Type create environment → select Python: Create Environment…
+
+Choose Venv from the dropdown.
+
+Select the Python version. This project uses Python 3.13.7.
+
+If missing, install from python.org https://www.python.org/downloads/release/python-3137/
+, restart VS Code, and check with:
+
+python3 --version
+
+
+2. .gitignore setup
+Create a .gitignore in the project root with:
+
+.venv
+env.py
+
+
+3. Install dependencies
+After pulling the repo:
+
+pip3 install -r requirements.txt
+
+
+4. Check installed packages
+
+pip3 freeze
+
+
+5. IF you add new packages:
+
+pip3 install <package-name>
+
+
+Update requirements:
+
+pip3 freeze > requirements.txt -->
 
 ## Testing
 
