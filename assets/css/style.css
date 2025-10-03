@@ -1093,7 +1093,7 @@ button[aria-expanded="true"] {
   border-radius: var(--border-radius);
 }
 main.hero {
-  background-image: url('/assets/images/design/hero-img.png');
+  background-image: url('../images/design/hero-img.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1101,7 +1101,7 @@ main.hero {
 }
 @media (prefers-color-scheme: dark) {
   main.hero {
-    background-image: url('/assets/images/design/hero-img-dark.png');
+    background-image: url('../images/design/hero-img-dark.png');
   }
 }
 .card {
