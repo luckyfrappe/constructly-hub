@@ -153,7 +153,7 @@ Type create environment → select Python: Create Environment…
 
 Choose Venv from the dropdown.
 
-Select the Python version. This project uses Python 3.13.7.
+Select the Python version. This project uses Python 3.13.3.
 
 If missing, install from python.org https://www.python.org/downloads/release/python-3137/
 , restart VS Code, and check with:
