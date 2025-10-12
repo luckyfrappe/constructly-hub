@@ -140,6 +140,10 @@ See in PDF format **[Sitemap and User Flow Manifest](assets/documentation/flowch
 <!-- Installing venv from Code institute instructions -->
 <!-- Django -->
 - **[Gunicorn](https://gunicorn.org/)** – Python WSGI HTTP server for running Django apps in production.
+- **PostgreSQL** – Open-source relational database used to store, query, and manage structured data reliably, supporting complex queries and transactions for web applications.
+- **dj-database-url** – Simplifies database configuration in Django by allowing the database URL to be parsed and set as Django settings.  
+- **psycopg2** – PostgreSQL adapter for Python, enabling Django to communicate with a PostgreSQL database.
+
 
 ---
 
