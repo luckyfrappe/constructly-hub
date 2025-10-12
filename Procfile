@@ -1,0 +1,1 @@
+web: gunicorn constructly_hub.wsgi

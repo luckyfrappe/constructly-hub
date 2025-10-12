@@ -139,6 +139,8 @@ See in PDF format **[Sitemap and User Flow Manifest](assets/documentation/flowch
   <!-- - **[ChatGPT (OpenAI)](https://chat.openai.com/)** & **[Gemini (Google)](https://gemini.google.com/)** – Used for generating service descriptions, debugging support, exploring different approaches, and clarifying code concepts during development. -->
 <!-- Installing venv from Code institute instructions -->
 <!-- Django -->
+- **[Gunicorn](https://gunicorn.org/)** – Python WSGI HTTP server for running Django apps in production.
+
 ---
 
 ## Deployment
