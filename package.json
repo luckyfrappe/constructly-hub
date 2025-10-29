@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "prepare": "husky",
-    "dev": "npx tailwindcss -i assets/css/input.css -o assets/css/style.css --watch"
+    "dev": "npx tailwindcss -i static/css/input.css -o static/css/style.css --watch"
   },
   "repository": {
     "type": "git",

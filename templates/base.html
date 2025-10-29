@@ -21,17 +21,17 @@
     content="construction management, subcontractors, construction projects, project management software, construction platform" />
 
   <!-- Favicon -->
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/design/favicon/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/design/favicon/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/design/favicon/favicon-16x16.png" />
-  <link rel="manifest" href="assets/images/design/favicon/site.webmanifest" />
+  <link rel="apple-touch-icon" sizes="180x180" href="static/images/design/favicon/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="static/images/design/favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="static/images/design/favicon/favicon-16x16.png" />
+  <link rel="manifest" href="static/images/design/favicon/site.webmanifest" />
 
   <!-- Preconnect to Google Fonts for Faster Loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
   <!-- Main CSS -->
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   <script src="https://kit.fontawesome.com/1ca7252419.js" crossorigin="anonymous"></script>
 </head>
 
@@ -42,7 +42,7 @@
         <div class="flex h-16 items-center justify-between">
           <div class="flex items-center">
             <div class="shrink-0">
-              <img src="assets/images/design/favicon/android-chrome-512x512.png" alt="Company Logo" class="size-8" />
+              <img src="{% static 'images/design/favicon/android-chrome-512x512.png' %}" alt="Company Logo" class="size-8" />
             </div>
             <div class="hidden md:block">
               <div class="ml-10 flex items-baseline space-x-4">
@@ -60,7 +60,7 @@
               <button>
                 <span class="absolute -inset-1.5"></span>
                 <span class="sr-only">Open user menu</span>
-                <img src="assets/documentation/wireframes/profilepic.jpeg" alt="Profile Picture"
+                <img src="{% static 'documentation/wireframes/profilepic.jpeg' %}" alt="Profile Picture"
                   class="size-8 rounded-full outline -outline-offset-1 outline-white/10" />
               </button>
 
@@ -103,7 +103,7 @@
         <div class="border-t border-white/10 pt-4 pb-3">
           <div class="flex items-center px-5">
             <div class="shrink-0">
-              <img src="assets/documentation/wireframes/profilepic.jpeg" alt="Profile Picture"
+              <img src="{% static 'documentation/wireframes/profilepic.jpeg' %}" alt="Profile Picture"
                 class="size-10 rounded-full outline -outline-offset-1 outline-white/10" />
             </div>
             <div class="ml-3">
@@ -193,92 +193,9 @@
       </div>
     </div>
   </header>
-  <main class="py-6">
-    <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
-      <div class="grid gap-6 lg:grid-cols-4 md:grid-cols-2">
-        <!-- Card 1: Create RFP -->
-        <div class="card relative lg:col-span-2">
-          <p class="mt-2 text-lg font-medium tracking-tight max-lg:text-center">
-            Create RFP
-          </p>
-          <p class="mt-2 max-w-lg text-sm/6 max-lg:text-center">
-            Create a project and start a new Request for Proposal for upcoming
-            construction projects.
-          </p>
-          <img src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png" alt=""
-            class="w-full max-lg:max-w-xs mt-2" />
-        </div>
-
-        <!-- Card 2: Active Projects -->
-        <div class="card relative">
-          <p class="mt-2 text-lg font-medium tracking-tight max-lg:text-center">
-            Active Projects
-          </p>
-          <p class="mt-2 max-w-lg text-sm/6 max-lg:text-center">
-            View all your ongoing construction projects in one place.
-          </p>
-          <img src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png" alt=""
-            class="w-full max-lg:max-w-xs mt-2" />
-        </div>
-
-        <!-- Card 3: Find RFPs -->
-        <div class="card relative lg:row-span-2">
-          <p class="mt-2 text-lg font-medium tracking-tight max-lg:text-center">
-            Find RFPs
-          </p>
-          <p class="mt-2 max-w-lg text-sm/6 max-lg:text-center">
-            Browse and bid on new Requests for Proposals from project owners.
-          </p>
-          <img src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png" alt=""
-            class="w-full max-lg:max-w-xs mt-2" />
-        </div>
-
-        <!-- Card 4: Favorite Subcontractors -->
-        <div class="card relative lg:col-span-2 row-span-2">
-          <p class="mt-2 text-lg font-medium tracking-tight max-lg:text-center">
-            Favorite Subcontractors
-          </p>
-          <p class="mt-2 max-w-lg text-sm/6 max-lg:text-center">
-            Track all your favorite subcontractors in one place.
-          </p>
-          <img src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png" alt=""
-            class="w-full max-lg:max-w-xs mt-2" />
-        </div>
-
-        <!-- Card 5: Active Bidding -->
-        <div class="card relative">
-          <p class="mt-2 text-lg font-medium tracking-tight max-lg:text-center">
-            Active Bidding
-          </p>
-          <p class="mt-2 max-w-lg text-sm/6 max-lg:text-center">
-            Browse and review all your active bids on RFPs.
-          </p>
-          <img src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png" alt=""
-            class="w-full max-lg:max-w-xs mt-2" />
-        </div>
-
-        <!-- Card 6: Total Spend -->
-        <div class="card relative">
-          <p class="mt-2 text-lg font-medium tracking-tight max-lg:text-center">
-            Total Spend
-          </p>
-          <p class="mt-2 max-w-lg text-sm/6 max-lg:text-center">$12,345.67</p>
-          <img src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png" alt=""
-            class="w-full max-lg:max-w-xs mt-2" />
-        </div>
-
-        <!-- Card 7: Total Earned -->
-        <div class="card relative">
-          <p class="mt-2 text-lg font-medium tracking-tight max-lg:text-center">
-            Total Earned
-          </p>
-          <p class="mt-2 max-w-lg text-sm/6 max-lg:text-center">$12,345.67</p>
-          <img src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png" alt=""
-            class="w-full max-lg:max-w-xs mt-2" />
-        </div>
-      </div>
-    </div>
-  </main>
+  {% block content %}
+  <!-- Content Goes here -->
+  {% endblock content %}
   <footer>
     <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 py-8">
       <div class="sm:flex sm:items-center sm:justify-between">
@@ -336,7 +253,8 @@
   <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
   <!-- JavaScript -->
   <script defer src="assets/frontend/scripts/index.js"></script>
-  {% endblock %}
+{% block extras %}
+{% endblock %}
 </body>
 
 </html>
