@@ -1,0 +1,342 @@
+{% load static %}
+{% url 'home' as home_url %}
+{% url 'about' as about_url %}
+<!-- {% url 'account_login' as login_url %}
+{% url 'account_signup' as signup_url %}
+{% url 'account_logout' as logout_url %} -->
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Constructly Hub</title>
+
+  <!-- Meta and SEO info -->
+  <meta name="author" content="luckyfrappe" />
+  <meta name="description"
+    content="Constructly Hub makes construction project management simple. Post your project, browse subcontractors, and find the right match — all in one place." />
+  <meta name="keywords"
+    content="construction management, subcontractors, construction projects, project management software, construction platform" />
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/design/favicon/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/design/favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/design/favicon/favicon-16x16.png" />
+  <link rel="manifest" href="assets/images/design/favicon/site.webmanifest" />
+
+  <!-- Preconnect to Google Fonts for Faster Loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="https://kit.fontawesome.com/1ca7252419.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <header class="sticky top-0 z-50 w-full backdrop-blur-sm">
+    <nav>
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
+          <div class="flex items-center">
+            <div class="shrink-0">
+              <img src="assets/images/design/favicon/android-chrome-512x512.png" alt="Company Logo" class="size-8" />
+            </div>
+            <div class="hidden md:block">
+              <div class="ml-10 flex items-baseline space-x-4">
+                <a href="#" aria-current="page" class="rounded-md px-3 py-2 text-sm current">Insights</a>
+                <a href="#" class="rounded-md px-3 py-2 text-sm">Projects</a>
+                <a href="#" class="rounded-md px-3 py-2 text-sm">Bids</a>
+                <a href="#" class="rounded-md px-3 py-2 text-sm">Tenders</a>
+                <a href="#" class="rounded-md px-3 py-2 text-sm">Subcontractors</a>
+              </div>
+            </div>
+          </div>
+          <div class="hidden md:block ml-4 flex items-center md:ml-6">
+            <!-- Profile dropdown -->
+            <el-dropdown class="relative ml-3">
+              <button>
+                <span class="absolute -inset-1.5"></span>
+                <span class="sr-only">Open user menu</span>
+                <img src="assets/documentation/wireframes/profilepic.jpeg" alt="Profile Picture"
+                  class="size-8 rounded-full outline -outline-offset-1 outline-white/10" />
+              </button>
+
+              <el-menu anchor="bottom end" popover
+                class="dropdown w-48 py-1 shadow-lg transition transition-discrete [--anchor-gap:--spacing(2)] data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in dark:shadow-none dark:-outline-offset-1">
+                <a href="#" class="block px-4 py-2 text-sm">Your profile</a>
+                <a href="#" class="block px-4 py-2 text-sm">Settings</a>
+                <a href="#" class="block px-4 py-2 text-sm">Sign out</a>
+              </el-menu>
+            </el-dropdown>
+          </div>
+
+          <div class="-mr-2 flex md:hidden mobile-menu">
+            <!-- Mobile menu button -->
+            <button type="button" command="--toggle" commandfor="mobile-menu"
+              class="relative inline-flex items-center justify-center">
+              <span class="absolute -inset-0.5"></span>
+              <span class="sr-only">Open main menu</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon"
+                aria-hidden="true" class="size-6 in-aria-expanded:hidden">
+                <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon"
+                aria-hidden="true" class="size-6 not-in-aria-expanded:hidden">
+                <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <el-disclosure id="mobile-menu" hidden class="block md:hidden">
+        <div class="space-y-1 px-2 pt-2 pb-3 sm:px-3">
+          <a href="#" aria-current="page" class="block rounded-md px-3 py-2 text-base font-medium current">Insights</a>
+          <a href="#" class="block rounded-md px-3 py-2 text-base font-medium">Projects</a>
+          <a href="#" class="block rounded-md px-3 py-2 text-base font-medium">Bids</a>
+          <a href="#" class="block rounded-md px-3 py-2 text-base font-medium">Tenders</a>
+          <a href="#" class="block rounded-md px-3 py-2 text-base font-medium">Subcontractors</a>
+        </div>
+        <div class="border-t border-white/10 pt-4 pb-3">
+          <div class="flex items-center px-5">
+            <div class="shrink-0">
+              <img src="assets/documentation/wireframes/profilepic.jpeg" alt="Profile Picture"
+                class="size-10 rounded-full outline -outline-offset-1 outline-white/10" />
+            </div>
+            <div class="ml-3">
+              <div class="text-base/5 font-medium">Tom Cook</div>
+              <div class="text-sm font-medium">tom@example.com</div>
+            </div>
+          </div>
+          <div class="mt-3 space-y-1 px-2">
+            <a href="#"
+              class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-white/5 hover:text-white">Your
+              profile</a>
+            <a href="#"
+              class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-white/5 hover:text-white">Settings</a>
+            <a href="#"
+              class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-white/5 hover:text-white">Sign
+              out</a>
+          </div>
+        </div>
+      </el-disclosure>
+    </nav>
+    <div
+      class="banner z-10 relative isolate flex items-center gap-x-6 overflow-hidden px-6 py-2.5 sm:px-3.5 sm:before:flex-1 dark:bg-gray-800/50 dark:after:pointer-events-none dark:after:absolute dark:after:inset-x-0 dark:after:bottom-0 dark:after:h-px dark:after:bg-white/10">
+      <div aria-hidden="true"
+        class="absolute top-1/2 left-[max(-7rem,calc(50%-52rem))] -z-10 -translate-y-1/2 transform-gpu blur-2xl">
+        <div style="
+              clip-path: polygon(
+                74.8% 41.9%,
+                97.2% 73.2%,
+                100% 34.9%,
+                92.5% 0.4%,
+                87.5% 0%,
+                75% 28.6%,
+                58.5% 54.6%,
+                50.1% 56.8%,
+                46.9% 44%,
+                48.3% 17.4%,
+                24.7% 53.9%,
+                0% 27.9%,
+                11.9% 74.2%,
+                24.9% 54.1%,
+                68.6% 100%,
+                74.8% 41.9%
+              );
+            " class="aspect-577/310 w-144.25 bg-linear-to-r from-[#ff80b5] to-[#9089fc] opacity-30 dark:opacity-40">
+        </div>
+      </div>
+      <div aria-hidden="true"
+        class="absolute top-1/2 left-[max(45rem,calc(50%+8rem))] -z-10 -translate-y-1/2 transform-gpu blur-2xl">
+        <div style="
+              clip-path: polygon(
+                74.8% 41.9%,
+                97.2% 73.2%,
+                100% 34.9%,
+                92.5% 0.4%,
+                87.5% 0%,
+                75% 28.6%,
+                58.5% 54.6%,
+                50.1% 56.8%,
+                46.9% 44%,
+                48.3% 17.4%,
+                24.7% 53.9%,
+                0% 27.9%,
+                11.9% 74.2%,
+                24.9% 54.1%,
+                68.6% 100%,
+                74.8% 41.9%
+              );
+            " class="aspect-577/310 w-144.25 bg-linear-to-r from-[#ff80b5] to-[#9089fc] opacity-30 dark:opacity-40">
+        </div>
+      </div>
+      <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
+        <p class="text-sm/6 dark:text-gray-100">
+          Welcome back, {userFirstName}
+        </p>
+        <a href="#"
+          class="flex-none rounded-full px-3.5 py-1 text-sm shadow-xs focus-visible:outline-2 focus-visible:outline-offset-2">Check
+          new updates <span aria-hidden="true">&rarr;</span></a>
+      </div>
+      <div class="flex flex-1 justify-end">
+        <button type="button" class="-m-3 p-3 focus-visible:-outline-offset-4">
+          <span class="sr-only">Dismiss</span>
+          <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="size-5">
+            <path
+              d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+  <main class="py-6">
+    <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+      <div class="grid gap-6 lg:grid-cols-4 md:grid-cols-2">
+        <!-- Card 1: Create RFP -->
+        <div class="card relative lg:col-span-2">
+          <p class="mt-2 text-lg font-medium tracking-tight max-lg:text-center">
+            Create RFP
+          </p>
+          <p class="mt-2 max-w-lg text-sm/6 max-lg:text-center">
+            Create a project and start a new Request for Proposal for upcoming
+            construction projects.
+          </p>
+          <img src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png" alt=""
+            class="w-full max-lg:max-w-xs mt-2" />
+        </div>
+
+        <!-- Card 2: Active Projects -->
+        <div class="card relative">
+          <p class="mt-2 text-lg font-medium tracking-tight max-lg:text-center">
+            Active Projects
+          </p>
+          <p class="mt-2 max-w-lg text-sm/6 max-lg:text-center">
+            View all your ongoing construction projects in one place.
+          </p>
+          <img src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png" alt=""
+            class="w-full max-lg:max-w-xs mt-2" />
+        </div>
+
+        <!-- Card 3: Find RFPs -->
+        <div class="card relative lg:row-span-2">
+          <p class="mt-2 text-lg font-medium tracking-tight max-lg:text-center">
+            Find RFPs
+          </p>
+          <p class="mt-2 max-w-lg text-sm/6 max-lg:text-center">
+            Browse and bid on new Requests for Proposals from project owners.
+          </p>
+          <img src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png" alt=""
+            class="w-full max-lg:max-w-xs mt-2" />
+        </div>
+
+        <!-- Card 4: Favorite Subcontractors -->
+        <div class="card relative lg:col-span-2 row-span-2">
+          <p class="mt-2 text-lg font-medium tracking-tight max-lg:text-center">
+            Favorite Subcontractors
+          </p>
+          <p class="mt-2 max-w-lg text-sm/6 max-lg:text-center">
+            Track all your favorite subcontractors in one place.
+          </p>
+          <img src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png" alt=""
+            class="w-full max-lg:max-w-xs mt-2" />
+        </div>
+
+        <!-- Card 5: Active Bidding -->
+        <div class="card relative">
+          <p class="mt-2 text-lg font-medium tracking-tight max-lg:text-center">
+            Active Bidding
+          </p>
+          <p class="mt-2 max-w-lg text-sm/6 max-lg:text-center">
+            Browse and review all your active bids on RFPs.
+          </p>
+          <img src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png" alt=""
+            class="w-full max-lg:max-w-xs mt-2" />
+        </div>
+
+        <!-- Card 6: Total Spend -->
+        <div class="card relative">
+          <p class="mt-2 text-lg font-medium tracking-tight max-lg:text-center">
+            Total Spend
+          </p>
+          <p class="mt-2 max-w-lg text-sm/6 max-lg:text-center">$12,345.67</p>
+          <img src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png" alt=""
+            class="w-full max-lg:max-w-xs mt-2" />
+        </div>
+
+        <!-- Card 7: Total Earned -->
+        <div class="card relative">
+          <p class="mt-2 text-lg font-medium tracking-tight max-lg:text-center">
+            Total Earned
+          </p>
+          <p class="mt-2 max-w-lg text-sm/6 max-lg:text-center">$12,345.67</p>
+          <img src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png" alt=""
+            class="w-full max-lg:max-w-xs mt-2" />
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 py-8">
+      <div class="sm:flex sm:items-center sm:justify-between">
+        <ul class="flex flex-wrap justify-center gap-6 text-xs lg:justify-end">
+          <li>
+            <p>&copy; 2025. Constructly Hub. All rights reserved.</p>
+          </li>
+          <li>
+            <a href="#"> Terms & Conditions </a>
+          </li>
+
+          <li>
+            <a href="#"> Privacy Policy </a>
+          </li>
+
+          <li>
+            <a href="#"> Cookies </a>
+          </li>
+        </ul>
+
+        <ul class="mt-8 flex justify-center gap-6 sm:mt-0 lg:justify-end">
+          <li>
+            <a href="https://www.facebook.com/" rel="noopener noreferrer" target="_blank">
+              <i class="fab fa-facebook-f" aria-label="Facebook, opens in a new tab"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.instagram.com/" rel="noopener noreferrer" target="_blank">
+              <i class="fab fa-instagram" aria-label="Instagram, opens in a new tab"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" rel="noopener noreferrer" target="_blank">
+              <i class="fab fa-x-twitter" aria-label="X, opens in a new tab"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://github.com/luckyfrappe/constructly-hub" rel="noopener noreferrer" target="_blank">
+              <i class="fab fa-github" aria-label="GitHub, opens in a new tab"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.linkedin.com/" rel="noopener noreferrer" target="_blank">
+              <i class="fab fa-linkedin-in" aria-label="Linkedin, opens in a new tab"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
+  <!-- JavaScript -->
+  <script defer src="assets/frontend/scripts/index.js"></script>
+  {% endblock %}
+</body>
+
+</html>
