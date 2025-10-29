@@ -2,11 +2,14 @@
  * @jest-environment jsdom
  */
 
+const path = require("path");
+const fs = require("fs");
+
 jest.spyOn(window, "alert").mockImplementation(() => {});
 
 beforeAll(() => {
-  let fs = require("fs");
-  let fileContents = fs.readFileSync("base.html", "utf8");
+  const filePath = path.resolve(__dirname, "../../../templates/base.html");
+  const fileContents = fs.readFileSync(filePath, "utf8");
   document.body.innerHTML = fileContents;
   ({ banner, closeButton } = require("../index"));
 });
