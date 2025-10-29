@@ -7,6 +7,7 @@ const fs = require("fs");
 
 jest.spyOn(window, "alert").mockImplementation(() => {});
 
+// Test improved with AI assistance
 beforeAll(() => {
   const filePath = path.resolve(__dirname, "../../../templates/base.html");
   const fileContents = fs.readFileSync(filePath, "utf8");

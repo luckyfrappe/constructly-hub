@@ -138,12 +138,13 @@ See in PDF format **[Sitemap and User Flow Manifest](assets/documentation/flowch
   <!-- - **[Custom JS Lint API](https://luckyfrappe.github.io/jsapi/)** – JavaScript validation. -->
   <!-- - **[ChatGPT (OpenAI)](https://chat.openai.com/)** & **[Gemini (Google)](https://gemini.google.com/)** – Used for generating service descriptions, debugging support, exploring different approaches, and clarifying code concepts during development. -->
 <!-- Installing venv from Code institute instructions -->
-<!-- Django -->
+- **[Django](https://www.djangoproject.com/)** – High-level Python web framework powering the backend of the application.  
 - **[Gunicorn](https://gunicorn.org/)** – Python WSGI HTTP server for running Django apps in production.
 - **PostgreSQL** – Open-source relational database used to store, query, and manage structured data reliably, supporting complex queries and transactions for web applications.
 - **dj-database-url** – Simplifies database configuration in Django by allowing the database URL to be parsed and set as Django settings.  
 - **psycopg2** – PostgreSQL adapter for Python, enabling Django to communicate with a PostgreSQL database.
-
+- **[WhiteNoise](http://whitenoise.evans.io/en/stable/)** – Simplifies static file serving in Django for production environments.  
+- **[PostgreSQL](https://www.postgresql.org/)** – Open-source relational database system used for storing structured application data.  
 
 ---
 

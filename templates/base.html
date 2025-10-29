@@ -1,9 +1,16 @@
-{% load static %}
-{% url 'home' as home_url %}
-{% url 'about' as about_url %}
-<!-- {% url 'account_login' as login_url %}
-{% url 'account_signup' as signup_url %}
-{% url 'account_logout' as logout_url %} -->
+{% load static %} 
+{% url 'landing' as landing_url %} 
+{% url 'account_login' as signin_url %} 
+<!-- {% url 'account_signup' as signup_url %}  -->
+{% url 'account_logout' as signout_url %}
+<!-- {% url 'features' as features_url %} 
+{% url 'subcontractors' as subcontractors_url %} 
+{% url 'insights' as insights_url %} 
+{% url 'projects' as projects_url %} 
+{% url 'bids' as bids_url %} 
+{% url 'tenders' as tenders_url %} 
+{% url 'profile' as profile_url %} 
+{% url 'settings' as settings_url %}  -->
 
 <!doctype html>
 <html lang="en">
@@ -42,35 +49,60 @@
         <div class="flex h-16 items-center justify-between">
           <div class="flex items-center">
             <div class="shrink-0">
-              <img src="{% static 'images/design/favicon/android-chrome-512x512.png' %}" alt="Company Logo" class="size-8" />
+              <img src="{% static 'images/design/favicon/android-chrome-512x512.png' %}" alt="Company Logo"
+                class="size-8" />
             </div>
             <div class="hidden md:block">
               <div class="ml-10 flex items-baseline space-x-4">
-                <a href="#" aria-current="page" class="rounded-md px-3 py-2 text-sm current">Insights</a>
-                <a href="#" class="rounded-md px-3 py-2 text-sm">Projects</a>
-                <a href="#" class="rounded-md px-3 py-2 text-sm">Bids</a>
-                <a href="#" class="rounded-md px-3 py-2 text-sm">Tenders</a>
-                <a href="#" class="rounded-md px-3 py-2 text-sm">Subcontractors</a>
+                {% if user.is_authenticated and request.path != landing_url and request.path != features_url %}
+                <a href="{{ insights_url }}" class="rounded-md px-3 py-2 text-sm {% if request.path == insights_url %}current"
+                  aria-current="page{% endif %}">Insights</a>
+                <a href="{{ projects_url }}" class="rounded-md px-3 py-2 text-sm {% if request.path == projects_url %}current"
+                  aria-current="page{% endif %}">Projects</a>
+                <a href="{{ bids_url }}" class="rounded-md px-3 py-2 text-sm {% if request.path == bids_url %}current"
+                  aria-current="page{% endif %}">Bids</a>
+                <a href="{{ tenders_url }}" class="rounded-md px-3 py-2 text-sm {% if request.path == tenders_url %}current"
+                  aria-current="page{% endif %}">Tenders</a>
+                {% else %}
+                <a href="{{ landing_url }}"
+                  class="rounded-md px-3 py-2 text-sm {% if request.path == landing_url %}current"
+                  aria-current="page{% endif %}">Home</a>
+                <a href="{{ features_url }}" class="rounded-md px-3 py-2 text-sm {% if request.path == features_url %}current"
+                  aria-current="page{% endif %}">Features</a>
+                {% endif %}
+                <a href="{{ subcontractors_url }}" class="rounded-md px-3 py-2 text-sm {% if request.path == subcontractors_url %}current"
+                  aria-current="page{% endif %}">Subcontractors</a>
               </div>
             </div>
           </div>
           <div class="hidden md:block ml-4 flex items-center md:ml-6">
             <!-- Profile dropdown -->
+            {% if user.is_authenticated %}
             <el-dropdown class="relative ml-3">
               <button>
                 <span class="absolute -inset-1.5"></span>
                 <span class="sr-only">Open user menu</span>
-                <img src="{% static 'documentation/wireframes/profilepic.jpeg' %}" alt="Profile Picture"
+                <img src="{% static 'images/profilepic.jpeg' %}" alt="Profile Picture"
                   class="size-8 rounded-full outline -outline-offset-1 outline-white/10" />
               </button>
 
               <el-menu anchor="bottom end" popover
                 class="dropdown w-48 py-1 shadow-lg transition transition-discrete [--anchor-gap:--spacing(2)] data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in dark:shadow-none dark:-outline-offset-1">
-                <a href="#" class="block px-4 py-2 text-sm">Your profile</a>
-                <a href="#" class="block px-4 py-2 text-sm">Settings</a>
-                <a href="#" class="block px-4 py-2 text-sm">Sign out</a>
+                <a href="{{ profile_url }}" class="block px-4 py-2 text-sm {% if request.path == profile_url %}current"
+                  aria-current="page{% endif %}">Your Profile</a>
+                {% if request.path == landing_url or request.path == features_url %}
+                <a href="{{ insights_url }}" class="block px-4 py-2 text-sm">Enter Portal</a>
+                {% endif %}
+                <a href="{{ settings_url }}" class="block px-4 py-2 text-sm {% if request.path == settings_url %}current"
+                  aria-current="page{% endif %}">Settings</a>
+                  <a href="{{ signout_url }}" class="block px-4 py-2 text-sm {% if request.path == signout_url %}current"
+              aria-current="page{% endif %}">Sign Out</a>
               </el-menu>
             </el-dropdown>
+            {% else %}
+            <a href="{{ signin_url }}" class="hidden md:block rounded-md px-3 py-2 text-sm {% if request.path == signin_url %}current"
+              aria-current="page{% endif %}">Sign in</a>
+            {% endif %}
           </div>
 
           <div class="-mr-2 flex md:hidden mobile-menu">
@@ -94,16 +126,36 @@
 
       <el-disclosure id="mobile-menu" hidden class="block md:hidden">
         <div class="space-y-1 px-2 pt-2 pb-3 sm:px-3">
-          <a href="#" aria-current="page" class="block rounded-md px-3 py-2 text-base font-medium current">Insights</a>
-          <a href="#" class="block rounded-md px-3 py-2 text-base font-medium">Projects</a>
-          <a href="#" class="block rounded-md px-3 py-2 text-base font-medium">Bids</a>
-          <a href="#" class="block rounded-md px-3 py-2 text-base font-medium">Tenders</a>
-          <a href="#" class="block rounded-md px-3 py-2 text-base font-medium">Subcontractors</a>
+          {% if user.is_authenticated and request.path != landing_url and request.path != features_url %}
+          <a href="{{ insights_url }}"
+            class="block rounded-md px-3 py-2 text-base font-medium {% if request.path == insights_url %}current"
+            aria-current="page{% endif %}">Insights</a>
+          <a href="{{ projects_url }}"
+            class="block rounded-md px-3 py-2 text-base font-medium {% if request.path == projects_url %}current"
+            aria-current="page{% endif %}">Projects</a>
+          <a href="{{ bids_url }}"
+            class="block rounded-md px-3 py-2 text-base font-medium {% if request.path == bids_url %}current"
+            aria-current="page{% endif %}">Bids</a>
+          <a href="{{ tenders_url }}"
+            class="block rounded-md px-3 py-2 text-base font-medium {% if request.path == tenders_url %}current"
+            aria-current="page{% endif %}">Tenders</a>
+          {% else %}
+          <a href="{{ landing_url }}"
+            class="block rounded-md px-3 py-2 text-base font-medium {% if request.path == landing_url %}current"
+            aria-current="page{% endif %}">Home</a>
+          <a href="{{ features_url }}"
+            class="block rounded-md px-3 py-2 text-base font-medium {% if request.path == features_url %}current"
+            aria-current="page{% endif %}">Features</a>
+          {% endif %}
+          <a href="{{ subcontractors_url }}"
+            class="block rounded-md px-3 py-2 text-base font-medium {% if request.path == subcontractors_url %}current"
+            aria-current="page{% endif %}">Subcontractors</a>
+          {% if user.is_authenticated %}
         </div>
         <div class="border-t border-white/10 pt-4 pb-3">
           <div class="flex items-center px-5">
             <div class="shrink-0">
-              <img src="{% static 'documentation/wireframes/profilepic.jpeg' %}" alt="Profile Picture"
+              <img src="{% static 'images/profilepic.jpeg' %}" alt="Profile Picture"
                 class="size-10 rounded-full outline -outline-offset-1 outline-white/10" />
             </div>
             <div class="ml-3">
@@ -112,15 +164,24 @@
             </div>
           </div>
           <div class="mt-3 space-y-1 px-2">
-            <a href="#"
-              class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-white/5 hover:text-white">Your
-              profile</a>
-            <a href="#"
-              class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-white/5 hover:text-white">Settings</a>
-            <a href="#"
-              class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-white/5 hover:text-white">Sign
-              out</a>
+            <a href="{{ profile_url }}"
+              class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-white/5 hover:text-white {% if request.path == profile_url %}current"
+              aria-current="page{% endif %}">Your Profile</a>
+            {% if request.path == landing_url or request.path == features_url %}
+              <a href="{{ insights_url }}"
+              class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-white/5 hover:text-white">Enter Portal</a>
+            {% endif %}
+            <a href="{{ settings_url }}"
+              class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-white/5 hover:text-white {% if request.path == settings_url %}current"
+              aria-current="page{% endif %}">Settings</a>
+            <a href="{{ signout_url }}"
+              class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-white/5 hover:text-white {% if request.path == signout_url %}current"
+              aria-current="page{% endif %}">Sign Out</a>
           </div>
+          {% else %}
+          <a href="{{ signin_url }}" class="block rounded-md px-3 py-2 text-base font-medium {% if request.path == signin_url %}current"
+            aria-current="page{% endif %}">Sign in</a>
+          {% endif %}
         </div>
       </el-disclosure>
     </nav>
@@ -196,6 +257,7 @@
   {% block content %}
   <!-- Content Goes here -->
   {% endblock content %}
+  <!-- Add pages to the links or modals -->
   <footer>
     <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 py-8">
       <div class="sm:flex sm:items-center sm:justify-between">
@@ -252,9 +314,8 @@
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
   <!-- JavaScript -->
-{% block extras %}
-{% endblock %}
-<script src="{% static 'js/index.js' %}"></script>
+  {% block extras %} {% endblock %}
+  <script src="{% static 'js/index.js' %}"></script>
 </body>
 
 </html>

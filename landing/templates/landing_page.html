@@ -2,61 +2,13 @@
 {% load static %}
 {% block content %}
 
-<!-- <body class="h-screen"> -->
-  <!-- move to base.html for guests navbar -->
-<!-- <header class="sticky top-0 z-50 w-full backdrop-blur-sm">
-  <nav>
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="flex h-16 items-center justify-between">
-        <div class="flex items-center">
-          <div class="shrink-0">
-            <img src="assets/images/design/favicon/android-chrome-512x512.png" alt="Company Logo" class="size-8" />
-          </div>
-          <div class="hidden md:block">
-            <div class="ml-10 flex items-baseline space-x-4">
-              <a href="#" aria-current="page" class="rounded-md px-3 py-2 text-sm current">Home</a>
-              <a href="#" class="rounded-md px-3 py-2 text-sm">Features</a>
-              <a href="#" class="rounded-md px-3 py-2 text-sm">Subcontractors</a>
-            </div>
-          </div>
-        </div>
-        <a href="#" class="hidden md:block rounded-md px-3 py-2 text-sm">Sign in</a>
-
-        <div class="-mr-2 flex md:hidden mobile-menu">
-          < !-- Mobile menu button -- >
-          <button type="button" command="--toggle" commandfor="mobile-menu"
-            class="relative inline-flex items-center justify-center rounded-md p-2">
-            <span class="absolute -inset-0.5"></span>
-            <span class="sr-only">Open main menu</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon"
-              aria-hidden="true" class="size-6 in-aria-expanded:hidden">
-              <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon"
-              aria-hidden="true" class="size-6 not-in-aria-expanded:hidden">
-              <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <el-disclosure id="mobile-menu" hidden class="block md:hidden">
-      <div class="space-y-1 px-2 pt-2 pb-3 sm:px-3">
-        <a href="#" aria-current="page" class="block rounded-md px-3 py-2 text-base font-medium current">Home</a>
-        <a href="#" class="block rounded-md px-3 py-2 text-base font-medium">Features</a>
-        <a href="#" class="block rounded-md px-3 py-2 text-base font-medium">Subcontractors</a>
-        <a href="#" class="block rounded-md px-3 py-2 text-base font-medium">Sign in</a>
-      </div>
-    </el-disclosure>
-  </nav>
-</header> -->
 <main class="flex flex-col items-center justify-center text-center hero">
   <div class="max-w-2xl">
+    <!-- Change to blog section if created -->
     <div class="hidden sm:mb-8 sm:flex sm:justify-center">
       <div class="relative rounded-full px-3 py-1 text-sm/6 ring-1 second-text">
         Exciting updates are coming soon.
-        <a href="#" class="special"><span aria-hidden="true" class="absolute inset-0"></span>Stay
+        <a href="https://www.constructionnews.co.uk/" target="_blank" rel="noopener noreferrer" class="special"><span aria-hidden="true" class="absolute inset-0"></span>Stay
           tuned <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
@@ -70,8 +22,8 @@
         in one place.
       </p>
       <div class="mt-10 flex items-center justify-center gap-x-6">
-        <a href="#" class="my-button">Get started</a>
-        <a href="#" class="text-sm/6 second-text">Learn more <span aria-hidden="true">→</span></a>
+        <a href="{% if user.is_authenticated %}{{ insights_url }}{% else %}{{ signin_url }}{% endif %}" class="my-button">Get started</a>
+        <a href="{{ features_url }}" class="text-sm/6 second-text">Learn more <span aria-hidden="true">→</span></a>
       </div>
     </div>
   </div>
