@@ -145,6 +145,7 @@ See in PDF format **[Sitemap and User Flow Manifest](assets/documentation/flowch
 - **psycopg2** – PostgreSQL adapter for Python, enabling Django to communicate with a PostgreSQL database.
 - **[WhiteNoise](http://whitenoise.evans.io/en/stable/)** – Simplifies static file serving in Django for production environments.  
 - **[PostgreSQL](https://www.postgresql.org/)** – Open-source relational database system used for storing structured application data.  
+- **[django-allauth](https://django-allauth.readthedocs.io/en/latest/)** – Integrated Django app for authentication, registration, and account management with support for social logins and email verification.
 
 ---
 

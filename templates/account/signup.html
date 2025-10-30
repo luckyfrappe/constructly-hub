@@ -1,21 +1,133 @@
-{% extends "account/base.html" %}
-
+{% extends "base.html" %}
 {% load i18n %}
 
-{% block head_title %}{% trans "Signup" %}{% endblock head_title %}
-
 {% block content %}
-<h1>{% trans "Sign Up" %}</h1>
+<main class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+  <!-- Icon -->
+  <div class="flex items-center justify-center h-full">
+    <i class="fa-solid fa-user-plus text-5xl"></i>
+  </div>
 
-<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+  <!-- Heading -->
+  <div class="w-full max-w-sm sm:mx-auto">
+    <h1 class="mt-10 text-center text-2xl/9 font-bold tracking-tight">
+      {% trans "Create your account" %}
+    </h1>
+    <p class="mt-2 text-center text-sm/6 text-gray-600 second-text">
+      {% trans "Join our community and start exploring." %}
+    </p>
+  </div>
 
-<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-  {% csrf_token %}
-  {{ form.as_p }}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-  {% endif %}
-  <button type="submit">{% trans "Sign Up" %} &raquo;</button>
-</form>
+  <!-- Signup Form -->
+  <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+    <form action="{% url 'account_signup' %}" method="POST" class="space-y-6">
+      {% csrf_token %}
+      {% if redirect_field_value %}
+      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+      {% endif %}
 
-{% endblock content %}
+      <!-- Username -->
+      <div>
+        <label for="username" class="block text-sm font-medium text-gray-700 second-text">
+          {% trans "Username" %}
+        </label>
+        <div class="mt-2">
+          <input id="username" name="username" type="text" autofocus required autocomplete="username"
+            class="block w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" />
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-700 second-text">
+          {% trans "Email" %}
+        </label>
+        <div class="mt-2">
+          <input id="email" name="email" type="email" required autocomplete="email"
+            class="block w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" />
+        </div>
+      </div>
+
+      <!-- Password -->
+      <div>
+        <div class="mt-4 mb-8 space-y-3">
+          <div class="password-rules rounded-xl p-3">
+            <!-- Rule 1 -->
+            <div class="flex items-start gap-x-3 p-2 rounded-lg current-active transition-colors">
+              <div class="flex items-center justify-center w-11 h-11 rounded-md light-gray flex-none">
+                <i class="fa-solid fa-user-shield text-lg"></i>
+              </div>
+              <p class="text-sm leading-6 second-text">
+                Your password can’t be too similar to your other personal information.
+              </p>
+            </div>
+
+            <!-- Rule 2 -->
+            <div class="flex items-start gap-x-3 p-2 rounded-lg current-active transition-colors">
+              <div class="flex items-center justify-center w-11 h-11 rounded-md light-gray flex-none">
+                <i class="fa-solid fa-key text-lg"></i>
+              </div>
+              <p class="text-sm leading-6 second-text">
+                Your password must contain at least 8 characters.
+              </p>
+            </div>
+
+            <!-- Rule 3 -->
+            <div class="flex items-start gap-x-3 p-2 rounded-lg current-active transition-colors">
+              <div class="flex items-center justify-center w-11 h-11 rounded-md light-gray flex-none">
+                <i class="fa-solid fa-ban text-lg"></i>
+              </div>
+              <p class="text-sm leading-6 second-text">
+                Your password can’t be a commonly used password.
+              </p>
+            </div>
+
+            <!-- Rule 4 -->
+            <div class="flex items-start gap-x-3 p-2 rounded-lg current-active transition-colors">
+              <div class="flex items-center justify-center w-11 h-11 rounded-md light-gray flex-none">
+                <i class="fa-solid fa-hashtag text-lg"></i>
+              </div>
+              <p class="text-sm leading-[2.5rem] second-text">
+                Your password can’t be entirely numeric.
+              </p>
+            </div>
+          </div>
+        </div>
+        <label for="password1" class="block text-sm font-medium text-gray-700 second-text">
+          {% trans "Password" %}
+        </label>
+        <div class="mt-2">
+          <input id="password1" name="password1" type="password" required autocomplete="new-password"
+            placeholder="••••••••"
+            class="block w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" />
+        </div>
+      </div>
+
+      <!-- Confirm Password -->
+      <div>
+        <label for="password2" class="block text-sm font-medium text-gray-700 second-text">
+          {% trans "Confirm Password" %}
+        </label>
+        <div class="mt-2">
+          <input id="password2" name="password2" type="password" required autocomplete="new-password"
+            placeholder="••••••••"
+            class="block w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" />
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <div>
+        <button type="submit" class="flex w-full justify-center my-button">
+          {% trans "Sign Up" %}
+        </button>
+      </div>
+    </form>
+
+    <!-- Login Redirect -->
+    <p class="mt-10 text-center text-sm/6 second-text">
+      {% blocktrans %}Already have an account?
+      <a href="{{ login_url }}" class="special">Sign in</a>{% endblocktrans %}
+    </p>
+  </div>
+</main>
+{% endblock %}

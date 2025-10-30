@@ -6,6 +6,8 @@
   --color-white-static: #ffffff;
   --color-light-gray: #f9fafb;
   --color-light-gray-static: #f9fafb;
+  --color-lighter-gray: #f3f4f6;
+  --color-lighter-gray-static: #f3f4f6;
   --color-darker-gray: #e5e7eb;
   --color-darker-gray-static: #e5e7eb;
   --color-dark-gray: #727478;
@@ -32,6 +34,7 @@
   :root {
     --color-white: #1f2937;
     --color-light-gray: #435064;
+    --color-lighter-gray: #576574;
     --color-darker-gray: #e5e7eb;
     --color-dark-gray: #e5e7eb;
     --color-dark: #f9fafb;
@@ -75,6 +78,22 @@ nav .current {
   padding: 0.5rem 0.75rem; /* py-2 px-3 */
   font-size: 0.875rem; /* text-sm */
   font-weight: 500;
+}
+
+.current-active:hover {
+  background-color: var(--color-light-gray);
+}
+
+.password-rules {
+  background-color: var(--color-white);
+}
+
+.light-gray {
+  background-color: var(--color-lighter-gray);
+}
+
+.lighter-gray {
+  background-color: var(--color-light-gray);
 }
 
 nav button {
