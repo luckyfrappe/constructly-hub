@@ -1,0 +1,29 @@
+{% extends "account/email/base_message.html" %}
+{% load i18n %}
+{% load account %}
+
+{% block content %}
+<!-- This page is build with help from AI -->
+<h2 style="font-size:22px; font-weight:600; margin-top:0;">Confirm Your Email Address</h2>
+
+{% user_display user as user_display %}
+<p>{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}
+Hello {{ user_display }}, thank you for creating an account on {{ site_name }}.
+{% endblocktrans %}</p>
+
+<p>{% blocktrans %}
+To complete your registration and start managing your projects, please confirm your email address by clicking the button below.
+{% endblocktrans %}</p>
+
+<p style="text-align:center; margin:28px 0;">
+  <a href="{{ activate_url }}"
+     style="background:#ccff33; color:#1f2937; padding:12px 28px; border-radius:6px; font-weight:600; display:inline-block;">
+     Confirm My Email
+  </a>
+</p>
+
+<p style="font-size:13px; color:#6b7280; margin-top:28px;">
+  {% blocktrans %}If you didn’t sign up for this account, please ignore this message.{% endblocktrans %}<br>
+  Need help? <a href="mailto:info@constructlyhub.me">info@constructlyhub.me</a>
+</p>
+{% endblock content %}

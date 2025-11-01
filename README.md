@@ -146,6 +146,9 @@ See in PDF format **[Sitemap and User Flow Manifest](assets/documentation/flowch
 - **[WhiteNoise](http://whitenoise.evans.io/en/stable/)** – Simplifies static file serving in Django for production environments.  
 - **[PostgreSQL](https://www.postgresql.org/)** – Open-source relational database system used for storing structured application data.  
 - **[django-allauth](https://django-allauth.readthedocs.io/en/latest/)** – Integrated Django app for authentication, registration, and account management with support for social logins and email verification.
+- **[Namecheap](https://www.namecheap.com/)** – Domain registrar used for managing the custom business domain **constructlyhub.me**.
+- **[Google Workspace (Gmail SMTP)](https://mail.google.com/)** – Configured to send transactional emails through Gmail’s secure SMTP service, used for account verification, password resets, and contact forms.
+
 
 ---
 
