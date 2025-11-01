@@ -13,7 +13,7 @@
     <h1 class="mt-10 text-center text-2xl/9 font-bold tracking-tight">
       {% trans "Create your account" %}
     </h1>
-    <p class="mt-2 text-center text-sm/6 text-gray-600 second-text">
+    <p class="mt-2 text-center text-sm/6 second-text">
       {% trans "Join our community and start exploring." %}
     </p>
   </div>
@@ -22,29 +22,41 @@
   <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
     <form action="{% url 'account_signup' %}" method="POST" class="space-y-6">
       {% csrf_token %}
+      {% if form.non_field_errors %}
+      <div class="text-red-600 text-sm">
+        {% for error in form.non_field_errors %}
+        <p>{{ error }}</p>
+        {% endfor %}
+      </div>
+      {% endif %}
       {% if redirect_field_value %}
       <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
       {% endif %}
 
       <!-- Username -->
       <div>
-        <label for="username" class="block text-sm font-medium text-gray-700 second-text">
+        <label for="username" class="block text-sm font-medium second-text">
           {% trans "Username" %}
         </label>
         <div class="mt-2">
-          <input id="username" name="username" type="text" autofocus required autocomplete="username"
-            class="block w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" />
+          <input id="username" name="username" type="text" required autocomplete="username" class="block w-full rounded-md border px-3 py-2 text-sm
+         {% if form.username.errors %}wrong-field{% endif %}" />
+          {% for error in form.username.errors %}
+          <p class="wrong-text mt-1">{{ error }}</p>
+          {% endfor %}
         </div>
       </div>
 
       <!-- Email -->
       <div>
-        <label for="email" class="block text-sm font-medium text-gray-700 second-text">
+        <label for="email" class="block text-sm font-medium second-text">
           {% trans "Email" %}
         </label>
         <div class="mt-2">
-          <input id="email" name="email" type="email" required autocomplete="email"
-            class="block w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" />
+          <input id="email" name="email" type="email" required autocomplete="email" class="block w-full rounded-md border px-3 py-2 text-sm" />
+          {% for error in form.email.errors %}
+          <p class="wrong-text mt-1">{{ error }}</p>
+          {% endfor %}
         </div>
       </div>
 
@@ -75,7 +87,7 @@
             <!-- Rule 3 -->
             <div class="flex items-start gap-x-3 p-2 rounded-lg current-active transition-colors">
               <div class="flex items-center justify-center w-11 h-11 rounded-md light-gray flex-none">
-                <i class="fa-solid fa-ban text-lg"></i>
+                <i class="fa-solid fa-fingerprint text-lg"></i>
               </div>
               <p class="text-sm leading-6 second-text">
                 Your password can’t be a commonly used password.
@@ -87,31 +99,35 @@
               <div class="flex items-center justify-center w-11 h-11 rounded-md light-gray flex-none">
                 <i class="fa-solid fa-hashtag text-lg"></i>
               </div>
-              <p class="text-sm leading-[2.5rem] second-text">
+              <p class="text-sm leading-6 second-text">
                 Your password can’t be entirely numeric.
               </p>
             </div>
           </div>
         </div>
-        <label for="password1" class="block text-sm font-medium text-gray-700 second-text">
+        <label for="password1" class="block text-sm font-medium second-text">
           {% trans "Password" %}
         </label>
         <div class="mt-2">
           <input id="password1" name="password1" type="password" required autocomplete="new-password"
-            placeholder="••••••••"
-            class="block w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" />
+            placeholder="••••••••" class="block w-full rounded-md border px-3 py-2 text-sm {% if form.password1.errors %}wrong-field{% endif %}" />
+          {% for error in form.password1.errors %}
+          <p class="wrong-text mt-1">{{ error }}</p>
+          {% endfor %}
         </div>
       </div>
 
       <!-- Confirm Password -->
       <div>
-        <label for="password2" class="block text-sm font-medium text-gray-700 second-text">
+        <label for="password2" class="block text-sm font-medium second-text">
           {% trans "Confirm Password" %}
         </label>
         <div class="mt-2">
           <input id="password2" name="password2" type="password" required autocomplete="new-password"
-            placeholder="••••••••"
-            class="block w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" />
+            placeholder="••••••••" class="block w-full rounded-md border px-3 py-2 text-sm {% if form.password2.errors %}wrong-field{% endif %}" />
+          {% for error in form.password2.errors %}
+          <p class="wrong-text mt-1">{{ error }}</p>
+          {% endfor %}
         </div>
       </div>
 

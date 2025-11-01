@@ -8,7 +8,7 @@
 <!-- This page is build with help from AI -->
 <main class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
   <div class="flex items-center justify-center h-full">
-    <i class="fa-solid fa-envelope-circle-check text-5xl text-indigo-600 dark:text-lime-300"></i>
+    <i class="fa-solid fa-envelope-circle-check text-5xl"></i>
   </div>
 
   <div class="w-full max-w-sm sm:mx-auto">
@@ -22,7 +22,7 @@
       {% user_display confirmation.email_address.user as user_display %}
       
       {% if can_confirm %}
-        <p class="text-center text-sm text-gray-600 mb-6">
+        <p class="text-center text-sm mb-6">
           {% blocktrans with confirmation.email_address.email as email %}
           Please confirm that 
           <a href="mailto:{{ email }}" class="special font-medium">{{ email }}</a>
@@ -38,7 +38,7 @@
         </form>
       
       {% else %}
-        <p class="text-center text-sm text-gray-600">
+        <p class="text-center text-sm">
           {% blocktrans %}
           Unable to confirm {{ email }} because it is already confirmed by another account.
           {% endblocktrans %}
@@ -47,7 +47,7 @@
     
     {% else %}
       {% url 'account_email' as email_url %}
-      <p class="text-center text-sm text-gray-600">
+      <p class="text-center text-sm">
         {% blocktrans %}
         This email confirmation link has expired or is invalid. Please 
         <a href="{{ email_url }}" class="special font-medium">request a new confirmation link</a>.

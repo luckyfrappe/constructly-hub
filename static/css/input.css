@@ -226,6 +226,19 @@ input:focus, textarea:focus {
   outline: none;
 }
 
+.wrong-field {
+  border-color: #ef4444; /* red-600 */
+}
+
+.wrong-text {
+  color: #ef4444; /* red-700 */
+}
+
+.wrong-field:focus {
+  border-color: #ef4444; /* red-600 */
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.5); /* red-600 */
+}
+
 input::placeholder, textarea::placeholder {
   color: var(--color-dark-gray);
 }

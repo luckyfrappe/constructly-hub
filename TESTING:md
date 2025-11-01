@@ -96,14 +96,16 @@ All major flows, features, and responsiveness were tested across:
 ## Bugs
 
 ### Known Bugs
-List any remaining issues that are out of scope for the current release.
+<!-- List any remaining issues that are out of scope for the current release. -->
 
 ### Solved Bugs
-Document resolved issues to track fixes:
-
 Prettier crash deletes staged files - removed from the set-up.
+
 Main closing tag in footer on home page causng footer take container width. Moved main closing tag outside of footer on top. 
 
+Login and signup pages didn’t show form errors. Fixed by adding blocks for form.non_field_errors and field-specific errors.
+
+The JavaScript initially crashed because it tried to access a .banner element that didn’t exist on some pages, causing a null reference error. Since the code wasn’t defensive, this stopped all other scripts from running. I fixed it by adding a simple check to see if the element existed before interacting with it, allowing the rest of the JavaScript to run smoothly across all pages.
 ---
 
 [Back to README.md](README.md) • [Back to Top](#constructly-hub---testing-documentation)

@@ -4,13 +4,13 @@
 {% load account socialaccount %}
 
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
-{% load static %} 
+{% load static %}
 {% block content %}
 
 <main class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
   <div class="flex items-center justify-center h-full">
-  <i class="fa-solid fa-arrow-right-to-bracket text-5xl"></i>
-</div>
+    <i class="fa-solid fa-arrow-right-to-bracket text-5xl"></i>
+  </div>
   <div class="w-full max-w-sm sm:mx-auto">
     <h1 class="mt-10 text-center text-2xl/9 font-bold tracking-tight">
       {% trans "Sign in to your account" %}
@@ -20,23 +20,25 @@
   <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
     <form action="{% url 'account_login' %}" method="POST" class="space-y-6">
       {% csrf_token %}
+      {% if form.non_field_errors %}
+      {% endif %}
       {% if redirect_field_value %}
       <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
       {% endif %}
 
       <!-- Username -->
       <div>
-        <label for="login" class="block text-sm font-medium text-gray-700 second-text">
+        <label for="login" class="block font-medium second-text">
           {% trans "Username" %}
         </label>
         <div class="mt-2">
-          <input id="login" name="login" type="text" autofocus required autocomplete="username" 
-            class="block w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" />
+          <input id="login" name="login" type="text" autofocus required autocomplete="username"
+            class="block w-full rounded-md border px-3 py-2 {% if form.non_field_errors %}wrong-field{% endif %}" />
         </div>
       </div>
       <div>
         <div class="flex items-center justify-between">
-          <label for="password" class="block text-sm font-medium text-gray-700 second-text">
+          <label for="password" class="block font-medium second-text">
             {% trans "Password" %}
           </label>
           <div class="text-sm">
@@ -46,10 +48,12 @@
         <div class="mt-2">
           <input id="password" name="password" type="password" required autocomplete="current-password"
             placeholder="••••••••"
-            class="block w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" />
+            class="block w-full rounded-md border px-3 py-2 {% if form.non_field_errors %}wrong-field{% endif %}" />
+          {% for error in form.non_field_errors %}
+          <p class="wrong-text mt-1">{{ error }}</p>
+          {% endfor %}
         </div>
       </div>
-
       <div>
         <button type="submit" class="flex w-full justify-center my-button">
           {% trans "Sign In" %}
