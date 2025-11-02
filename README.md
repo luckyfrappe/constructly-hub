@@ -52,32 +52,35 @@ Constructly Hub is a modern marketplace platform designed to simplify constructi
 ### Imagery
 
 ### Wireframes
+<!-- Change flowchart before final version -->
+![alt text](documentation/flowcharts/logic/constructly-hub.jpg "Sitemap and User Flow Manifest")
+See in PDF format **[Sitemap and User Flow Manifest](documentation/flowcharts/logic/constructly-hub.pdf)**
 
-![alt text](assets/documentation/flowcharts/logic/constructly-hub.jpg "Sitemap and User Flow Manifest")
-See in PDF format **[Sitemap and User Flow Manifest](assets/documentation/flowcharts/logic/constructly-hub.pdf)**
+<!-- Add more models if completed more stories than MVP and move flowchart and ERD into dedicated section -->
+![alt text](documentation/flowcharts/logic/constructly-hub-erd.jpg)
 
 <!-- Hero page -->
 
-![alt text](assets/documentation/wireframes/hero.png "Hero page initial draft")
+![alt text](documentation/wireframes/hero.png "Hero page initial draft")
 
 <!-- Main app layout -->
 
-![alt text](assets/documentation/wireframes/main-app.png "Main app layout")
+![alt text](documentation/wireframes/main-app.png "Main app layout")
 
 <!-- Insights -->
 
-![alt text](assets/documentation/wireframes/insights.png "Insights layout")
+![alt text](documentation/wireframes/insights.png "Insights layout")
 
 <!-- Main app dropdown -->
 
-![alt text](assets/documentation/wireframes/main-app-dropdown.png "Main app dropdown menu")
+![alt text](documentation/wireframes/main-app-dropdown.png "Main app dropdown menu")
 
 <!-- 404 Page -->
 
-![alt text](assets/documentation/wireframes/lost.png "404 Page wireframe")
+![alt text](documentation/wireframes/lost.png "404 Page wireframe")
 
 <!-- Sign In -->
-![alt text](assets/documentation/wireframes/sign-in.png "Sign In page")
+![alt text](documentation/wireframes/sign-in.png "Sign In page")
 
 ---
 
