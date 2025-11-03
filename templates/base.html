@@ -3,14 +3,13 @@
 {% url 'account_login' as signin_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as signout_url %}
-<!-- {% url 'features' as features_url %} 
-{% url 'subcontractors' as subcontractors_url %} 
+{% url 'features' as features_url %} 
+{% url 'companies' as companies_url %} 
 {% url 'insights' as insights_url %} 
 {% url 'projects' as projects_url %} 
 {% url 'bids' as bids_url %} 
-{% url 'tenders' as tenders_url %} 
-{% url 'profile' as profile_url %} 
-{% url 'settings' as settings_url %}  -->
+{% url 'userprofile' as profile_url %} 
+{% url 'settings' as settings_url %}
 
 <!doctype html>
 <html lang="en">
@@ -23,9 +22,9 @@
   <!-- Meta and SEO info -->
   <meta name="author" content="luckyfrappe" />
   <meta name="description"
-    content="Constructly Hub makes construction project management simple. Post your project, browse subcontractors, and find the right match — all in one place." />
+    content="Constructly Hub makes construction project management simple. Post your project, browse companies, and find the right match — all in one place." />
   <meta name="keywords"
-    content="construction management, subcontractors, construction projects, project management software, construction platform" />
+    content="construction management, companies, construction projects, project management software, construction platform" />
 
   <!-- Favicon -->
   <link rel="apple-touch-icon" sizes="180x180" href="static/images/design/favicon/apple-touch-icon.png" />
@@ -63,9 +62,6 @@
                   aria-current="page{% endif %}">Projects</a>
                 <a href="{{ bids_url }}" class="rounded-md px-3 py-2 text-sm {% if request.path == bids_url %}current"
                   aria-current="page{% endif %}">Bids</a>
-                <a href="{{ tenders_url }}"
-                  class="rounded-md px-3 py-2 text-sm {% if request.path == tenders_url %}current"
-                  aria-current="page{% endif %}">Tenders</a>
                 {% else %}
                 <a href="{{ landing_url }}"
                   class="rounded-md px-3 py-2 text-sm {% if request.path == landing_url %}current"
@@ -74,9 +70,9 @@
                   class="rounded-md px-3 py-2 text-sm {% if request.path == features_url %}current"
                   aria-current="page{% endif %}">Features</a>
                 {% endif %}
-                <a href="{{ subcontractors_url }}"
-                  class="rounded-md px-3 py-2 text-sm {% if request.path == subcontractors_url %}current"
-                  aria-current="page{% endif %}">Subcontractors</a>
+                <a href="{{ companies_url }}"
+                  class="rounded-md px-3 py-2 text-sm {% if request.path == companies_url %}current"
+                  aria-current="page{% endif %}">Companies</a>
               </div>
             </div>
           </div>
@@ -143,9 +139,6 @@
           <a href="{{ bids_url }}"
             class="block rounded-md px-3 py-2 text-base font-medium {% if request.path == bids_url %}current"
             aria-current="page{% endif %}">Bids</a>
-          <a href="{{ tenders_url }}"
-            class="block rounded-md px-3 py-2 text-base font-medium {% if request.path == tenders_url %}current"
-            aria-current="page{% endif %}">Tenders</a>
           {% else %}
           <a href="{{ landing_url }}"
             class="block rounded-md px-3 py-2 text-base font-medium {% if request.path == landing_url %}current"
@@ -154,9 +147,9 @@
             class="block rounded-md px-3 py-2 text-base font-medium {% if request.path == features_url %}current"
             aria-current="page{% endif %}">Features</a>
           {% endif %}
-          <a href="{{ subcontractors_url }}"
-            class="block rounded-md px-3 py-2 text-base font-medium {% if request.path == subcontractors_url %}current"
-            aria-current="page{% endif %}">Subcontractors</a>
+          <a href="{{ companies_url }}"
+            class="block rounded-md px-3 py-2 text-base font-medium {% if request.path == companies_url %}current"
+            aria-current="page{% endif %}">Companies</a>
           {% if user.is_authenticated %}
         </div>
         <div class="border-t border-white/10 pt-4 pb-3">
@@ -166,8 +159,8 @@
                 class="size-10 rounded-full outline -outline-offset-1 outline-white/10" />
             </div>
             <div class="ml-3">
-              <div class="text-base/5 font-medium">Tom Cook</div>
-              <div class="text-sm font-medium">tom@example.com</div>
+              <div class="text-base/5 font-medium">{% if user.is_authenticated %}{{ user.get_full_name }}{% endif %}</div>
+              <div class="text-sm font-medium">{% if user.is_authenticated %}{{ user.email }}{% endif %}</div>
             </div>
           </div>
           <div class="mt-3 space-y-1 px-2">
