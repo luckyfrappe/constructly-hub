@@ -1,23 +1,11 @@
 from django.shortcuts import render
+from django.views import generic
+from .models import Company
 
 # Create your views here.
-def view_companies_page(request):
-    """
-    Display the companies page.
 
-    **Context**
-
-    ``request``
-        The HTTP request object.
-
-    **Template:**
-
-    :template:`companies_page.html`
-    """
-    return render(
-        request,
-        "companies_page.html",
-        {
-            # Context variable placeholder for the companies page view
-        },
-    )
+class CompanyListView(generic.ListView):
+    queryset = Company.objects.order_by("-created_on")
+    template_name = "companies/companies_page.html"
+    context_object_name = "companies"
+    paginate_by = 9

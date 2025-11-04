@@ -152,8 +152,9 @@ See in PDF format **[Sitemap and User Flow Manifest](documentation/flowcharts/lo
 - **[WhiteNoise](http://whitenoise.evans.io/en/stable/)** – Simplifies static file serving in Django for production environments.  
 - **[PostgreSQL](https://www.postgresql.org/)** – Open-source relational database system used for storing structured application data.  
 - **[django-allauth](https://django-allauth.readthedocs.io/en/latest/)** – Integrated Django app for authentication, registration, and account management with support for social logins and email verification.
-- **[Namecheap](https://www.namecheap.com/)** – Domain registrar used for managing the custom business domain **constructlyhub.me**.
+- **[Namecheap](https://www.namecheap.com/)** – Domain register used for managing the custom business domain **constructlyhub.me**.
 - **[Google Workspace (Gmail SMTP)](https://mail.google.com/)** – Configured to send transactional emails through Gmail’s secure SMTP service, used for account verification, password resets, and contact forms.
+- **[Cloudinary](https://cloudinary.com/)** – Used to host images and manage media uploads.
 
 
 ---
@@ -244,5 +245,8 @@ https://www.pexels.com/sv-se/foto/sand-arbetssatt-fordon-hjullastare-12835355/
 https://www.pexels.com/photo/close-up-of-metal-grinding-sparks-in-workshop-30858409/
 
 https://www.freepik.com/free-photo/eyeglasses-paper-plan-table_3716871.htm#fromView=search&page=1&position=2&uuid=e50412dd-24e6-4977-b4db-33afa9f271b4&query=blueprint+construction+
+
+Photo by <a href="https://unsplash.com/@christopher__burns?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Christopher Burns</a> on <a href="https://unsplash.com/photos/person-holding-tool-during-daytime-8KfCR12oeUM?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+      
 
 ### Acknowledgments
