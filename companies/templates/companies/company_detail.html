@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<main class="py-10 mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="bg-gray-800 rounded-xl shadow-lg p-8 text-gray-200 card">
+
+        <!-- Company Header -->
+        <div class="flex flex-col lg:items-center lg:justify-between mb-10 border-b border-gray-700 pb-8">
+            <div class="flex flex-col md:flex-row md:items-center card">
+                {% if "placeholder" in company.logo.url %}
+                <img src="{% static 'images/company-placeholder.jpg' %}" alt="Company placeholder"
+                    class="sm:h-40 lg:h-100 w-screen object-cover rounded-lg mb-4 md:mb-0 md:mr-8" />
+                {% else %}
+                <img src="{{ company.logo.url }}" alt="{{ company.company_name }}"
+                    class="sm:h-40 lg:h-100 w-screen object-cover rounded-lg mb-4 md:mb-0 md:mr-8" />
+                {% endif %}
+                <div>
+                    <h1 class="text-5xl mb-2">{{ company.company_name }}</h1>
+                    <p class=" text-lg mb-1">
+                        <i class="fas fa-map-marker-alt "></i>
+                        {{ company.city }}, {{ company.country }}
+                    </p>
+                    <p class=" text-lg">
+                        <i class="fas fa-user-tie "></i>
+                        {{ company.owner }} — {{ company.role }}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <section class="mb-10">
+            <h2 class="text-2xl   mb-4">
+                <i class="fas fa-info-circle "></i> About Us
+            </h2>
+            <div class="card">
+                <p class="leading-relaxed mb-4">{{ company.description }}</p>
+                <p class=" leading-relaxed mb-6">{{ company.full_description }}</p>
+
+                {% if company.website %}
+                <a href="{{ company.website }}" target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2  hover:text-lime-300 transition">
+                    <i class="fas fa-globe"></i> Visit Website
+                </a>
+                {% endif %}
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="mb-8">
+            <h3 class="text-2xl mb-4">
+                <i class="fas fa-briefcase "></i> Services Offered
+            </h3>
+
+            {% if services_list %}
+            <ul class="list-disc list-inside space-y-1 card-services">
+                {% for service in services_list %}
+                <li>{{ service }}</li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p class="">No services listed yet.</p>
+            {% endif %}
+        </section>
+
+        <!-- Footer Info -->
+        {% if company.owner == user %}
+        <section>
+            <h2 class="text-2xl mb-4"><i class="far fa-building "></i> Company Information</h2>
+            <div class="border-gray-700 pt-4 text-sm card">
+                <p><i class="far fa-calendar-alt"></i> Founded on: {{ company.created_on|date:"F j, Y" }}</p>
+                <p><i class="far fa-clock"></i> Last updated: {{ company.updated_on|date:"F j, Y" }}</p>
+
+                <div class="mt-6 flex flex-wrap gap-3 crud-buttons">
+                    <a href="">
+                        <i class="fas fa-pen"></i> Edit Info
+                    </a>
+                    <a href="">
+                        <i class="fas fa-trash"></i> Delete Company
+                    </a>
+                </div>
+            </div>
+        </section>
+        {% endif %}
+    </div>
+</main>
+
+{% endblock content %}

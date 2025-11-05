@@ -8,3 +8,4 @@ class CompanyAdmin(admin.ModelAdmin):
     search_fields = ('company_name', 'city')
     list_filter = ('city',)
     ordering = ('company_name',)
+    prepopulated_fields = {'slug': ('company_name',)}
