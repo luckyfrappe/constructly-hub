@@ -11,6 +11,36 @@ class CompanyListView(generic.ListView):
     context_object_name = "companies"
     paginate_by = 9
 
+class UserCompanyListView(generic.ListView):
+    template_name = "companies/user_companies_page.html"
+    context_object_name = "companies"
+    paginate_by = 9
+
+    def get_queryset(self):
+        return Company.objects.filter(owner=self.request.user).order_by("-created_on")
+
+def view_create_company_page(request):
+    """
+    Display the company creation page.
+
+    **Context**
+
+    ``request``
+        The HTTP request object.
+
+    **Template:**
+
+    :template:`create_company.html`
+    """
+
+    return render(
+        request,
+        "companies/create_company.html",
+        {
+            # Context variable placeholder for the create company view
+        },
+    )
+
 def company_detail(request, slug):
     """
     Display an individual :model:`companies.Company`.

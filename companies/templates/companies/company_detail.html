@@ -3,17 +3,17 @@
 {% block content %}
 
 <main class="py-10 mx-auto max-w-7xl px-6 lg:px-8">
-    <div class="bg-gray-800 rounded-xl shadow-lg p-8 text-gray-200 card">
-
+    <div class=" shadow-lg p-8 0 card">
+        <a href="javascript:history.back()" class="my-button">Back</a>
         <!-- Company Header -->
         <div class="flex flex-col lg:items-center lg:justify-between mb-10 border-b border-gray-700 pb-8">
-            <div class="flex flex-col md:flex-row md:items-center card">
+            <div class="flex flex-col md:flex-row md:items-center w-full card-services">
                 {% if "placeholder" in company.logo.url %}
                 <img src="{% static 'images/company-placeholder.jpg' %}" alt="Company placeholder"
-                    class="sm:h-40 lg:h-100 w-screen object-cover rounded-lg mb-4 md:mb-0 md:mr-8" />
+                    class="sm:h-40 lg:h-100 w-50vw object-cover rounded-lg mb-4 md:mb-0 md:mr-8" />
                 {% else %}
                 <img src="{{ company.logo.url }}" alt="{{ company.company_name }}"
-                    class="sm:h-40 lg:h-100 w-screen object-cover rounded-lg mb-4 md:mb-0 md:mr-8" />
+                    class="sm:h-40 lg:h-100 w-50vw object-cover rounded-lg mb-4 md:mb-0 md:mr-8" />
                 {% endif %}
                 <div>
                     <h1 class="text-5xl mb-2">{{ company.company_name }}</h1>
@@ -21,10 +21,16 @@
                         <i class="fas fa-map-marker-alt "></i>
                         {{ company.city }}, {{ company.country }}
                     </p>
-                    <p class=" text-lg">
-                        <i class="fas fa-user-tie "></i>
-                        {{ company.owner }} — {{ company.role }}
-                    </p>
+                        
+                        <div class="relative mt-8 flex items-center gap-x-4">
+                        <img src="{{ company.owner.avatar.url }}" alt="" class="size-10 rounded-full " />
+                        <div class="text-sm/6">
+                            <p class="">
+                              {{ company.owner }}
+                            </p>
+                            <p>{{ company.role }}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -34,13 +40,13 @@
             <h2 class="text-2xl   mb-4">
                 <i class="fas fa-info-circle "></i> About Us
             </h2>
-            <div class="card">
+            <div class="card-services">
                 <p class="leading-relaxed mb-4">{{ company.description }}</p>
                 <p class=" leading-relaxed mb-6">{{ company.full_description }}</p>
 
                 {% if company.website %}
                 <a href="{{ company.website }}" target="_blank" rel="noopener noreferrer"
-                    class="inline-flex items-center gap-2  hover:text-lime-300 transition">
+                    class="inline-flex items-center gap-2 transition my-button">
                     <i class="fas fa-globe"></i> Visit Website
                 </a>
                 {% endif %}
@@ -54,11 +60,11 @@
             </h3>
 
             {% if services_list %}
-            <ul class="list-disc list-inside space-y-1 card-services">
+                <div class="flex flex-wrap gap-2 card-services">
                 {% for service in services_list %}
-                <li>{{ service }}</li>
+                <span class="inline-flex items-center badge">{{ service }}</span>
                 {% endfor %}
-            </ul>
+                </div>
             {% else %}
             <p class="">No services listed yet.</p>
             {% endif %}
@@ -68,8 +74,8 @@
         {% if company.owner == user %}
         <section>
             <h2 class="text-2xl mb-4"><i class="far fa-building "></i> Company Information</h2>
-            <div class="border-gray-700 pt-4 text-sm card">
-                <p><i class="far fa-calendar-alt"></i> Founded on: {{ company.created_on|date:"F j, Y" }}</p>
+            <div class="border-gray-700 pt-4 text-sm card-services">
+                <p><i class="far fa-calendar-alt"></i> Created on: {{ company.created_on|date:"F j, Y" }}</p>
                 <p><i class="far fa-clock"></i> Last updated: {{ company.updated_on|date:"F j, Y" }}</p>
 
                 <div class="mt-6 flex flex-wrap gap-3 crud-buttons">

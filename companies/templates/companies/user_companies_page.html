@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 <main class="mx-auto max-w-8xl">
-    <h1 class="text-2xl font-bold px-4 pt-4">All Companies</h1>
+    <h1 class="text-2xl font-bold px-4 pt-4">Your Companies</h1>
     <div class="flex justify-center">
         <div class="p-4 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-10 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             {% for company in companies %}
@@ -32,6 +32,8 @@
                                 {{ company.owner }}
                             </p>
                             <p class="text-gray-400">{{ company.role }}</p>
+                            <p><i class="far fa-calendar-alt"></i> Created on: {{ company.created_on|date:"F j, Y" }}</p>
+                            <p><i class="far fa-clock"></i> Last updated: {{ company.updated_on|date:"F j, Y" }}</p>
                         </div>
                     </div>
                 </div>
@@ -70,11 +72,9 @@
                                 class="relative inline-flex items-center px-4 py-2 ">{{ num }}</a>
                         {% endif %}
                     {% elif num == 1 or num == page_obj.paginator.num_pages %}
-                        <a href="?page={{ num }}"
-                            class="relative inline-flex items-center px-4 py-2">{{ num }}</a>
+                        <a href="?page={{ num }}" class="relative inline-flex items-center px-4 py-2">{{ num }}</a>
                     {% elif num == page_obj.number|add:'-3' or num == page_obj.number|add:'3' %}
-                        <span
-                            class="relative inline-flex items-center px-4 py-2">...</span>
+                        <span class="relative inline-flex items-center px-4 py-2">...</span>
                     {% endif %}
                 {% endfor %}
                     {% if page_obj.has_next %}
