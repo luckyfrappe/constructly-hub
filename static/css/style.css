@@ -16,13 +16,9 @@
     --color-green-100: oklch(96.2% 0.044 156.743);
     --color-green-600: oklch(62.7% 0.194 149.214);
     --color-green-800: oklch(44.8% 0.119 151.328);
-    --color-blue-100: oklch(93.2% 0.032 255.585);
-    --color-blue-600: oklch(54.6% 0.245 262.881);
-    --color-blue-800: oklch(42.4% 0.199 265.638);
     --color-indigo-500: oklch(58.5% 0.233 277.117);
     --color-indigo-600: oklch(51.1% 0.262 276.966);
     --color-gray-50: oklch(98.5% 0.002 247.839);
-    --color-gray-100: oklch(96.7% 0.003 264.542);
     --color-gray-300: oklch(87.2% 0.01 258.338);
     --color-gray-400: oklch(70.7% 0.022 261.325);
     --color-gray-500: oklch(55.1% 0.027 264.364);
@@ -65,7 +61,6 @@
     --ease-in: cubic-bezier(0.4, 0, 1, 1);
     --ease-out: cubic-bezier(0, 0, 0.2, 1);
     --blur-sm: 8px;
-    --blur-2xl: 40px;
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
@@ -268,26 +263,14 @@
   .inset-0 {
     inset: calc(var(--spacing) * 0);
   }
-  .inset-x-0 {
-    inset-inline: calc(var(--spacing) * 0);
-  }
   .top-0 {
     top: calc(var(--spacing) * 0);
-  }
-  .top-10 {
-    top: calc(var(--spacing) * 10);
   }
   .top-20 {
     top: calc(var(--spacing) * 20);
   }
-  .top-auto {
-    top: auto;
-  }
   .right-4 {
     right: calc(var(--spacing) * 4);
-  }
-  .bottom-4 {
-    bottom: calc(var(--spacing) * 4);
   }
   .z-10 {
     z-index: 10;
@@ -324,6 +307,9 @@
   }
   .mx-auto {
     margin-inline: auto;
+  }
+  .my-1 {
+    margin-block: calc(var(--spacing) * 1);
   }
   .my-4 {
     margin-block: calc(var(--spacing) * 4);
@@ -459,6 +445,9 @@
   }
   .\!h-90 {
     height: calc(var(--spacing) * 90) !important;
+  }
+  .\!h-full {
+    height: 100% !important;
   }
   .h-11 {
     height: calc(var(--spacing) * 11);
@@ -717,9 +706,6 @@
   .bg-gray-50 {
     background-color: var(--color-gray-50);
   }
-  .bg-gray-100 {
-    background-color: var(--color-gray-100);
-  }
   .bg-gray-500 {
     background-color: var(--color-gray-500);
   }
@@ -792,6 +778,9 @@
   .px-6 {
     padding-inline: calc(var(--spacing) * 6);
   }
+  .px-7 {
+    padding-inline: calc(var(--spacing) * 7);
+  }
   .py-1 {
     padding-block: calc(var(--spacing) * 1);
   }
@@ -800,6 +789,9 @@
   }
   .py-2 {
     padding-block: calc(var(--spacing) * 2);
+  }
+  .py-2\.5 {
+    padding-block: calc(var(--spacing) * 2.5);
   }
   .py-3 {
     padding-block: calc(var(--spacing) * 3);
@@ -937,9 +929,6 @@
   .text-gray-600 {
     color: var(--color-gray-600);
   }
-  .text-gray-800 {
-    color: var(--color-gray-800);
-  }
   .text-green-600 {
     color: var(--color-green-600);
   }
@@ -976,6 +965,10 @@
   }
   .shadow-md {
     --tw-shadow: 0 4px 6px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 2px 4px -2px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-sm {
+    --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
   .shadow-xl {
@@ -1102,13 +1095,6 @@
         @supports (color: color-mix(in lab, red, red)) {
           background-color: color-mix(in oklab, var(--color-white) 5%, transparent);
         }
-      }
-    }
-  }
-  .hover\:text-gray-600 {
-    &:hover {
-      @media (hover: hover) {
-        color: var(--color-gray-600);
       }
     }
   }
@@ -1274,51 +1260,6 @@
       text-align: center;
     }
   }
-  .sm\:inset-auto {
-    @media (width >= 40rem) {
-      inset: auto;
-    }
-  }
-  .sm\:top-20 {
-    @media (width >= 40rem) {
-      top: calc(var(--spacing) * 20);
-    }
-  }
-  .sm\:right-3 {
-    @media (width >= 40rem) {
-      right: calc(var(--spacing) * 3);
-    }
-  }
-  .sm\:right-4 {
-    @media (width >= 40rem) {
-      right: calc(var(--spacing) * 4);
-    }
-  }
-  .sm\:right-6 {
-    @media (width >= 40rem) {
-      right: calc(var(--spacing) * 6);
-    }
-  }
-  .sm\:right-8 {
-    @media (width >= 40rem) {
-      right: calc(var(--spacing) * 8);
-    }
-  }
-  .sm\:bottom-4 {
-    @media (width >= 40rem) {
-      bottom: calc(var(--spacing) * 4);
-    }
-  }
-  .sm\:bottom-auto {
-    @media (width >= 40rem) {
-      bottom: auto;
-    }
-  }
-  .sm\:left-auto {
-    @media (width >= 40rem) {
-      left: auto;
-    }
-  }
   .sm\:col-span-3 {
     @media (width >= 40rem) {
       grid-column: span 3 / span 3;
@@ -1390,6 +1331,11 @@
       width: 100%;
     }
   }
+  .sm\:max-w-7xl {
+    @media (width >= 40rem) {
+      max-width: var(--container-7xl);
+    }
+  }
   .sm\:max-w-lg {
     @media (width >= 40rem) {
       max-width: var(--container-lg);
@@ -1418,11 +1364,6 @@
   .sm\:items-center {
     @media (width >= 40rem) {
       align-items: center;
-    }
-  }
-  .sm\:items-end {
-    @media (width >= 40rem) {
-      align-items: flex-end;
     }
   }
   .sm\:items-start {
@@ -1546,16 +1487,6 @@
       align-items: center;
     }
   }
-  .lg\:top-20 {
-    @media (width >= 64rem) {
-      top: calc(var(--spacing) * 20);
-    }
-  }
-  .lg\:right-4 {
-    @media (width >= 64rem) {
-      right: calc(var(--spacing) * 4);
-    }
-  }
   .lg\:col-span-2 {
     @media (width >= 64rem) {
       grid-column: span 2 / span 2;
@@ -1609,6 +1540,11 @@
   .lg\:justify-end {
     @media (width >= 64rem) {
       justify-content: flex-end;
+    }
+  }
+  .lg\:rounded-lg {
+    @media (width >= 64rem) {
+      border-radius: var(--radius-lg);
     }
   }
   .lg\:px-8 {
@@ -1702,6 +1638,7 @@
   --color-box-shadow: 0 0 0 3px rgba(204, 255, 51, 0.5);
   --color-dark: #435064;
   --color-dark-static: #435064;
+  --color-darkest-static-95: rgba(31, 41, 55, 0.950);
   --color-darkest: #1f2937;
   --color-darkest-static: #1f2937;
   --color-darkest-static-50: #1f2937;
@@ -1767,18 +1704,14 @@ nav .current {
 .lighter-gray {
   background-color: var(--color-light-gray);
 }
-nav button {
-  transition: background-color 0.2s, opacity 0.2s;
-}
 nav button:hover {
-  opacity: var(--hover-opacity);
   cursor: pointer;
 }
 .dropdown {
-  background-color: var(--color-white);
+  background-color: var(--color-darkest-static-95);
 }
-.dropdown a {
-  color: var(--color-darkest);
+.dropdown a:hover {
+  cursor: pointer;
 }
 .mobile-menu {
   color: var(--color-darker-gray-static);
@@ -1851,6 +1784,9 @@ main.hero {
   .card-services {
     background-color: var(--color-lighter-gray) !important;
     box-shadow: 0 !important;
+  }
+  dialog, [role="dialog"], .el-dialog-panel {
+    color: #ffffff;
   }
 }
 .card {

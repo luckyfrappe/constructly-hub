@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import redirect, render, get_object_or_404, reverse
 from django.views import generic
 from .models import Company
 from .forms import CreateCompanyForm
@@ -69,6 +69,22 @@ def company_detail(request, slug):
     company = get_object_or_404(queryset, slug=slug)
     """ Split services into a list, help from ChatGPT """
     services_list = [s.strip() for s in company.services.split(",")] if company.services else []
+
+    if request.method == "POST":
+        form = CreateCompanyForm(request.POST, request.FILES, instance=company)
+        if form.is_valid() and company.owner == request.user:
+            company = form.save(commit=False)
+            company.slug = slugify(company.company_name)
+            company.save()
+            messages.add_message(request, messages.SUCCESS, f"'{company.company_name}' updated successfully!")
+            return redirect("company_detail", slug=company.slug)
+        else:
+            messages.add_message(request, messages.ERROR, 'Please correct the errors and try again.')
+            return render(
+                request,
+                "companies/company_detail.html",
+                {"company": company, "services_list": services_list, "form": form}
+            )
 
     return render(request, "companies/company_detail.html", {"company": company, "services_list": services_list})
 

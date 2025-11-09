@@ -17,7 +17,7 @@
                 <label for="company_name" class="block font-medium">Company Name <span
                             class="text-red-400">*</span></label>
                 <input id="company_name" type="text" name="company_name" autofocus autocomplete="organization"
-                    placeholder="Groundwork Solutions Ltd."
+                    placeholder="e.g. Groundwork Solutions Ltd."
                     class="block mt-2 w-full grow bg-transparent py-1.5 pr-3 pl-1 sm:text-sm/6 {% if form.company_name.errors %}wrong-field{% endif %}" />
                 {% for error in form.company_name.errors %}
                 <p class="wrong-text mt-1">{{ error }}</p>
@@ -65,11 +65,7 @@
                 <h2 class="text-base/7 font-semibold">Company Logo</h2>
                 <div
                     class="mt-2 rounded-lg border p-2 {% if form.logo.errors %}wrong-field{% else %}border-dashed{% endif %}">
-
                     <input type="file" class="filepond" name="logo" />
-                    {% for error in form.logo.errors %}
-                    <p class="wrong-text mt-1">{{ error }}</p>
-                    {% endfor %}
                 </div>
             </div>
         </div>
@@ -84,7 +80,7 @@
                             class="text-red-400">*</span></label>
                     <div class="mt-2">
                         <input id="city" type="text" name="city" autocomplete="city"
-                            class="block w-full rounded-md bg-white/5 px-3 py-1.5 {% if form.city.errors %}wrong-field{% endif %}" />
+                            class="block w-full rounded-mdpx-3 py-1.5 {% if form.city.errors %}wrong-field{% endif %}" />
                         {% for error in form.city.errors %}
                         <p class="wrong-text mt-1">{{ error }}</p>
                         {% endfor %}
@@ -96,7 +92,7 @@
                             class="text-red-400">*</span></label>
                     <div class="mt-2">
                         <input id="country" type="text" name="country" autocomplete="country"
-                            class="block w-full rounded-md bg-white/5 px-3 py-1.5 {% if form.country.errors %}wrong-field{% endif %}" />
+                            class="block w-full rounded-mdpx-3 py-1.5 {% if form.country.errors %}wrong-field{% endif %}" />
                         {% for error in form.country.errors %}
                         <p class="wrong-text mt-1">{{ error }}</p>
                         {% endfor %}
@@ -107,7 +103,7 @@
                     <label for="website" class="block text-sm/6 font-medium">Website</label>
                     <div class="mt-2">
                         <input id="website" type="url" name="website" autocomplete="url"
-                            class="block w-full rounded-md bg-white/5 px-3 py-1.5" />
+                            class="block w-full rounded-mdpx-3 py-1.5" />
                     </div>
                 </div>
 
@@ -117,7 +113,7 @@
                     <div class="mt-2">
                         <input id="services" type="text" name="services" autocomplete="services"
                             placeholder="Enter a brief list of your services, separated by commas (e.g. Excavation, Drainage, Paving)."
-                            class="block w-full rounded-md bg-white/5 px-3 py-1.5 {% if form.services.errors %}wrong-field{% endif %}" />
+                            class="block w-full rounded-mdpx-3 py-1.5 {% if form.services.errors %}wrong-field{% endif %}" />
                         {% for error in form.services.errors %}
                         <p class="wrong-text mt-1">{{ error }}</p>
                         {% endfor %}
@@ -139,6 +135,7 @@
 <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
 <script
     src="https://unpkg.com/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.js"></script>
+<script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
 <script src="https://unpkg.com/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.js"></script>
 <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
 
@@ -147,7 +144,8 @@
     FilePond.registerPlugin(
         FilePondPluginImagePreview,
         FilePondPluginImageExifOrientation,
-        FilePondPluginFileValidateSize
+        FilePondPluginFileValidateSize,
+        FilePondPluginFileValidateType
     );
 
     const inputElement = document.querySelector('.filepond');
@@ -156,13 +154,11 @@
         FilePond.create(inputElement, {
             allowMultiple: false,
             maxFileSize: '3MB',
-            acceptedFileTypes: [
-                'image/jpeg',
-                'image/png',
-                'image/webp'
-            ],
+            acceptedFileTypes: ['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'image/heic', 'image/jpg', 'image/heif'],
+            labelFileTypeNotAllowed: 'Only JPEG, PNG, WebP, GIF, HEIC, JPG or HEIF images are allowed',
+            fileValidateTypeLabelExpectedTypes: 'Expected {allButLastType} or {lastType}',
             labelIdle: 'Drag & Drop your company logo or <span class="filepond--label-action">Browse</span>',
-            storeAsFile: true    // acts as a normal file input
+            storeAsFile: true
         });
     }
 </script>

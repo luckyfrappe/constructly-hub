@@ -22,6 +22,7 @@
   --color-box-shadow: 0 0 0 3px rgba(204, 255, 51, 0.5);
   --color-dark: #435064;
   --color-dark-static: #435064;
+  --color-darkest-static-95: rgba(31, 41, 55, 0.950);
   /* Static for light theme navbar text */
   --color-darkest: #1f2937;
   --color-darkest-static: #1f2937;
@@ -85,7 +86,6 @@ nav button:hover {
 }
 
 nav .current {
-  /* Current: "bg-gray-900 dark:bg-gray-950/50 text-white" */
   background-color: var(--color-dark-static);
   color: var(--color-white-static);
   font-weight: 500;
@@ -112,23 +112,16 @@ nav .current {
   background-color: var(--color-light-gray);
 }
 
-nav button {
-  transition:
-    background-color 0.2s,
-    opacity 0.2s;
-}
-
 nav button:hover {
-  opacity: var(--hover-opacity);
   cursor: pointer;
 }
 
 .dropdown {
-  background-color: var(--color-white);
+  background-color: var(--color-darkest-static-95);
 }
 
-.dropdown a {
-  color: var(--color-darkest);
+.dropdown a:hover {
+  cursor: pointer;
 }
 
 .mobile-menu {
@@ -232,6 +225,12 @@ main.hero {
   .card-services {
     background-color: var(--color-lighter-gray) !important;
     box-shadow: 0 !important;
+  }
+
+  dialog,
+  [role="dialog"],
+  .el-dialog-panel {
+    color: #ffffff;
   }
 }
 
