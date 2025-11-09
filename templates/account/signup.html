@@ -36,7 +36,7 @@
       <!-- Username -->
       <div>
         <label for="username" class="block text-sm font-medium second-text">
-          {% trans "Username" %}
+          {% trans "Username" %} <span class="text-red-400">*</span>
         </label>
         <div class="mt-2">
           <input id="username" name="username" type="text" required autocomplete="username" class="block w-full rounded-md border px-3 py-2 text-sm
@@ -50,7 +50,7 @@
       <!-- Email -->
       <div>
         <label for="email" class="block text-sm font-medium second-text">
-          {% trans "Email" %}
+          {% trans "Email" %} <span class="text-red-400">*</span>
         </label>
         <div class="mt-2">
           <input id="email" name="email" type="email" required autocomplete="email" class="block w-full rounded-md border px-3 py-2 text-sm" />
@@ -106,7 +106,7 @@
           </div>
         </div>
         <label for="password1" class="block text-sm font-medium second-text">
-          {% trans "Password" %}
+          {% trans "Password" %} <span class="text-red-400">*</span>
         </label>
         <div class="mt-2">
           <input id="password1" name="password1" type="password" required autocomplete="new-password" class="block w-full rounded-md border px-3 py-2 text-sm {% if form.password1.errors %}wrong-field{% endif %}" />
@@ -119,7 +119,7 @@
       <!-- Confirm Password -->
       <div>
         <label for="password2" class="block text-sm font-medium second-text">
-          {% trans "Confirm Password" %}
+          {% trans "Confirm Password" %} <span class="text-red-400">*</span>
         </label>
         <div class="mt-2">
           <input id="password2" name="password2" type="password" required autocomplete="new-password" class="block w-full rounded-md border px-3 py-2 text-sm {% if form.password2.errors %}wrong-field{% endif %}" />

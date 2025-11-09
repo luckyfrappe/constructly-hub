@@ -74,6 +74,14 @@ nav a:hover, nav button:hover {
   color: var(--color-white-static);
 }
 
+#logo {
+  transition: transform 0.2s;
+}
+
+#logo:hover {
+  background-color: transparent;
+}
+
 nav .current {
   /* Current: "bg-gray-900 dark:bg-gray-950/50 text-white" */
   background-color: var(--color-dark-static);
@@ -188,13 +196,11 @@ button {
 }
 
 button:focus-visible {
-  outline: 2px solid var(--color-special);
   outline-offset: 2px;
   border-radius: var(--border-radius);
 }
 
 button[aria-expanded="true"] {
-  outline: 2px solid var(--color-special);
   outline-offset: 2px;
   border-radius: var(--border-radius);
 }

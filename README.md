@@ -115,6 +115,7 @@ See in PDF format **[Sitemap and User Flow Manifest](documentation/flowcharts/lo
 - **HTML**
 - **CSS**
 - **JavaScript**
+- **Python**
 
 ### Frameworks, Libraries & Programs Used
 
@@ -155,7 +156,7 @@ See in PDF format **[Sitemap and User Flow Manifest](documentation/flowcharts/lo
 - **[Namecheap](https://www.namecheap.com/)** – Domain register used for managing the custom business domain **constructlyhub.me**.
 - **[Google Workspace (Gmail SMTP)](https://mail.google.com/)** – Configured to send transactional emails through Gmail’s secure SMTP service, used for account verification, password resets, and contact forms.
 - **[Cloudinary](https://cloudinary.com/)** – Used to host images and manage media uploads.
-
+- **[FilePond](https://pqina.nl/filepond/)** – Used for modern, user-friendly file uploads with drag-and-drop support, live image previews, and file validation. Configured to behave like a regular Django file input using `storeAsFile: true`, so uploaded files are submitted together with the form.
 
 ---
 

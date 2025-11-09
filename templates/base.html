@@ -40,6 +40,9 @@
 
   <!-- Main CSS -->
   <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  {% block extras_head %}
+  {% endblock extras_head %}
+  <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/1ca7252419.js" crossorigin="anonymous"></script>
 </head>
 
@@ -50,8 +53,8 @@
         <div class="flex h-16 items-center justify-between">
           <div class="flex items-center">
             <div class="shrink-0">
-              <img src="{% static 'images/design/favicon/android-chrome-512x512.png' %}" alt="Company Logo"
-                class="size-8" />
+              <a href="{% if user.is_authenticated %}{{ insights_url }}{% else %}{{ landing_url }}{% endif %}" id="logo"><img src="{% static 'images/design/favicon/android-chrome-512x512.png' %}" alt="Company Logo"
+                class="size-8" /></a>
             </div>
             <div class="hidden md:block">
               <div class="ml-10 flex items-baseline space-x-4">
@@ -66,7 +69,7 @@
                   aria-current="page{% endif %}">Bids</a>
                 <el-dropdown class="inline-block">
                   <button
-                    class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white/10 px-3 py-2 text-sm inset-ring-1 inset-ring-white/5">
+                    class="inline-flex w-full justify-center gap-x-1.5 rounded-md px-3 py-2 text-sm {% if request.path == companies_url or request.path == user_companies_url or request.path == create_company_url %}current{% endif %}">
                     Companies
                     <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true"
                       class="-mr-1 size-5 ">
@@ -106,7 +109,7 @@
             <!-- Profile dropdown -->
             {% if user.is_authenticated %}
             <el-dropdown class="relative ml-3">
-              <button>
+              <button class="rounded-md">
                 <span class="absolute -inset-1.5"></span>
                 <span class="sr-only">Open user menu</span>
                 <img src="{% static 'images/profilepic.jpeg' %}" alt="Profile Picture"

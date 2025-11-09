@@ -29,7 +29,7 @@
       <!-- Username -->
       <div>
         <label for="login" class="block font-medium second-text">
-          {% trans "Username" %}
+          {% trans "Username" %} <span class="text-red-400">*</span>
         </label>
         <div class="mt-2">
           <input id="login" name="login" type="text" autofocus required autocomplete="username"
@@ -39,7 +39,7 @@
       <div>
         <div class="flex items-center justify-between">
           <label for="password" class="block font-medium second-text">
-            {% trans "Password" %}
+            {% trans "Password" %} <span class="text-red-400">*</span>
           </label>
           <div class="text-sm">
             <a href="{% url 'account_reset_password' %}" class="special">{% trans "Forgot Password?" %}</a>

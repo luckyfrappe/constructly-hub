@@ -1,7 +1,10 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic
 from .models import Company
+from .forms import CreateCompanyForm
+from django.contrib import messages
 from django.http import HttpResponseRedirect
+from django.utils.text import slugify
 
 # Create your views here.
 
@@ -32,14 +35,19 @@ def view_create_company_page(request):
 
     :template:`create_company.html`
     """
+    if request.method == "POST":
+        form = CreateCompanyForm(request.POST, request.FILES)
+        if form.is_valid():
+            company = form.save(commit=False)
+            company.owner = request.user
+            company.slug = slugify(company.company_name)
+            company.save()
+            messages.success(request, "Company created successfully!")
+            return HttpResponseRedirect(reverse("companies"))
+    else:
+        form = CreateCompanyForm()
 
-    return render(
-        request,
-        "companies/create_company.html",
-        {
-            # Context variable placeholder for the create company view
-        },
-    )
+    return render(request, "companies/create_company.html", {"form": form})
 
 def company_detail(request, slug):
     """
@@ -57,6 +65,7 @@ def company_detail(request, slug):
 
     queryset = Company.objects
     company = get_object_or_404(queryset, slug=slug)
+    """ Split services into a list, help from ChatGPT """
     services_list = [s.strip() for s in company.services.split(",")] if company.services else []
 
     return render(request, "companies/company_detail.html", {"company": company, "services_list": services_list})

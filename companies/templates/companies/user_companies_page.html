@@ -6,38 +6,39 @@
     <div class="flex justify-center">
         <div class="p-4 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-10 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             {% for company in companies %}
-            <a href="{% url 'post_detail' company.slug %}" class="flex max-w-xl flex-col items-start justify-between company-card transition">
-                {% if "placeholder" in company.logo.url %}
-                <img src="{% static 'images/company-placeholder.jpg' %}" alt="place holder"
-                    class="h-full w-full object-cover object-center rounded-t-lg" />
-                {% else %}
-                <img src="{{ company.logo.url }}" alt="{{ company.company_name }}"
-                    class="h-full w-full object-cover object-center rounded-t-lg" />
-                {% endif %}
-                <div class="p-4">
-                    <div class="flex items-center gap-x-4 text-xs">
-                        <p><i class="fas fa-map-marker-alt"></i> {{ company.city }}, {{ company.country }}</p>
-                    </div>
-                    <div class="group relative grow">
-                        <h3 class="mt-3 text-lg/6 font-semibold text-white group-hover:text-gray-300">
-                            <span class="absolute inset-0"></span>
-                            {{ company.company_name }}
-                        </h3>
-                        <p class="mt-5 line-clamp-3 text-sm/6 text-gray-400">{{ company.description }}</p>
-                    </div>
-                    <div class="relative mt-8 flex items-center gap-x-4">
-                        <img src="{{ company.owner.avatar.url }}" alt="" class="size-10 rounded-full bg-gray-800" />
-                        <div class="text-sm/6">
-                            <p class="font-semibold text-white">
-                                {{ company.owner }}
-                            </p>
-                            <p class="text-gray-400">{{ company.role }}</p>
-                            <p><i class="far fa-calendar-alt"></i> Created on: {{ company.created_on|date:"F j, Y" }}</p>
-                            <p><i class="far fa-clock"></i> Last updated: {{ company.updated_on|date:"F j, Y" }}</p>
-                        </div>
-                    </div>
-                </div>
-            </a>
+            <a href="{% url 'post_detail' company.slug %}"
+   class="flex flex-col justify-between max-w-xl company-card transition rounded-lg overflow-hidden bg-gray-800/30 hover:bg-gray-800/50">
+
+    {% if "placeholder" in company.logo.url %}
+        <img src="{% static 'images/company-placeholder.jpg' %}"
+             alt="place holder"
+             class="!h-90 w-full object-cover object-center" />
+    {% else %}
+        <img src="{{ company.logo.url }}"
+             alt="{{ company.company_name }}"
+             class="!h-90 w-full object-cover object-center" />
+    {% endif %}
+    <div class="flex flex-col flex-grow p-4 justify-between">
+        <div>
+            <div class="flex items-center gap-x-4 text-xs text-gray-400">
+                <p><i class="fas fa-map-marker-alt"></i> {{ company.city }}, {{ company.country }}</p>
+            </div>
+
+            <h3 class="mt-3 text-lg font-semibold text-white group-hover:text-gray-300">
+                {{ company.company_name }}
+            </h3>
+            <p class="mt-2 line-clamp-3 text-sm text-gray-400">{{ company.description }}</p>
+        </div>
+        <div class="mt-4 flex items-center gap-x-4 pt-4 border-t border-white/10">
+            <img src="{{ company.owner.avatar.url }}" alt=""
+                 class="size-10 rounded-full bg-gray-700" />
+            <div class="text-sm">
+                <p class="font-semibold text-white">{{ company.owner }}</p>
+                <p class="text-gray-400">{{ company.role }}</p>
+            </div>
+        </div>
+    </div>
+</a>
             {% endfor %}
         </div>
     </div>
