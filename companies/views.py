@@ -69,3 +69,30 @@ def company_detail(request, slug):
     services_list = [s.strip() for s in company.services.split(",")] if company.services else []
 
     return render(request, "companies/company_detail.html", {"company": company, "services_list": services_list})
+
+def delete_company(request, company_id, slug):
+    """
+    Delete an individual :model:`companies.Company`.
+
+    **Context**
+
+    ``company``
+        An instance of :model:`companies.Company`.
+
+    **Template:**
+
+    :template:`companies/company_detail.html`
+    """
+
+    queryset = Company.objects.all()
+    company = get_object_or_404(queryset, pk=company_id)
+
+    company = get_object_or_404(Company, pk=company_id, slug=slug)
+    if company.owner == request.user:
+        company.delete()
+        messages.success(request, f"'{company.company_name}' deleted successfully!")
+        return HttpResponseRedirect(reverse("user_companies"))
+    else:
+        messages.error(request, "You can only delete your own companies!")
+        return HttpResponseRedirect(reverse("company_detail", args=[company.slug]))
+    

@@ -60,7 +60,8 @@ nav {
   background-color: var(--color-darkest-static-50);
 }
 
-nav a, nav button {
+nav a,
+nav button {
   color: var(--color-darker-gray-static);
   padding: 0.5rem 1rem !important;
   text-decoration: none;
@@ -69,7 +70,8 @@ nav a, nav button {
     color 0.2s;
 }
 
-nav a:hover, nav button:hover {
+nav a:hover,
+nav button:hover {
   background-color: var(--color-dark-static);
   color: var(--color-white-static);
 }
@@ -279,9 +281,10 @@ main.hero {
   font-size: 0.75rem;
 }
 
-.crud-buttons a {
-  background-color: var(--color-special);
-  color: var(--color-darkest-static);
+.btn-delete {
+  background-color: #ef4444;
+  /* red-600 */
+  color: var(--color-white-static);
   padding: 0.5rem 1rem;
   border-radius: var(--border-radius);
   font-weight: 600;
@@ -291,7 +294,56 @@ main.hero {
     opacity 0.2s;
 }
 
-.crud-buttons a:hover {
+.btn-edit {
+  background-color: #3b82f6;
+  /* blue-500 */
+  color: var(--color-white-static);
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition:
+    background-color 0.2s,
+    opacity 0.2s;
+}
+
+.btn-delete-confirm {
+  background-color: #ef4444;
+  /* red-700 */
+  color: var(--color-white-static);
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition:
+    background-color 0.2s,
+    opacity 0.2s;
+}
+
+.btn-cancel {
+  background-color: var(--color-white);
+  color: var(--color-darkest);
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition:
+    background-color 0.2s,
+    opacity 0.2s;
+}
+
+.btn-cancel:hover {
+  background-color: var(--color-lighter-gray);
+  opacity: var(--hover-opacity);
+  cursor: pointer;
+}
+
+.btn-delete-confirm:hover {
+  /* red-800 */
+  opacity: var(--hover-opacity);
+  cursor: pointer;
+}
+
+.btn-delete:hover,
+.btn-edit:hover {
   opacity: var(--hover-opacity);
   cursor: pointer;
 }

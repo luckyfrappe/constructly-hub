@@ -6,7 +6,7 @@
     <div class="flex justify-center">
         <div class="p-4 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-10 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             {% for company in companies %}
-            <a href="{% url 'post_detail' company.slug %}"
+            <a href="{% url 'company_detail' company.slug %}"
    class="flex flex-col justify-between max-w-xl company-card transition rounded-lg overflow-hidden bg-gray-800/30 hover:bg-gray-800/50">
 
     {% if "placeholder" in company.logo.url %}
