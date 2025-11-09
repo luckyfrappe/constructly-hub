@@ -42,8 +42,10 @@ def view_create_company_page(request):
             company.owner = request.user
             company.slug = slugify(company.company_name)
             company.save()
-            messages.success(request, "Company created successfully!")
+            messages.add_message(request, messages.SUCCESS, "Company created successfully!")
             return HttpResponseRedirect(reverse("companies"))
+        else:
+            messages.add_message(request, messages.ERROR, "Please correct the errors and try again.")
     else:
         form = CreateCompanyForm()
 
@@ -90,9 +92,9 @@ def delete_company(request, company_id, slug):
     company = get_object_or_404(Company, pk=company_id, slug=slug)
     if company.owner == request.user:
         company.delete()
-        messages.success(request, f"'{company.company_name}' deleted successfully!")
+        messages.add_message(request, messages.SUCCESS, f"'{company.company_name}' deleted successfully!")
         return HttpResponseRedirect(reverse("user_companies"))
     else:
-        messages.error(request, "You can only delete your own companies!")
+        messages.add_message(request, messages.ERROR, "You can only delete your own companies!")
         return HttpResponseRedirect(reverse("company_detail", args=[company.slug]))
     

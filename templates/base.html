@@ -53,8 +53,9 @@
         <div class="flex h-16 items-center justify-between">
           <div class="flex items-center">
             <div class="shrink-0">
-              <a href="{% if user.is_authenticated %}{{ insights_url }}{% else %}{{ landing_url }}{% endif %}" id="logo"><img src="{% static 'images/design/favicon/android-chrome-512x512.png' %}" alt="Company Logo"
-                class="size-8" /></a>
+              <a href="{% if user.is_authenticated %}{{ insights_url }}{% else %}{{ landing_url }}{% endif %}"
+                id="logo"><img src="{% static 'images/design/favicon/android-chrome-512x512.png' %}" alt="Company Logo"
+                  class="size-8" /></a>
             </div>
             <div class="hidden md:block">
               <div class="ml-10 flex items-baseline space-x-4">
@@ -83,11 +84,14 @@
                     class="w-56 origin-top-right rounded-md dropdown transition transition-discrete [--anchor-gap:--spacing(2)] data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in">
                     <div>
                       <a href="{% url 'user_companies' %}"
-                        class="block px-4 py-2 text-sm focus:bg-white/5 focus:text-white focus:outline-hidden">My Companies</a>
+                        class="block px-4 py-2 text-sm focus:bg-white/5 focus:text-white focus:outline-hidden">My
+                        Companies</a>
                       <a href="{% url 'companies' %}"
-                        class="block px-4 py-2 text-sm focus:bg-white/5 focus:text-white focus:outline-hidden">All Companies</a>
+                        class="block px-4 py-2 text-sm focus:bg-white/5 focus:text-white focus:outline-hidden">All
+                        Companies</a>
                       <a href="{% url 'create_company' %}"
-                        class="block px-4 py-2 text-sm focus:bg-white/5 focus:text-white focus:outline-hidden">Create Company</a>
+                        class="block px-4 py-2 text-sm focus:bg-white/5 focus:text-white focus:outline-hidden">Create
+                        Company</a>
                     </div>
                   </el-menu>
                 </el-dropdown>
@@ -168,20 +172,27 @@
           <a href="{{ bids_url }}"
             class="block rounded-md px-3 py-2 text-base font-medium {% if request.path == bids_url %}current"
             aria-current="page{% endif %}">Bids</a>
-          <button type="button" command="--toggle" commandfor="products" class="flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base hover:bg-white/5 font-medium {% if request.path == companies_url or request.path == user_companies_url or request.path == create_company_url %}current {% endif %}">
-                    Companies
-                    <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="size-5 flex-none in-aria-expanded:rotate-180">
-                      <path d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" fill-rule="evenodd" />
-                    </svg>
-                  </button>
-                  <el-disclosure id="products" hidden class="mt-2 block space-y-2">
-                    <a href="{{ user_companies_url }}" class="block rounded-lg py-2 pr-3 pl-6 text-sm hover:bg-white/5 font-medium {% if request.path == user_companies_url %}current"
-            aria-current="page{% endif %}">My Companies</a>
-                    <a href="{{ companies_url }}" class="block rounded-lg py-2 pr-3 pl-6 text-sm hover:bg-white/5 font-medium {% if request.path == companies_url %}current"
-            aria-current="page{% endif %}">All Companies</a>
-                    <a href="{{ create_company_url }}" class="block rounded-lg py-2 pr-3 pl-6 text-sm hover:bg-white/5 font-medium {% if request.path == create_company_url %}current"
-            aria-current="page{% endif %}">Create Company</a>
-                  </el-disclosure>
+          <button type="button" command="--toggle" commandfor="products"
+            class="flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base hover:bg-white/5 font-medium {% if request.path == companies_url or request.path == user_companies_url or request.path == create_company_url %}current {% endif %}">
+            Companies
+            <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true"
+              class="size-5 flex-none in-aria-expanded:rotate-180">
+              <path
+                d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                clip-rule="evenodd" fill-rule="evenodd" />
+            </svg>
+          </button>
+          <el-disclosure id="products" hidden class="mt-2 block space-y-2">
+            <a href="{{ user_companies_url }}"
+              class="block rounded-lg py-2 pr-3 pl-6 text-sm hover:bg-white/5 font-medium {% if request.path == user_companies_url %}current"
+              aria-current="page{% endif %}">My Companies</a>
+            <a href="{{ companies_url }}"
+              class="block rounded-lg py-2 pr-3 pl-6 text-sm hover:bg-white/5 font-medium {% if request.path == companies_url %}current"
+              aria-current="page{% endif %}">All Companies</a>
+            <a href="{{ create_company_url }}"
+              class="block rounded-lg py-2 pr-3 pl-6 text-sm hover:bg-white/5 font-medium {% if request.path == create_company_url %}current"
+              aria-current="page{% endif %}">Create Company</a>
+          </el-disclosure>
           {% else %}
           <a href="{{ landing_url }}"
             class="block rounded-md px-3 py-2 text-base font-medium {% if request.path == landing_url %}current"
@@ -189,7 +200,7 @@
           <a href="{{ features_url }}"
             class="block rounded-md px-3 py-2 text-base font-medium {% if request.path == features_url %}current"
             aria-current="page{% endif %}">Features</a>
-         
+
           <a href="{{ companies_url }}"
             class="block rounded-md px-3 py-2 text-base font-medium {% if request.path == companies_url %}current"
             aria-current="page{% endif %}">Companies</a>
@@ -232,74 +243,35 @@
         </div>
       </el-disclosure>
     </nav>
-    <!-- <div
-      class="banner z-10 relative isolate flex items-center gap-x-6 overflow-hidden px-6 py-2.5 sm:px-3.5 sm:before:flex-1 dark:bg-gray-800/50 dark:after:pointer-events-none dark:after:absolute dark:after:inset-x-0 dark:after:bottom-0 dark:after:h-px dark:after:bg-white/10">
-      <div aria-hidden="true"
-        class="absolute top-1/2 left-[max(-7rem,calc(50%-52rem))] -z-10 -translate-y-1/2 transform-gpu blur-2xl">
-        <div style="
-              clip-path: polygon(
-                74.8% 41.9%,
-                97.2% 73.2%,
-                100% 34.9%,
-                92.5% 0.4%,
-                87.5% 0%,
-                75% 28.6%,
-                58.5% 54.6%,
-                50.1% 56.8%,
-                46.9% 44%,
-                48.3% 17.4%,
-                24.7% 53.9%,
-                0% 27.9%,
-                11.9% 74.2%,
-                24.9% 54.1%,
-                68.6% 100%,
-                74.8% 41.9%
-              );
-            " class="aspect-577/310 w-144.25 bg-linear-to-r from-[#ff80b5] to-[#9089fc] opacity-30 dark:opacity-40">
-        </div>
-      </div>
-      <div aria-hidden="true"
-        class="absolute top-1/2 left-[max(45rem,calc(50%+8rem))] -z-10 -translate-y-1/2 transform-gpu blur-2xl">
-        <div style="
-              clip-path: polygon(
-                74.8% 41.9%,
-                97.2% 73.2%,
-                100% 34.9%,
-                92.5% 0.4%,
-                87.5% 0%,
-                75% 28.6%,
-                58.5% 54.6%,
-                50.1% 56.8%,
-                46.9% 44%,
-                48.3% 17.4%,
-                24.7% 53.9%,
-                0% 27.9%,
-                11.9% 74.2%,
-                24.9% 54.1%,
-                68.6% 100%,
-                74.8% 41.9%
-              );
-            " class="aspect-577/310 w-144.25 bg-linear-to-r from-[#ff80b5] to-[#9089fc] opacity-30 dark:opacity-40">
-        </div>
-      </div>
-      <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
-        <p class="text-sm/6 dark:text-gray-100">
-          Welcome back, {userFirstName}
-        </p>
-        <a href="#"
-          class="flex-none rounded-full px-3.5 py-1 text-sm shadow-xs focus-visible:outline-2 focus-visible:outline-offset-2">Check
-          new updates <span aria-hidden="true">&rarr;</span></a>
-      </div>
-      <div class="flex flex-1 justify-end">
-        <button type="button" class="-m-3 p-3 focus-visible:-outline-offset-4">
-          <span class="sr-only">Dismiss</span>
-          <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="size-5">
-            <path
-              d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z" />
-          </svg>
+    {% if messages %}
+    <div class="fixed top-20 right-4 z-50 space-y-3">
+      {% for message in messages %}
+      {% if message.tags == "success" %}
+      <div
+        class="flex items-center w-full max-w-sm p-4 text-green-800 bg-green-100 rounded-lg shadow-md animate-fade-in-down"
+        role="alert">
+        <i class="fas fa-check-circle mr-3 text-green-600 text-lg"></i>
+        <div class="flex-1 text-sm font-medium">{{ message|safe }}</div>
+        <button type="button" onclick="this.parentElement.remove()"
+          class="ml-3 text-green-800 hover:text-green-600 focus:outline-none">
+          <i class="fas fa-times"></i>
         </button>
       </div>
-    </div> -->
+      {% elif message.tags == "error" %}
+      <div
+        class="flex items-center w-full max-w-sm p-4 text-red-800 bg-red-100 rounded-lg shadow-md animate-fade-in-down"
+        role="alert">
+        <i class="fas fa-exclamation-circle mr-3 text-red-600 text-lg"></i>
+        <div class="flex-1 text-sm font-medium">{{ message|safe }}</div>
+        <button type="button" onclick="this.parentElement.remove()"
+          class="ml-3 text-red-800 hover:text-red-600 focus:outline-none">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+    {% endif %}
   </header>
   {% block content %}
   <!-- Content Goes here -->

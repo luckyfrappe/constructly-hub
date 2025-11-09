@@ -1,3 +1,4 @@
+from django.contrib import messages
 from .models import Company
 from django import forms
 from django.utils.text import slugify
