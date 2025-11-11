@@ -1,90 +1,72 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-<main class="py-6">
-    <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
-        <div class="grid gap-6 lg:grid-cols-4 md:grid-cols-2">
-            <!-- Card 1: Create RFP -->
-            <div class="card relative lg:col-span-2">
-                <p class="mt-2 text-lg font-medium tracking-tight max-lg:text-center">
-                    Create RFP
-                </p>
-                <p class="mt-2 max-w-lg text-sm/6 max-lg:text-center">
-                    Create a project and start a new Request for Proposal for upcoming
-                    construction projects.
-                </p>
-                <img src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png" alt=""
-                    class="w-full max-lg:max-w-xs mt-2" />
-            </div>
-
-            <!-- Card 2: Active Projects -->
-            <div class="card relative">
-                <p class="mt-2 text-lg font-medium tracking-tight max-lg:text-center">
-                    Active Projects
-                </p>
-                <p class="mt-2 max-w-lg text-sm/6 max-lg:text-center">
-                    View all your ongoing construction projects in one place.
-                </p>
-                <img src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png" alt=""
-                    class="w-full max-lg:max-w-xs mt-2" />
-            </div>
-
-            <!-- Card 3: Find RFPs -->
-            <div class="card relative lg:row-span-2">
-                <p class="mt-2 text-lg font-medium tracking-tight max-lg:text-center">
-                    Find RFPs
-                </p>
-                <p class="mt-2 max-w-lg text-sm/6 max-lg:text-center">
-                    Browse and bid on new Requests for Proposals from project owners.
-                </p>
-                <img src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png" alt=""
-                    class="w-full max-lg:max-w-xs mt-2" />
-            </div>
-
-            <!-- Card 4: Favorite Subcontractors -->
-            <div class="card relative lg:col-span-2 row-span-2">
-                <p class="mt-2 text-lg font-medium tracking-tight max-lg:text-center">
-                    Favorite Subcontractors
-                </p>
-                <p class="mt-2 max-w-lg text-sm/6 max-lg:text-center">
-                    Track all your favorite subcontractors in one place.
-                </p>
-                <img src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png" alt=""
-                    class="w-full max-lg:max-w-xs mt-2" />
-            </div>
-
-            <!-- Card 5: Active Bidding -->
-            <div class="card relative">
-                <p class="mt-2 text-lg font-medium tracking-tight max-lg:text-center">
-                    Active Bidding
-                </p>
-                <p class="mt-2 max-w-lg text-sm/6 max-lg:text-center">
-                    Browse and review all your active bids on RFPs.
-                </p>
-                <img src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png" alt=""
-                    class="w-full max-lg:max-w-xs mt-2" />
-            </div>
-
-            <!-- Card 6: Total Spend -->
-            <div class="card relative">
-                <p class="mt-2 text-lg font-medium tracking-tight max-lg:text-center">
-                    Total Spend
-                </p>
-                <p class="mt-2 max-w-lg text-sm/6 max-lg:text-center">$12,345.67</p>
-                <img src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png" alt=""
-                    class="w-full max-lg:max-w-xs mt-2" />
-            </div>
-
-            <!-- Card 7: Total Earned -->
-            <div class="card relative">
-                <p class="mt-2 text-lg font-medium tracking-tight max-lg:text-center">
-                    Total Earned
-                </p>
-                <p class="mt-2 max-w-lg text-sm/6 max-lg:text-center">$12,345.67</p>
-                <img src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png" alt=""
-                    class="w-full max-lg:max-w-xs mt-2" />
+<main class="mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 overflow-x-hidden">
+    <div class="my-4 card">
+        <a href="javascript:history.back()" class="my-button">Back</a>
+        <!-- Company Header -->
+        <div class="flex flex-col lg:items-center lg:justify-between mb-10 border-b pb-8">
+            <div class="flex flex-col md:flex-row md:items-center w-full">
+                {% if "placeholder" in company.logo.url %}
+                <img src="{% static 'images/company-placeholder.jpg' %}" alt="Company placeholder"
+                    class="h-100 w-full sm:w-1/2 object-cover rounded-lg mb-4 md:mb-0 md:mr-8" />
+                {% else %}
+                <img src="{{ company.logo.url }}" alt="{{ company.company_name }}"
+                    class="h-100 w-full sm:w-1/2 object-cover rounded-lg mb-4 md:mb-0 md:mr-8" />
+                {% endif %}
+                <div>
+                    <h1 class="text-5xl mb-2">{{ company.company_name }}</h1>
+                    <p class=" text-lg mb-1">
+                        <i class="fas fa-map-marker-alt "></i>
+                        {{ company.city }}, {{ company.country }}
+                    </p>
+                    <div class="relative mt-8 flex items-center gap-x-4">
+                        <img src="{{ company.owner.avatar.url }}" alt="" class="size-10 rounded-full " />
+                        <div class="text-sm/6">
+                            <p class=""><i class="fas fa-user"></i> {{ company.owner }}
+                            </p>
+                            <p><i class="fas fa-briefcase"></i> {{ company.role }}</p>
+                            <p><i class="fas fa-envelope"></i> {{ company.email }}</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+
+        <!-- About Section -->
+        <section class="mb-10">
+            <h2 class="text-2xl   mb-4">
+                <i class="fas fa-info-circle "></i> About Us
+            </h2>
+            <div class="card-services">
+                <p class="leading-relaxed mb-4 break-words break-all">{{ company.description }}</p>
+                <p class=" leading-relaxed mb-6 break-words break-all">{{ company.full_description }}</p>
+
+                {% if company.website %}
+                <a href="{{ company.website }}" target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 transition my-button">
+                    <i class="fas fa-globe"></i> Visit Website
+                </a>
+                {% endif %}
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="mb-8">
+            <h3 class="text-2xl mb-4">
+                <i class="fas fa-briefcase "></i> Services Offered
+            </h3>
+
+            {% if services_list %}
+            <div class="flex flex-wrap gap-2 card-services">
+                {% for service in services_list %}
+                <span class="inline-flex items-center badge">{{ service }}</span>
+                {% endfor %}
+            </div>
+            {% else %}
+            <p class="">No services listed yet.</p>
+            {% endif %}
+        </section>
     </div>
 </main>
 {% endblock content %}
