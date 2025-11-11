@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from .models import UserProfile
 from django.shortcuts import get_object_or_404
 from django.contrib import messages
 from .forms import UserProfileForm
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -52,3 +53,10 @@ def view_settings_page(request):
             # Context variable placeholder for the settings page view
         },
     )
+
+@login_required
+def delete_account(request):
+    user = request.user
+    user.delete()
+    messages.success(request, "Your account has been deleted successfully.")
+    return redirect("landing")
