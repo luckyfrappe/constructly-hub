@@ -3,70 +3,54 @@
 {% block content %}
 <main class="mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 overflow-x-hidden">
     <div class="my-4 card">
-        <a href="javascript:history.back()" class="my-button">Back</a>
-        <!-- Company Header -->
-        <div class="flex flex-col lg:items-center lg:justify-between mb-10 border-b pb-8">
-            <div class="flex flex-col md:flex-row md:items-center w-full">
-                {% if "placeholder" in company.logo.url %}
-                <img src="{% static 'images/company-placeholder.jpg' %}" alt="Company placeholder"
-                    class="h-100 w-full sm:w-1/2 object-cover rounded-lg mb-4 md:mb-0 md:mr-8" />
-                {% else %}
-                <img src="{{ company.logo.url }}" alt="{{ company.company_name }}"
-                    class="h-100 w-full sm:w-1/2 object-cover rounded-lg mb-4 md:mb-0 md:mr-8" />
-                {% endif %}
-                <div>
-                    <h1 class="text-5xl mb-2">{{ company.company_name }}</h1>
-                    <p class=" text-lg mb-1">
-                        <i class="fas fa-map-marker-alt "></i>
-                        {{ company.city }}, {{ company.country }}
-                    </p>
-                    <div class="relative mt-8 flex items-center gap-x-4">
-                        <img src="{{ company.owner.avatar.url }}" alt="" class="size-10 rounded-full " />
-                        <div class="text-sm/6">
-                            <p class=""><i class="fas fa-user"></i> {{ company.owner }}
-                            </p>
-                            <p><i class="fas fa-briefcase"></i> {{ company.role }}</p>
-                            <p><i class="fas fa-envelope"></i> {{ company.email }}</p>
-                        </div>
+        <!-- Profile template https://tailwindtemplates.io/templates?category=profile -->
+        <div class="mt-24">
+            <div class="grid grid-cols-1 md:grid-cols-3">
+                <div class="grid grid-cols-3 text-center order-last md:order-first mt-20 md:mt-0">
+                    <div>
+                        <p class="font-bold text-gray-700 text-xl">{{ user_profile.user.projects.all|length }}</p>
+                        <p class="text-gray-400">Projects</p>
                     </div>
+                    <div>
+                        <p class="font-bold text-gray-700 text-xl">{{ user_profile.user.bids.all|length }}</p>
+                        <p class="text-gray-400">Bids</p>
+                    </div>
+                    <div>
+                        <p class="font-bold text-gray-700 text-xl">{{ user_profile.user.companies.all|length }}</p>
+                        <p class="text-gray-400">Companies</p>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div
+                        class="w-48 h-48 bg-indigo-100 mx-auto rounded-full shadow-2xl absolute inset-x-0 top-0 -mt-24 flex items-center justify-center text-indigo-500">
+                        <img src="{{ user_profile.avatar.url }}" alt="User Avatar"
+                            class="rounded-full object-cover w-full h-full">
+                    </div>
+                </div>
+                <div class="space-x-8 flex justify-between mt-32 md:mt-0 md:justify-center"><button
+                        class="my-button !bg-red-500 !hover:bg-red-700 !text-white"><i class="fa fa-trash"></i>
+                        Delete account</button>
+                </div>
+            </div>
+            <div class="mt-20 text-center border-b pb-12">
+                <h1 class="text-4xl font-medium">{{ user_profile.full_name }}</h1>
+                <p class="mt-8 text-gray-500">{{ user_profile.display_email }}</p>
+                <p class="mt-2 text-gray-500">{{ user_profile.phone }}</p>
+            </div>
+            <div class="mt-12 flex flex-col justify-center">
+                <p class="text-gray-600 text-center font-light lg:px-16">{{ user_profile.bio }}</p>
+            </div>
+        </div>
+        <div class="mt-6 flex justify-between items-center">
+            <div class="space-x-3 flex mr-3">
+                <a href="javascript:history.back()" class="my-button !bg-gray-200 !hover:bg-gray-300"><i class="fa fa-arrow-left"></i> Back</a>
+                <a href="{{ settings_url }}" class="my-button"><i class="fa fa-pencil"></i> Edit</a>
+            </div>
+            <div>
+                <div>
+                    <p>Last updated: {{ user_profile.updated_on }}</p>
                 </div>
             </div>
         </div>
-
-        <!-- About Section -->
-        <section class="mb-10">
-            <h2 class="text-2xl   mb-4">
-                <i class="fas fa-info-circle "></i> About Us
-            </h2>
-            <div class="card-services">
-                <p class="leading-relaxed mb-4 break-words break-all">{{ company.description }}</p>
-                <p class=" leading-relaxed mb-6 break-words break-all">{{ company.full_description }}</p>
-
-                {% if company.website %}
-                <a href="{{ company.website }}" target="_blank" rel="noopener noreferrer"
-                    class="inline-flex items-center gap-2 transition my-button">
-                    <i class="fas fa-globe"></i> Visit Website
-                </a>
-                {% endif %}
-            </div>
-        </section>
-
-        <!-- Services Section -->
-        <section class="mb-8">
-            <h3 class="text-2xl mb-4">
-                <i class="fas fa-briefcase "></i> Services Offered
-            </h3>
-
-            {% if services_list %}
-            <div class="flex flex-wrap gap-2 card-services">
-                {% for service in services_list %}
-                <span class="inline-flex items-center badge">{{ service }}</span>
-                {% endfor %}
-            </div>
-            {% else %}
-            <p class="">No services listed yet.</p>
-            {% endif %}
-        </section>
-    </div>
 </main>
 {% endblock content %}

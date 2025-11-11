@@ -1,90 +1,122 @@
 {% extends "base.html" %}
 {% load static %}
+{% block extras_head %}
+<link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet" />
+<link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet" />
+{% endblock extras_head %}
 {% block content %}
-<main class="py-6">
-    <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
-        <div class="grid gap-6 lg:grid-cols-4 md:grid-cols-2">
-            <!-- Card 1: Create RFP -->
-            <div class="card relative lg:col-span-2">
-                <p class="mt-2 text-lg font-medium tracking-tight max-lg:text-center">
-                    Create RFP
-                </p>
-                <p class="mt-2 max-w-lg text-sm/6 max-lg:text-center">
-                    Create a project and start a new Request for Proposal for upcoming
-                    construction projects.
-                </p>
-                <img src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png" alt=""
-                    class="w-full max-lg:max-w-xs mt-2" />
+<main class="mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 overflow-x-hidden">
+    {% if user.is_authenticated %}
+    <form method="POST" class="mt-4 mb-4 card" id="createCompany" enctype="multipart/form-data">
+        <h1 class="text-2xl font-bold">Create Profile</h1>
+
+        <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+            <div class="sm:col-span-4">
+                <label for="full_name" class="block font-medium">Full Name<span
+                            class="text-red-400">*</span></label>
+                <input id="full_name" type="text" name="full_name" autofocus autocomplete="name"
+                    placeholder="e.g. John Doe" value="{{ user_profile.full_name }}"
+                    class="block mt-2 w-full grow bg-transparent py-1.5 pr-3 pl-1 sm:text-sm/6 {% if form.full_name.errors %}wrong-field{% endif %}" />
+                {% for error in form.full_name.errors %}
+                <p class="wrong-text mt-1">{{ error }}</p>
+                {% endfor %}
             </div>
 
-            <!-- Card 2: Active Projects -->
-            <div class="card relative">
-                <p class="mt-2 text-lg font-medium tracking-tight max-lg:text-center">
-                    Active Projects
-                </p>
-                <p class="mt-2 max-w-lg text-sm/6 max-lg:text-center">
-                    View all your ongoing construction projects in one place.
-                </p>
-                <img src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png" alt=""
-                    class="w-full max-lg:max-w-xs mt-2" />
+            <div class="sm:col-span-4">
+                <label for="display_email" class="block font-medium">Public Email<span
+                            class="text-red-400">*</span></label>
+                <input id="display_email" type="text" name="display_email" autocomplete="email" placeholder="e.g. john@example.com" value="{{ user_profile.display_email }}"
+                    class="block mt-2 w-full grow bg-transparent py-1.5 pr-3 pl-1 sm:text-sm/6 {% if form.display_email.errors %}wrong-field{% endif %}" />
+                {% for error in form.display_email.errors %}
+                <p class="wrong-text mt-1">{{ error }}</p>
+                {% endfor %}
             </div>
 
-            <!-- Card 3: Find RFPs -->
-            <div class="card relative lg:row-span-2">
-                <p class="mt-2 text-lg font-medium tracking-tight max-lg:text-center">
-                    Find RFPs
-                </p>
-                <p class="mt-2 max-w-lg text-sm/6 max-lg:text-center">
-                    Browse and bid on new Requests for Proposals from project owners.
-                </p>
-                <img src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png" alt=""
-                    class="w-full max-lg:max-w-xs mt-2" />
+            <div class="sm:col-span-4">
+                <label for="phone" class="block font-medium">Phone Number<span
+                            class="text-red-400">*</span></label>
+                <input id="phone" type="text" name="phone" autocomplete="tel" placeholder="e.g. +1234567890" value="{{ user_profile.phone }}" 
+                    class="block mt-2 w-full grow bg-transparent py-1.5 pr-3 pl-1 sm:text-sm/6 {% if form.phone.errors %}wrong-field{% endif %}" />
+                {% for error in form.phone.errors %}
+                <p class="wrong-text mt-1">{{ error }}</p>
+                {% endfor %}
             </div>
 
-            <!-- Card 4: Favorite Subcontractors -->
-            <div class="card relative lg:col-span-2 row-span-2">
-                <p class="mt-2 text-lg font-medium tracking-tight max-lg:text-center">
-                    Favorite Subcontractors
-                </p>
-                <p class="mt-2 max-w-lg text-sm/6 max-lg:text-center">
-                    Track all your favorite subcontractors in one place.
-                </p>
-                <img src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png" alt=""
-                    class="w-full max-lg:max-w-xs mt-2" />
+            <div class="col-span-full">
+                <label for="bio" class="block font-medium">Tell us about yourself<span
+                            class="text-red-400">*</span></label>
+                <div class="mt-2">
+                    <textarea id="bio" name="bio" rows="3" maxlength="1000"
+                        placeholder="Max length 1000 characters"
+                        class="block w-full rounded-md px-3 py-1.5 {% if form.bio.errors %}wrong-field{% endif %}">{{ user_profile.bio }}</textarea>
+                    {% for error in form.bio.errors %}
+                    <p class="wrong-text mt-1">{{ error }}</p>
+                    {% endfor %}
+                </div>
             </div>
 
-            <!-- Card 5: Active Bidding -->
-            <div class="card relative">
-                <p class="mt-2 text-lg font-medium tracking-tight max-lg:text-center">
-                    Active Bidding
-                </p>
-                <p class="mt-2 max-w-lg text-sm/6 max-lg:text-center">
-                    Browse and review all your active bids on RFPs.
-                </p>
-                <img src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png" alt=""
-                    class="w-full max-lg:max-w-xs mt-2" />
+            {% if user_profile.avatar %}
+            <div class="col-span-full flex justify-center items-center flex-col">
+                <p class="font-medium my-4">Current Avatar:</p>
+                <div class="w-32 h-32 bg-indigo-100 rounded-full shadow-2xl flex items-center justify-center text-indigo-500">
+                    <img src="{{ user_profile.avatar.url }}" alt="User Avatar" class="rounded-full object-cover w-full h-full">
+                </div>
             </div>
-
-            <!-- Card 6: Total Spend -->
-            <div class="card relative">
-                <p class="mt-2 text-lg font-medium tracking-tight max-lg:text-center">
-                    Total Spend
-                </p>
-                <p class="mt-2 max-w-lg text-sm/6 max-lg:text-center">$12,345.67</p>
-                <img src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png" alt=""
-                    class="w-full max-lg:max-w-xs mt-2" />
+            <div class="mt-2 col-span-full flex justify-center items-center">
+                <label class="inline-flex items-center">
+                    <p class="font-medium">Upload new avatar below: </p>
+                </label>
             </div>
+            {% endif %}
 
-            <!-- Card 7: Total Earned -->
-            <div class="card relative">
-                <p class="mt-2 text-lg font-medium tracking-tight max-lg:text-center">
-                    Total Earned
-                </p>
-                <p class="mt-2 max-w-lg text-sm/6 max-lg:text-center">$12,345.67</p>
-                <img src="https://tailwindcss.com/plus-assets/img/component-images/bento-03-performance.png" alt=""
-                    class="w-full max-lg:max-w-xs mt-2" />
+            <div class="col-span-full">
+                <h2 class="text-base/7 font-semibold">Avatar</h2>
+                <div
+                    class="mt-2 rounded-lg border p-2 {% if form.avatar.errors %}wrong-field{% else %}border-dashed{% endif %}">
+                    <input type="file" class="filepond" name="avatar" />
+                </div>
             </div>
         </div>
-    </div>
+
+        {% csrf_token %}
+        <div class="mt-6 flex items-center justify-end gap-x-3">
+            <a href="{{ profile_url }}" class="my-button !bg-gray-200 !hover:bg-gray-300"><i class="fa fa-times"></i> Back</a>
+            <button type="submit" class="my-button"><i class="fa fa-save"></i> Save</button>
+        </div>
+    </form>
+    {% endif %}
 </main>
 {% endblock content %}
+
+{% block extras %}
+<script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+<script
+    src="https://unpkg.com/filepond-plugin-image-exif-orientation/dist/filepond-plugin-image-exif-orientation.js"></script>
+<script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
+<script src="https://unpkg.com/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.js"></script>
+<script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+
+
+<script>
+    FilePond.registerPlugin(
+        FilePondPluginImagePreview,
+        FilePondPluginImageExifOrientation,
+        FilePondPluginFileValidateSize,
+        FilePondPluginFileValidateType
+    );
+
+    const inputElement = document.querySelector('.filepond');
+
+    if (inputElement) {
+        FilePond.create(inputElement, {
+            allowMultiple: false,
+            maxFileSize: '3MB',
+            acceptedFileTypes: ['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'image/heic', 'image/jpg', 'image/heif'],
+            labelFileTypeNotAllowed: 'Only JPEG, PNG, WebP, GIF, HEIC, JPG or HEIF images are allowed',
+            fileValidateTypeLabelExpectedTypes: 'Expected {allButLastType} or {lastType}',
+            labelIdle: 'Drag & Drop your company logo or <span class="filepond--label-action">Browse</span>',
+            storeAsFile: true
+        });
+    }
+</script>
+{% endblock %}

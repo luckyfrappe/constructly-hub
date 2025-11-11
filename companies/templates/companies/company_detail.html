@@ -28,12 +28,12 @@
                         {{ company.city }}, {{ company.country }}
                     </p>
                     <div class="relative mt-8 flex items-center gap-x-4">
-                        <img src="{{ company.owner.avatar.url }}" alt="" class="size-10 rounded-full " />
+                        <img src="{{ company.owner.userprofile.avatar.url }}" alt="" class="size-10 rounded-full object-cover" />
                         <div class="text-sm/6">
                             <p class=""><i class="fas fa-user"></i> {{ company.owner }}
                             </p>
                             <p><i class="fas fa-briefcase"></i> {{ company.role }}</p>
-                            <p><i class="fas fa-envelope"></i> {{ company.email }}</p>
+                            <p><i class="fas fa-envelope"></i> {{ company.owner.userprofile.display_email }}</p>
                         </div>
                     </div>
                 </div>

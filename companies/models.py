@@ -6,7 +6,7 @@ from cloudinary.models import CloudinaryField
 # Create your models here.
 
 class Company(models.Model):
-    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name="companies")
     company_name = models.CharField(max_length=255, unique=True)
     slug = models.SlugField(max_length=255, unique=True)
     description = models.TextField(max_length=500)

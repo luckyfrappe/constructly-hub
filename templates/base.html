@@ -52,11 +52,9 @@
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 items-center justify-between">
           <div class="flex items-center">
-            <div class="shrink-0">
-              <a href="{% if user.is_authenticated %}{{ insights_url }}{% else %}{{ landing_url }}{% endif %}"
-                id="logo"><img src="{% static 'images/design/favicon/android-chrome-512x512.png' %}" alt="Company Logo"
-                  class="size-8" /></a>
-            </div>
+            <a href="{% if user.is_authenticated %}{{ insights_url }}{% else %}{{ landing_url }}{% endif %}"
+              id="logo"><img src="{% static 'images/design/favicon/android-chrome-512x512.png' %}" alt="Company Logo"
+                class="size-8 hover:opacity-80 transition-opacity" /></a>
             <div class="hidden md:block">
               <div class="ml-10 flex items-baseline space-x-4">
                 {% if user.is_authenticated and request.path != landing_url and request.path != features_url %}
@@ -84,15 +82,15 @@
                     <div>
                       <a href="{% url 'user_companies' %}"
                         class="block px-4 py-2 text-sm focus:bg-white/5 focus:text-white focus:outline-hidden {% if request.path == user_companies_url %}current"
-                  aria-current="page{% endif %}">My
+                        aria-current="page{% endif %}">My
                         Companies</a>
                       <a href="{% url 'companies' %}"
                         class="block px-4 py-2 text-sm focus:bg-white/5 focus:text-white focus:outline-hidden {% if request.path == companies_url %}current"
-                  aria-current="page{% endif %}">All
+                        aria-current="page{% endif %}">All
                         Companies</a>
                       <a href="{% url 'create_company' %}"
                         class="block px-4 py-2 text-sm focus:bg-white/5 focus:text-white focus:outline-hidden {% if request.path == create_company_url %}current"
-                  aria-current="page{% endif %}">Create
+                        aria-current="page{% endif %}">Create
                         Company</a>
                     </div>
                   </el-menu>
@@ -118,8 +116,13 @@
               <button class="rounded-md">
                 <span class="absolute -inset-1.5"></span>
                 <span class="sr-only">Open user menu</span>
+                {% if user.userprofile.avatar == default_avatar %}
                 <img src="{% static 'images/profilepic.jpeg' %}" alt="Profile Picture"
-                  class="size-8 rounded-full outline -outline-offset-1 outline-white/10" />
+                  class="size-10 rounded-full object-cover" />
+                {% else %}
+                <img src="{{ user.userprofile.avatar.url }}" alt="Profile Picture"
+                  class="size-10 rounded-full object-cover" />
+                {% endif %}
               </button>
 
               <el-menu anchor="bottom end" popover
@@ -282,54 +285,39 @@
   <footer>
     <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 py-8">
       <div class="sm:flex sm:items-center sm:justify-between">
-        <ul class="flex flex-wrap justify-center gap-6 text-xs lg:justify-end">
-          <li>
-            <p>&copy; 2025. Constructly Hub. All rights reserved.</p>
-          </li>
-          <li>
-            <a href="#"> Terms & Conditions </a>
-          </li>
+          <p>&copy; 2025. Constructly Hub. All rights reserved.</p>
 
-          <li>
-            <a href="#"> Privacy Policy </a>
-          </li>
+          <ul class="mt-8 flex justify-center gap-6 sm:mt-0 lg:justify-end">
+            <li>
+              <a href="https://www.facebook.com/" rel="noopener noreferrer" target="_blank">
+                <i class="fab fa-facebook-f" aria-label="Facebook, opens in a new tab"></i>
+              </a>
+            </li>
 
-          <li>
-            <a href="#"> Cookies </a>
-          </li>
-        </ul>
+            <li>
+              <a href="https://www.instagram.com/" rel="noopener noreferrer" target="_blank">
+                <i class="fab fa-instagram" aria-label="Instagram, opens in a new tab"></i>
+              </a>
+            </li>
 
-        <ul class="mt-8 flex justify-center gap-6 sm:mt-0 lg:justify-end">
-          <li>
-            <a href="https://www.facebook.com/" rel="noopener noreferrer" target="_blank">
-              <i class="fab fa-facebook-f" aria-label="Facebook, opens in a new tab"></i>
-            </a>
-          </li>
+            <li>
+              <a href="#" rel="noopener noreferrer" target="_blank">
+                <i class="fab fa-x-twitter" aria-label="X, opens in a new tab"></i>
+              </a>
+            </li>
 
-          <li>
-            <a href="https://www.instagram.com/" rel="noopener noreferrer" target="_blank">
-              <i class="fab fa-instagram" aria-label="Instagram, opens in a new tab"></i>
-            </a>
-          </li>
+            <li>
+              <a href="https://github.com/luckyfrappe/constructly-hub" rel="noopener noreferrer" target="_blank">
+                <i class="fab fa-github" aria-label="GitHub, opens in a new tab"></i>
+              </a>
+            </li>
 
-          <li>
-            <a href="#" rel="noopener noreferrer" target="_blank">
-              <i class="fab fa-x-twitter" aria-label="X, opens in a new tab"></i>
-            </a>
-          </li>
-
-          <li>
-            <a href="https://github.com/luckyfrappe/constructly-hub" rel="noopener noreferrer" target="_blank">
-              <i class="fab fa-github" aria-label="GitHub, opens in a new tab"></i>
-            </a>
-          </li>
-
-          <li>
-            <a href="https://www.linkedin.com/" rel="noopener noreferrer" target="_blank">
-              <i class="fab fa-linkedin-in" aria-label="Linkedin, opens in a new tab"></i>
-            </a>
-          </li>
-        </ul>
+            <li>
+              <a href="https://www.linkedin.com/" rel="noopener noreferrer" target="_blank">
+                <i class="fab fa-linkedin-in" aria-label="Linkedin, opens in a new tab"></i>
+              </a>
+            </li>
+          </ul>
       </div>
     </div>
   </footer>

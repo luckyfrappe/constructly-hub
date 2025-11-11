@@ -216,6 +216,7 @@ See **[TESTING.md](TESTING.md)** for test cases, known issues, and resolved bugs
 ## Credits
 
 See **[Unicons](https://iconscout.com/contributors/unicons)** Company logo.
+<!-- Profile template https://tailwindtemplates.io/templates?category=profile -->
 
 ### Code Used
 

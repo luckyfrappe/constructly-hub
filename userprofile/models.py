@@ -5,12 +5,12 @@ from cloudinary.models import CloudinaryField
 # Create your models here.
 
 class UserProfile(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    full_name = models.CharField(max_length=255, blank=True, null=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="userprofile")
+    full_name = models.CharField(max_length=255)
     avatar = CloudinaryField('image', default='default_avatar')
-    display_email = models.EmailField(blank=True, null=True)
-    phone = models.CharField(max_length=20, blank=True, null=True)
-    bio = models.TextField(max_length=1000, blank=True, null=True)
+    display_email = models.EmailField(max_length=255, unique=True, default='')
+    phone = models.CharField(max_length=20, default='')
+    bio = models.TextField(max_length=1000, default='')
     updated_on = models.DateTimeField(auto_now=True)
 
     class Meta:
