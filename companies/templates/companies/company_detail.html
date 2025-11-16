@@ -9,8 +9,8 @@
 {% block content %}
 
 <main class="mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 overflow-x-hidden">
-    <div class="my-4 card">
-        <a href="javascript:history.back()" class="my-button">Back</a>
+    <div class="my-4 card flex flex-col p-6">
+        <a href="javascript:history.back()" class="my-button mb-4 w-22">Back</a>
         <!-- Company Header -->
         <div class="flex flex-col lg:items-center lg:justify-between mb-10 border-b pb-8">
             <div class="flex flex-col md:flex-row md:items-center w-full">
@@ -28,7 +28,12 @@
                         {{ company.city }}, {{ company.country }}
                     </p>
                     <div class="relative mt-8 flex items-center gap-x-4">
+                        {% if company.owner.userprofile.avatar.public_id == "default_avatar" or not company.owner.userprofile.avatar %}
+                        <img src="{% static 'images/profile.png' %}" alt=""
+                            class="size-10 rounded-full bg-gray-700" />
+                        {% else %}
                         <img src="{{ company.owner.userprofile.avatar.url }}" alt="" class="size-10 rounded-full object-cover" />
+                        {% endif %}
                         <div class="text-sm/6">
                             <p class=""><i class="fas fa-user"></i> {{ company.owner }}
                             </p>

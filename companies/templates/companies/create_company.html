@@ -6,7 +6,7 @@
 {% endblock extras_head %}
 {% block content %}
 <main class="mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 overflow-x-hidden">
-    {% if user.is_authenticated %}
+    {% if user.is_authenticated and user.userprofile %}
     <form method="POST" class="mt-4 mb-4 card" id="createCompany" enctype="multipart/form-data">
         <h1 class="text-2xl font-bold">Create Company</h1>
         <p class="mt-4">This information will be displayed publicly so be careful what
@@ -15,7 +15,7 @@
         <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
             <div class="sm:col-span-4">
                 <label for="company_name" class="block font-medium">Company Name <span
-                            class="text-red-400">*</span></label>
+                        class="text-red-400">*</span></label>
                 <input id="company_name" type="text" name="company_name" autofocus autocomplete="organization"
                     placeholder="e.g. Groundwork Solutions Ltd."
                     class="block mt-2 w-full grow bg-transparent py-1.5 pr-3 pl-1 sm:text-sm/6 {% if form.company_name.errors %}wrong-field{% endif %}" />
@@ -26,7 +26,7 @@
 
             <div class="sm:col-span-4">
                 <label for="role" class="block font-medium">Your role at the company <span
-                            class="text-red-400">*</span></label>
+                        class="text-red-400">*</span></label>
                 <input id="role" type="text" name="role" autocomplete="role" placeholder="e.g. Owner, Manager, Director"
                     class="block mt-2 w-full grow bg-transparent py-1.5 pr-3 pl-1 sm:text-sm/6 {% if form.role.errors %}wrong-field{% endif %}" />
                 {% for error in form.role.errors %}
@@ -36,7 +36,7 @@
 
             <div class="col-span-full">
                 <label for="description" class="block font-medium">Short description <span
-                            class="text-red-400">*</span></label>
+                        class="text-red-400">*</span></label>
                 <div class="mt-2">
                     <textarea id="description" name="description" rows="3" maxlength="500"
                         placeholder="Max length 500 characters"
@@ -127,6 +127,11 @@
             <button type="submit" class="my-button"><i class="fa fa-save"></i> Save</button>
         </div>
     </form>
+    {% else %}
+    <div class="mt-10 flex flex-col items-center">
+        <p class="mt-4">You need to update your profile to create a company.</p>
+        <a href="{{ settings_url }}" class="my-button mt-4">Go to Settings</a>
+    </div>
     {% endif %}
 </main>
 {% endblock content %}

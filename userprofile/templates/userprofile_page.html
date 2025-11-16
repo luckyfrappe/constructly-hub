@@ -23,8 +23,14 @@
                 <div class="relative">
                     <div
                         class="w-48 h-48 bg-indigo-100 mx-auto rounded-full shadow-2xl absolute inset-x-0 top-0 -mt-24 flex items-center justify-center text-indigo-500">
+
+                        {% if user_profile.avatar.public_id == "default_avatar" %}
+                        <img src="{% static 'images/profile.png' %}" alt="User Avatar"
+                            class="rounded-full object-cover w-full h-full">
+                        {% else %}
                         <img src="{{ user_profile.avatar.url }}" alt="User Avatar"
                             class="rounded-full object-cover w-full h-full">
+                        {% endif %}
                     </div>
                 </div>
                 <div class="space-x-8 flex justify-between mt-32 md:mt-0 md:justify-center"><button class="btn-delete"

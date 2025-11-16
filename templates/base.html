@@ -3,7 +3,6 @@
 {% url 'account_login' as signin_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as signout_url %}
-{% url 'features' as features_url %}
 {% url 'user_companies' as user_companies_url %}
 {% url 'companies' as companies_url %}
 {% url 'create_company' as create_company_url %}
@@ -57,7 +56,7 @@
                 class="size-8 hover:opacity-80 transition-opacity" /></a>
             <div class="hidden md:block">
               <div class="ml-10 flex items-baseline space-x-4">
-                {% if user.is_authenticated and request.path != landing_url and request.path != features_url %}
+                {% if user.is_authenticated and request.path != landing_url %}
                 <a href="{{ insights_url }}"
                   class="rounded-md px-3 py-2 text-sm {% if request.path == insights_url %}current"
                   aria-current="page{% endif %}">Insights</a>
@@ -99,9 +98,6 @@
                 <a href="{{ landing_url }}"
                   class="rounded-md px-3 py-2 text-sm {% if request.path == landing_url %}current"
                   aria-current="page{% endif %}">Home</a>
-                <a href="{{ features_url }}"
-                  class="rounded-md px-3 py-2 text-sm {% if request.path == features_url %}current"
-                  aria-current="page{% endif %}">Features</a>
                 <a href="{{ companies_url }}"
                   class="rounded-md px-3 py-2 text-sm {% if request.path == companies_url %}current"
                   aria-current="page{% endif %}">Companies</a>
@@ -116,8 +112,8 @@
               <button class="rounded-md">
                 <span class="absolute -inset-1.5"></span>
                 <span class="sr-only">Open user menu</span>
-                {% if user.userprofile.avatar == default_avatar %}
-                <img src="{% static 'images/profilepic.jpeg' %}" alt="Profile Picture"
+                {% if user.userprofile.avatar.public_id == "default_avatar" or not user.userprofile.avatar %}
+                <img src="{% static 'images/profile.png' %}" alt="Profile Picture"
                   class="size-10 rounded-full object-cover" />
                 {% else %}
                 <img src="{{ user.userprofile.avatar.url }}" alt="Profile Picture"
@@ -129,7 +125,7 @@
                 class="w-56 origin-top-right rounded-md dropdown bg-gray-800 outline-1 -outline-offset-1 outline-white/10 transition transition-discrete [--anchor-gap:--spacing(2)] data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in">
                 <a href="{{ profile_url }}" class="block px-4 py-2 text-sm {% if request.path == profile_url %}current"
                   aria-current="page{% endif %}">Your Profile</a>
-                {% if request.path == landing_url or request.path == features_url %}
+                {% if request.path == landing_url %}
                 <a href="{{ insights_url }}" class="block px-4 py-2 text-sm">Enter Portal</a>
                 {% endif %}
                 <a href="{{ settings_url }}"
@@ -167,7 +163,7 @@
 
       <el-disclosure id="mobile-menu" hidden class="block md:hidden">
         <div class="space-y-1 px-2 pt-2 pb-3 sm:px-3">
-          {% if user.is_authenticated and request.path != landing_url and request.path != features_url %}
+          {% if user.is_authenticated and request.path != landing_url %}
           <a href="{{ insights_url }}"
             class="block rounded-md px-3 py-2 text-base font-medium {% if request.path == insights_url %}current"
             aria-current="page{% endif %}">Insights</a>
@@ -202,10 +198,6 @@
           <a href="{{ landing_url }}"
             class="block rounded-md px-3 py-2 text-base font-medium {% if request.path == landing_url %}current"
             aria-current="page{% endif %}">Home</a>
-          <a href="{{ features_url }}"
-            class="block rounded-md px-3 py-2 text-base font-medium {% if request.path == features_url %}current"
-            aria-current="page{% endif %}">Features</a>
-
           <a href="{{ companies_url }}"
             class="block rounded-md px-3 py-2 text-base font-medium {% if request.path == companies_url %}current"
             aria-current="page{% endif %}">Companies</a>
@@ -215,7 +207,7 @@
         <div class="border-t border-white/10 pt-4 pb-3">
           <div class="flex items-center px-5">
             <div class="shrink-0">
-              <img src="{% static 'images/profilepic.jpeg' %}" alt="Profile Picture"
+              <img src="{% static 'images/profile.png' %}" alt="Profile Picture"
                 class="size-10 rounded-full outline -outline-offset-1 outline-white/10" />
             </div>
             <div class="ml-3">
@@ -228,7 +220,7 @@
             <a href="{{ profile_url }}"
               class="block rounded-md px-3 py-2 text-base font-medium hover:bg-white/5 hover:text-white {% if request.path == profile_url %}current"
               aria-current="page{% endif %}">Your Profile</a>
-            {% if request.path == landing_url or request.path == features_url %}
+            {% if request.path == landing_url %}
             <a href="{{ insights_url }}"
               class="block rounded-md px-3 py-2 text-base font-medium hover:bg-white/5 hover:text-white">Enter
               Portal</a>

@@ -1,8 +1,13 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-<main class="mx-auto max-w-8xl">
+<main class="mx-auto max-w-8xl {% if companies.count == 0 %} flex flex-col items-center{% endif %}">
     <h1 class="text-2xl font-bold px-4 pt-4">Your Companies</h1>
+    {% if companies.count == 0 %}
+        <p>You haven't added any companies yet.</p>
+        <a href="{{ create_company_url }}"
+           class="my-button mt-4">Add Your First Company</a>
+    {% endif %}
     <div class="flex justify-center">
         <div class="p-4 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-10 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             {% for company in companies %}
