@@ -12,16 +12,20 @@ def view_userprofile_page(request):
     """
     Display the user profiles page.
     """
-    user_profile = get_object_or_404(UserProfile, user=request.user)
+    user_profile = UserProfile.objects.filter(user=request.user).first()
 
-    return render(
-        request,
-        "userprofile_page.html",
-        {
-            "user_profile": user_profile
-            # Context variable placeholder for the user profiles page view
-        },
-    )
+    if user_profile is None:
+        messages.info(request, "Please update your profile.")
+        return HttpResponseRedirect(reverse("settings"))
+    else:
+        return render(
+            request,
+            "userprofile_page.html",
+            {
+                "user_profile": user_profile
+                # Context variable placeholder for the user profiles page view
+            },
+        )
 
 def view_settings_page(request):
     """

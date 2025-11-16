@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-<main class="mx-auto max-w-8xl {% if companies.count == 0 %} flex flex-col items-center{% endif %}">
+<main class="mx-auto max-w-8xl">
     <h1 class="text-2xl font-bold px-4 pt-4">Your Companies</h1>
     {% if companies.count == 0 %}
         <p>You haven't added any companies yet.</p>
@@ -25,26 +25,65 @@
     {% endif %}
     <div class="flex flex-col flex-grow p-4 justify-between">
         <div>
-            <div class="flex items-center gap-x-4 text-xs text-gray-400">
+            <div class="flex items-center gap-x-4 text-xs">
                 <p><i class="fas fa-map-marker-alt"></i> {{ company.city }}, {{ company.country }}</p>
             </div>
 
             <h3 class="mt-3 text-lg font-semibold text-white group-hover:text-gray-300">
                 {{ company.company_name }}
             </h3>
-            <p class="mt-2 line-clamp-3 text-sm text-gray-400">{{ company.description }}</p>
+            <p class="mt-2 line-clamp-3 text-sm">{{ company.description }}</p>
         </div>
         <div class="mt-4 flex items-center gap-x-4 pt-4 border-t border-white/10">
-            <img src="{{ company.owner.avatar.url }}" alt=""
+            {% if company.owner.userprofile.avatar.public_id == "default_avatar" or not company.owner.userprofile.avatar %}
+            <img src="{% static 'images/profile.png' %}" alt=""
                  class="size-10 rounded-full bg-gray-700" />
+            {% else %}
+            <img src="{{ company.owner.userprofile.avatar.url }}" alt=""
+                 class="size-10 rounded-full bg-gray-700" />
+            {% endif %}
             <div class="text-sm">
                 <p class="font-semibold text-white">{{ company.owner }}</p>
-                <p class="text-gray-400">{{ company.role }}</p>
+                <p >{{ company.role }}</p>
             </div>
         </div>
     </div>
 </a>
             {% endfor %}
+            <!-- Add New Company Card, builded with help from Chat GPT -->
+            <a href="{{ create_company_url }}"
+   class="flex flex-col justify-between max-w-xl company-card transition rounded-lg overflow-hidden bg-gray-800/30 hover:bg-gray-800/50 border border-dashed border-white/20">
+    <div class="flex items-center justify-center !h-90 w-full bg-gray-900/40">
+        <i class="fas fa-plus text-4xl"></i>
+    </div>
+
+    <div class="flex flex-col flex-grow p-4 justify-between">
+        <div>
+            <div class="flex items-center gap-x-4 text-xs">
+                <p><i class="fas fa-building"></i> Create a new company</p>
+            </div>
+
+            <h3 class="mt-3 text-lg font-semibold text-white group-hover:text-gray-300">
+                Add your next company
+            </h3>
+            <p class="mt-2 line-clamp-3 text-sm">
+                Showcase another business, manage projects, and get discovered by contractors.
+            </p>
+        </div>
+
+        <div class="mt-4 flex items-center gap-x-4 pt-4 border-t border-white/10">
+            <div
+                class="size-10 rounded-full bg-gray-700 flex items-center justify-center text-gray-300 text-lg">
+                <i class="fas fa-plus"></i>
+            </div>
+            <div class="text-sm">
+                <p class="font-semibold text-white">Add Company</p>
+                <p >Create a new profile</p>
+            </div>
+        </div>
+    </div>
+</a>
+
         </div>
     </div>
     {% if is_paginated %}
