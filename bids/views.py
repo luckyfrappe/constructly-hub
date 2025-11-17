@@ -1,28 +1,17 @@
-from django.shortcuts import get_object_or_404, redirect, render
+from django.shortcuts import get_object_or_404, redirect
+from django.views import generic
 from .models import Bid
 
 # Create your views here.
+class UserBidsListView(generic.ListView):
+    template_name = "bids/bids_page.html"
+    context_object_name = "bids"
+    paginate_by = 9
 
-def view_bids_page(request):
-    """
-    Display the bids page.
-
-    **Context**
-
-    ``request``
-        The HTTP request object.
-
-    **Template:**
-
-    :template:`bids_page.html`
-    """
-    return render(
-        request,
-        "bids_page.html",
-        {
-            # Context variable placeholder for the bids page view
-        },
-    )
+    def get_queryset(self):
+        return Bid.objects.filter(
+            company__owner=self.request.user
+        ).order_by("-created_on")
 
 def select_bid(request, bid_id):
     project = get_object_or_404(Bid, pk=bid_id).project

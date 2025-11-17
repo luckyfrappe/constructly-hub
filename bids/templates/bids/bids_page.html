@@ -1,36 +1,46 @@
-{% extends "base.html" %} {% load static %} {% block content %}
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
 <main class="py-6">
   <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
     <div class="rounded-lg card">
-      {% for project in projects %}
+        <h1 class="text-2xl font-bold tracking-tight mb-4 lg:text-3xl lg:mb-6">
+            Your Bids ({{ page_obj.paginator.count }})
+        </h1>
+      {% if bids|length == 0 %}
+      <p class="text-center py-10 italic">You have not placed any bids yet.</p>
+      {% endif %}
+      {% for bid in bids %}
       <a
-        href="{% url 'project_detail' project.pk %}"
+        href="{% url 'project_detail' bid.project.pk %}"
         class="flex justify-between p-2 min-h-16 project-card lg:p-4"
       >
         <div class="flex flex-col justify-between mr-4">
           <h1 class="font-bold tracking-tight">
-            {{ project.title }}, <i class="fas fa-map-marker-alt"></i> {{ project.location }}
+            {{ bid.project.title }}, <i class="fas fa-map-marker-alt"></i> {{ bid.project.location }}
           </h1>
           <p class="mt-2 text-sm">
-            <i class="fas fa-euro-sign"></i> {{ project.budget }}
+            <i class="fas fa-euro-sign"></i> {{ bid.price_offer }}
           </p>
         </div>
         <div class="flex flex-col justify-between items-end">
           <h1 class="font-bold tracking-tight">
-            {% if project.status == "open" %}<i class="fas fa-lock-open"></i>{% else %}
-            <i class="fas fa-lock"></i>{% endif %} {{ project.status }}
+            {% if bid.project.status == "open" %}<i class="fas fa-lock-open"></i>{% else %}
+            <i class="fas fa-lock"></i>{% endif %} {{ bid.project.status }}
           </h1>
           <p class="mt-2 text-sm text-right italic">
-            Deadline: {{ project.deadline }}
+            Deadline: {{ bid.project.deadline }}
           </p>
-          {% if project.client == request.user and project.bids.exists %}
           <p class="text-sm">
-            Bids:
-            {% for bid in project.bids.all %}
-            {% if not forloop.first %}, {% endif %} <span class="font-semibold">{{ bid.price_offer }}€</span>
-            {% endfor %}
-          </p>
-          {% endif %}
+                        Status:
+                        {% if bid.status == "pending" %}
+                            <span class="text-yellow-400 font-semibold">Pending</span>
+                        {% elif bid.status == "accepted" %}
+                            <span class="text-green-400 font-semibold">Accepted</span>
+                        {% else %}
+                            <span class="text-red-400 font-semibold">Rejected</span>
+                        {% endif %}
+            </p>
         </div>
       </a>
       {% endfor %} {% if is_paginated %}

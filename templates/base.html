@@ -9,7 +9,6 @@
 {% url 'user_companies' as user_companies_url %}
 {% url 'companies' as companies_url %}
 {% url 'create_company' as create_company_url %}
-{% url 'insights' as insights_url %}
 {% url 'bids' as bids_url %}
 {% url 'userprofile' as profile_url %}
 {% url 'settings' as settings_url %}
@@ -53,15 +52,12 @@
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 items-center justify-between">
           <div class="flex items-center">
-            <a href="{% if user.is_authenticated %}{{ insights_url }}{% else %}{{ landing_url }}{% endif %}"
+            <a href="{% if user.is_authenticated %}{{ companies_url }}{% else %}{{ landing_url }}{% endif %}"
               id="logo"><img src="{% static 'images/design/favicon/android-chrome-512x512.png' %}" alt="Company Logo"
                 class="size-8 hover:opacity-80 transition-opacity" /></a>
             <div class="hidden md:block">
               <div class="ml-10 flex items-baseline space-x-4">
                 {% if user.is_authenticated and request.path != landing_url %}
-                <a href="{{ insights_url }}"
-                  class="rounded-md px-3 py-2 text-sm {% if request.path == insights_url %}current"
-                  aria-current="page{% endif %}">Insights</a>
                   <el-dropdown class="inline-block">
                   <button
                     class="inline-flex w-full justify-center gap-x-1.5 rounded-md px-3 py-2 text-sm {% if request.path == projects_url or request.path == user_projects_url or request.path == create_project_url %}current{% endif %}">
@@ -154,7 +150,7 @@
                 <a href="{{ profile_url }}" class="block px-4 py-2 text-sm {% if request.path == profile_url %}current"
                   aria-current="page{% endif %}">Your Profile</a>
                 {% if request.path == landing_url %}
-                <a href="{{ insights_url }}" class="block px-4 py-2 text-sm">Enter Portal</a>
+                <a href="{{ companies_url }}" class="block px-4 py-2 text-sm">Enter Portal</a>
                 {% endif %}
                 <a href="{{ settings_url }}"
                   class="block px-4 py-2 text-sm {% if request.path == settings_url %}current"
@@ -192,9 +188,6 @@
       <el-disclosure id="mobile-menu" hidden class="block md:hidden">
         <div class="space-y-1 px-2 pt-2 pb-3 sm:px-3">
           {% if user.is_authenticated and request.path != landing_url %}
-          <a href="{{ insights_url }}"
-            class="block rounded-md px-3 py-2 text-base font-medium {% if request.path == insights_url %}current"
-            aria-current="page{% endif %}">Insights</a>
           <button type="button" command="--toggle" commandfor="projects"
             class="flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base hover:bg-white/5 font-medium {% if request.path == projects_url or request.path == user_projects_url or request.path == create_project_url %}current {% endif %}">
             Projects
@@ -267,7 +260,7 @@
               class="block rounded-md px-3 py-2 text-base font-medium hover:bg-white/5 hover:text-white {% if request.path == profile_url %}current"
               aria-current="page{% endif %}">Your Profile</a>
             {% if request.path == landing_url %}
-            <a href="{{ insights_url }}"
+            <a href="{{ companies_url }}"
               class="block rounded-md px-3 py-2 text-base font-medium hover:bg-white/5 hover:text-white">Enter
               Portal</a>
             {% endif %}
