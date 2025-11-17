@@ -52,7 +52,6 @@ INSTALLED_APPS = [
     'companies',
     'projects',
     'bids',
-    'insights',
     'userprofile',
 ]
 

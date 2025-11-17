@@ -102,9 +102,6 @@ def delete_company(request, company_id, slug):
     :template:`companies/company_detail.html`
     """
 
-    queryset = Company.objects.all()
-    company = get_object_or_404(queryset, pk=company_id)
-
     company = get_object_or_404(Company, pk=company_id, slug=slug)
     if company.owner == request.user:
         company.delete()

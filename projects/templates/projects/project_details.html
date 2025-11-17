@@ -106,8 +106,8 @@
                     <i class="fas fa-building"></i> View Company
                     </a>
 
-                    {% if bid.status != "accepted" %}
-                    <a href="#" 
+                    {% if bid.project.status != "completed" %}
+                    <a href="{% url 'select_bid' bid.id %}" data-bid_id="{{ bid.id }}" data-bid_id="{{ bid.id }}"
                     class="normal-button w-full sm:w-auto text-center bg-lime-600 hover:bg-lime-700">
                     <i class="fas fa-check-circle"></i> Select Bid
                     </a>

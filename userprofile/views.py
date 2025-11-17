@@ -5,6 +5,7 @@ from .models import UserProfile
 from django.contrib import messages
 from .forms import UserProfileForm
 from django.contrib.auth.decorators import login_required
+from bids.models import Bid
 
 # Create your views here.
 def view_userprofile_page(request):
@@ -12,6 +13,9 @@ def view_userprofile_page(request):
     Display the user profiles page.
     """
     user_profile = UserProfile.objects.filter(user=request.user).first()
+
+    user_projects = user_profile.user.projects.all()
+    total_bids = Bid.objects.filter(project__in=user_projects).count()
 
     if user_profile is None:
         messages.error(request, "Please update your profile.")
@@ -21,8 +25,8 @@ def view_userprofile_page(request):
             request,
             "userprofile_page.html",
             {
-                "user_profile": user_profile
-                # Context variable placeholder for the user profiles page view
+                "user_profile": user_profile,
+                "total_bids": total_bids,
             },
         )
 
