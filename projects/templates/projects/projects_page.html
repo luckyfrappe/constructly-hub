@@ -5,7 +5,7 @@
     <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
         <div class="rounded-lg card">
             {% for project in projects %}
-            <a href="#" class="flex justify-between p-2 min-h-16 project-card lg:p-4">
+            <a href="{% url 'project_detail' project.pk %}" class="flex justify-between p-2 min-h-16 project-card lg:p-4">
                 <div class="flex flex-col justify-between mr-4">
                     <h1 class="font-bold tracking-tight">{{ project.title }}, <i class="fas fa-map-marker-alt"></i> {{ project.location }}</h1>
                     <p class="mt-2 text-sm"><i class="fas fa-euro-sign"></i> {{ project.budget }}</p>

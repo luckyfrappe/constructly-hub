@@ -1,3 +1,4 @@
+from django.utils import timezone
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -13,7 +14,6 @@ class Project(models.Model):
         ('completed', 'Completed'),
     ], default='open')
     created_on = models.DateTimeField(auto_now_add=True)
-    updated_on = models.DateTimeField(auto_now=True)
     deadline = models.DateField()
 
     class Meta:

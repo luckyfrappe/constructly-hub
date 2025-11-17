@@ -181,6 +181,21 @@ p {
     opacity 0.2s;
 }
 
+.normal-button {
+  background-color: var(--color-light-gray);
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  transition:
+    background-color 0.2s,
+    opacity 0.2s;
+}
+
+.normal-button:hover {
+  background-color: var(--color-lighter-gray);
+  opacity: var(--hover-opacity);
+  cursor: pointer;
+}
+
 button {
   padding: 0.5rem;
 }
@@ -272,6 +287,11 @@ main.hero {
   border-radius: var(--border-radius);
   background-color: var(--color-lighter-gray);
   cursor: pointer;
+}
+
+.bid-card:hover {
+  border-radius: var(--border-radius);
+  background-color: var(--color-lighter-gray);
 }
 
 .badge {
