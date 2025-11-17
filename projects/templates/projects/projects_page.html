@@ -1,73 +1,116 @@
-{% extends "base.html" %}
-{% load static %}
-{% block content %}
+{% extends "base.html" %} {% load static %} {% block content %}
 <main class="py-6">
-    <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
-        <div class="rounded-lg card">
-            {% for project in projects %}
-            <a href="{% url 'project_detail' project.pk %}" class="flex justify-between p-2 min-h-16 project-card lg:p-4">
-                <div class="flex flex-col justify-between mr-4">
-                    <h1 class="font-bold tracking-tight">{{ project.title }}, <i class="fas fa-map-marker-alt"></i> {{ project.location }}</h1>
-                    <p class="mt-2 text-sm"><i class="fas fa-euro-sign"></i> {{ project.budget }}</p>
-                </div>
-                <div class="flex flex-col justify-between items-end">
-                    <h1 class="font-bold tracking-tight">{% if project.status == "open" %}<i class="fas fa-lock-open"></i>{% else %}<i class="fas fa-lock"></i>{% endif %} {{ project.status }}</h1>
-                    <p class="mt-2 text-sm text-right italic">Deadline: {{ project.deadline }}</p>
-                </div>
-            </a>
-            {% endfor %}
-            {% if is_paginated %}
-    <div class="sm:flex sm:flex-1 sm:items-center sm:justify-between mx-4 mb-4 mt-14">
+  <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+    <div class="rounded-lg card">
+      {% for project in projects %}
+      <a
+        href="{% url 'project_detail' project.pk %}"
+        class="flex justify-between p-2 min-h-16 project-card lg:p-4"
+      >
+        <div class="flex flex-col justify-between mr-4">
+          <h1 class="font-bold tracking-tight">
+            {{ project.title }}, <i class="fas fa-map-marker-alt"></i> {{ project.location }}
+          </h1>
+          <p class="mt-2 text-sm">
+            <i class="fas fa-euro-sign"></i> {{ project.budget }}
+          </p>
+        </div>
+        <div class="flex flex-col justify-between items-end">
+          <h1 class="font-bold tracking-tight">
+            {% if project.status == "open" %}<i class="fas fa-lock-open"></i>{% else %}
+            <i class="fas fa-lock"></i>{% endif %} {{ project.status }}
+          </h1>
+          <p class="mt-2 text-sm text-right italic">
+            Deadline: {{ project.deadline }}
+          </p>
+        </div>
+      </a>
+      {% endfor %} {% if is_paginated %}
+      <div
+        class="sm:flex sm:flex-1 sm:items-center sm:justify-between mx-4 mb-4 mt-14"
+      >
         <div class="hidden lg:block">
-            <p>
-                Showing {{ page_obj.start_index }} to {{ page_obj.end_index }} of {{ page_obj.paginator.count }} results
-            </p>
+          <p>
+            Showing {{ page_obj.start_index }} to {{ page_obj.end_index }} of {{ page_obj.paginator.count }} results
+          </p>
         </div>
         <div>
-            <nav aria-label="Pagination" class="inline-flex pages -space-x-px rounded-md shadow-xs dark:shadow-none">
-                {% if page_obj.has_previous %}
-                <a href="?page={{ page_obj.previous_page_number }}"
-                    class="inline-flex items-center rounded-l-md px-2 py-2">
-                    <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="size-5">
-                        <path
-                            d="M11.78 5.22a.75.75 0 0 1 0 1.06L8.06 10l3.72 3.72a.75.75 0 1 1-1.06 1.06l-4.25-4.25a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 0 1 1.06 0Z"
-                            clip-rule="evenodd" fill-rule="evenodd" />
-                    </svg>
-                    Previous
-                </a>
-                {% endif %}
-                {% comment %} Display page numbers dynamically based on the current page {% endcomment %}
-                {% for num in page_obj.paginator.page_range %}
-                    {% if num >= page_obj.number|add:'-2' and num <= page_obj.number|add:'2' %}
-                        {% if num == page_obj.number %}
-                            <a href="#" aria-current="page"
-                                class="relative z-10 inline-flex items-center px-4 py-2 current-page">{{ num }}</a>
-                        {% else %}
-                            <a href="?page={{ num }}"
-                                class="relative inline-flex items-center px-4 py-2 ">{{ num }}</a>
-                        {% endif %}
-                    {% elif num == 1 or num == page_obj.paginator.num_pages %}
-                        <a href="?page={{ num }}" class="relative inline-flex items-center px-4 py-2">{{ num }}</a>
-                    {% elif num == page_obj.number|add:'-3' or num == page_obj.number|add:'3' %}
-                        <span class="relative inline-flex items-center px-4 py-2">...</span>
-                    {% endif %}
-                {% endfor %}
-                    {% if page_obj.has_next %}
-                <a href="?page={{ page_obj.next_page_number }}"
-                    class="relative inline-flex items-center rounded-r-md px-2 py-2">
-                    <span>Next</span>
-                    <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="size-5">
-                        <path
-                            d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"
-                            clip-rule="evenodd" fill-rule="evenodd" />
-                    </svg>
-                </a>
-                {% endif %}
-            </nav>
+          <nav
+            aria-label="Pagination"
+            class="inline-flex pages -space-x-px rounded-md shadow-xs dark:shadow-none"
+          >
+            {% if page_obj.has_previous %}
+            <a
+              href="?page={{ page_obj.previous_page_number }}"
+              class="inline-flex items-center rounded-l-md px-2 py-2"
+            >
+              <svg
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                data-slot="icon"
+                aria-hidden="true"
+                class="size-5"
+              >
+                <path
+                  d="M11.78 5.22a.75.75 0 0 1 0 1.06L8.06 10l3.72 3.72a.75.75 0 1 1-1.06 1.06l-4.25-4.25a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 0 1 1.06 0Z"
+                  clip-rule="evenodd"
+                  fill-rule="evenodd"
+                />
+              </svg>
+              Previous
+            </a>
+            {% endif %} 
+            {% comment %} Display page numbers dynamically based on the current page {% endcomment %} 
+            {% for num in page_obj.paginator.page_range %} 
+            {% if num >= page_obj.number|add:'-2' and num <= page_obj.number|add:'2' %} 
+            {% if num == page_obj.number %}
+            <a
+              href="#"
+              aria-current="page"
+              class="relative z-10 inline-flex items-center px-4 py-2 current-page"
+              >{{ num }}</a
+            >
+            {% else %}
+            <a
+              href="?page={{ num }}"
+              class="relative inline-flex items-center px-4 py-2"
+              >{{ num }}</a
+            >
+            {% endif %} 
+            {% elif num == 1 or num == page_obj.paginator.num_pages %}
+            <a
+              href="?page={{ num }}"
+              class="relative inline-flex items-center px-4 py-2"
+              >{{ num }}</a
+            >
+            {% elif num == page_obj.number|add:'-3' or num == page_obj.number|add:'3' %}
+            <span class="relative inline-flex items-center px-4 py-2">...</span>
+            {% endif %} {% endfor %} {% if page_obj.has_next %}
+            <a
+              href="?page={{ page_obj.next_page_number }}"
+              class="relative inline-flex items-center rounded-r-md px-2 py-2"
+            >
+              <span>Next</span>
+              <svg
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                data-slot="icon"
+                aria-hidden="true"
+                class="size-5"
+              >
+                <path
+                  d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"
+                  clip-rule="evenodd"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </a>
+            {% endif %}
+          </nav>
         </div>
+      </div>
+      {% endif %}
     </div>
-    {% endif %}
-        </div>
-    </div>
+  </div>
 </main>
 {% endblock content %}

@@ -53,72 +53,216 @@
         </div>
 
         {% if project.client == user %}
-        <h2 class="text-2xl mb-4">
-                <i class="fas fa-gavel"></i> Bids Received
+        <h2 class="text-2xl font-semibold mb-4 flex items-center gap-2">
+            <i class="fas fa-gavel"></i>
+            Bids Received
         </h2>
-        <div class="mb-10 card">
-            <!-- single bid card -->
-            <div class="bid-card p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
 
-                <!-- left side -->
-                <div class="flex-1">
-                    <p><i class="fas fa-info-circle"></i> Bid 1</p>
-                    <p class="text-base/7 whitespace-pre-line">{{ project.description }}</p>
+        <div class="card divide-y divide-gray-700/40">
+            {% for bid in bids %}
+            <div class="p-5 flex flex-col sm:flex-row sm:justify-between sm:items-start gap-6 rounded-lg bid-card">
+
+                <!-- Left side -->
+                <div class="flex-1 space-y-2">
+                    <p class="font-semibold text-lg flex items-center gap-2">
+                        <i class="fas fa-building"></i>
+                        {{ bid.company.company_name }}
+                    </p>
+
+                    <p class="text-sm mb-4">
+                        {{ bid.created_on|date:"M d, Y H:i" }}
+                    </p>
+
+                    <p class="text-base font-medium">
+                        <i class="fas fa-euro-sign"></i> {{ bid.price_offer }}
+                    </p>
+
+                    <p class="text-base font-medium">
+                        <i class="fas fa-hourglass-half"></i> Estimated duration: {{ bid.duration }} days
+                    </p>
+
+                    {% if bid.message %}
+                    <div class="p-3 rounded-md text-sm italic">
+                        {{ bid.message }}
+                    </div>
+                    {% endif %}
+
+                    <p class="text-sm">
+                        Status:
+                        {% if bid.status == "pending" %}
+                            <span class="text-yellow-400 font-semibold">Pending</span>
+                        {% elif bid.status == "accepted" %}
+                            <span class="text-green-400 font-semibold">Accepted</span>
+                        {% else %}
+                            <span class="text-red-400 font-semibold">Rejected</span>
+                        {% endif %}
+                    </p>
                 </div>
 
-                <!-- right side buttons -->
-                <div class="flex gap-2 w-full sm:w-auto justify-start sm:justify-end">
-                    <a href="" class="normal-button sm:w-auto text-center">View Company</a>
-                    <a href="" class="normal-button sm:w-auto text-center">Select Bid</a>
+                <!-- Right side buttons -->
+                <div class="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
+                    <a href="{% url 'company_detail' bid.company.slug %}"
+                    class="normal-button w-full sm:w-auto text-center">
+                    <i class="fas fa-building"></i> View Company
+                    </a>
+
+                    {% if bid.status != "accepted" %}
+                    <a href="#" 
+                    class="normal-button w-full sm:w-auto text-center bg-lime-600 hover:bg-lime-700">
+                    <i class="fas fa-check-circle"></i> Select Bid
+                    </a>
+                    {% endif %}
                 </div>
+
             </div>
+            {% empty %}
+            <p class="text-center py-10 text-gray-400">No bids received yet.</p>
+            {% endfor %}
         </div>
         {% endif %}
 
-        {% if project.client != user and project.status == "open" %}
-    <h2 class="text-2xl mb-4">
-        <i class="fas fa-gavel"></i> Place Your Bid
-    </h2>
+            {% if user_bids %}
+        <h2 class="text-2xl font-semibold mb-4 flex items-center gap-2">
+            <i class="fas fa-gavel"></i>
+            Your Bids
+        </h2>
 
-    <div class="mb-10 card p-4">
+        <div class="card divide-y divide-gray-700/40 mb-10">
+            {% for bid in user_bids %}
+            <div class="p-5 flex flex-col sm:flex-row sm:justify-between sm:items-start gap-6 rounded-lg bid-card">
 
-        <!-- Bid form -->
-        <form method="POST" class="flex flex-col gap-4">
-            {% csrf_token %}
+                <!-- Left side -->
+                <div class="flex-1 space-y-2">
+                    <p class="font-semibold text-lg flex items-center gap-2">
+                        <i class="fas fa-building"></i>
+                        {{ bid.company.company_name }}
+                    </p>
 
-            <!-- price -->
-            <div>
-                <label for="price" class="block font-medium">Your Offer (€)</label>
-                <input
-                    id="price"
-                    type="number"
-                    name="price"
-                    class="mt-1 w-full rounded-md py-1.5 px-3 bg-transparent border"
-                    placeholder="e.g. 25000"
-                    required
-                >
+                    <p class="text-sm mb-4">
+                        {{ bid.created_on|date:"M d, Y H:i" }}
+                    </p>
+
+                    <p class="text-base font-medium">
+                        <i class="fas fa-euro-sign"></i> {{ bid.price_offer }}
+                    </p>
+
+                    <p class="text-base font-medium">
+                        <i class="fas fa-hourglass-half"></i> Estimated duration: {{ bid.duration }} days
+                    </p>
+
+                    {% if bid.message %}
+                    <div class="p-3 rounded-md text-sm italic">
+                        {{ bid.message }}
+                    </div>
+                    {% endif %}
+
+                    <p class="text-sm">
+                        Status:
+                        {% if bid.status == "pending" %}
+                            <span class="text-yellow-400 font-semibold">Pending</span>
+                        {% elif bid.status == "accepted" %}
+                            <span class="text-green-400 font-semibold">Accepted</span>
+                        {% else %}
+                            <span class="text-red-400 font-semibold">Rejected</span>
+                        {% endif %}
+                    </p>
+                </div>
+
+                <!-- Right side buttons -->
+                <div class="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
+                    <a href="{% url 'company_detail' bid.company.slug %}"
+                    class="normal-button w-full sm:w-auto text-center">
+                    <i class="fas fa-building"></i> View Company
+                    </a>
+                </div>
             </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% if project.client != user and project.status == "open" and user.companies.exists %}
+        <h2 class="text-2xl mb-4">
+            <i class="fas fa-gavel"></i> Place Your Bid
+        </h2>
 
-            <!-- message -->
-            <div>
-                <label for="message" class="block font-medium">Message (Optional)</label>
-                <textarea
-                    id="message"
-                    name="message"
-                    rows="3"
-                    class="mt-1 w-full rounded-md py-1.5 px-3 bg-transparent border"
-                    placeholder="Describe your offer..."
-                ></textarea>
-            </div>
+        <div class="mb-10 card p-4">
+            <form method="POST" class="flex flex-col gap-4">
+                {% csrf_token %}
 
-            <!-- submit -->
-            <button type="submit" class="my-button w-full sm:w-auto">
-                Submit Bid
-            </button>
-        </form>
+                <!-- price -->
+                <div>
+                    <label for="price_offer" class="block font-medium">Your Offer (€) <span class="text-red-500">*</span></label>
+                    <input
+                        id="price_offer"
+                        type="number"
+                        name="price_offer"
+                        class="mt-1 w-full rounded-md py-1.5 px-3 border {% if bid_form.price_offer.errors %}border-red-500{% endif %}"
+                        placeholder="e.g. 50000"
+                        required
+                    >
+                    {% if bid_form.price_offer.errors %}
+                        <p class="text-red-500 text-sm mt-1">{{ bid_form.price_offer.errors.0 }}</p>
+                    {% endif %}
+                </div>
 
+                <div>
+                    <label for="duration" class="block font-medium">Estimated Duration (days) <span class="text-red-500">*</span></label>
+                    <input
+                        id="duration"
+                        type="number"
+                        name="duration"
+                        class="mt-1 w-full rounded-md py-1.5 px-3 border {% if bid_form.duration.errors %}border-red-500{% endif %}"
+                        placeholder="e.g. 30"
+                        required
+                    >
+                    {% if bid_form.duration.errors %}
+                        <p class="text-red-500 text-sm mt-1">{{ bid_form.duration.errors.0 }}</p>
+                    {% endif %}
+                </div>
+
+                <div>
+                    <label for="company" class="block font-medium">Bid as: <span class="text-red-500">*</span></label>
+                    <select
+                        id="company"
+                        name="company"
+                        class="mt-1 w-full rounded-md py-1.5 px-3 border {% if bid_form.company.errors %}border-red-500{% endif %}"
+                        required
+                    >
+                        {% for company in user.companies.all %}
+                            <option value="{{ company.pk }}">{{ company.company_name }}</option>
+                        {% endfor %}
+                    </select>
+                    {% if bid_form.company.errors %}
+                        <p class="text-red-500 text-sm mt-1">{{ bid_form.company.errors.0 }}</p>
+                    {% endif %}
+                </div>
+
+                <!-- message -->
+                <div>
+                    <label for="message" class="block font-medium">Message (Optional)</label>
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows="3"
+                        class="mt-1 w-full rounded-md py-1.5 px-3 bg-transparent border"
+                        placeholder="Describe your offer..."
+                    ></textarea>
+                </div>
+
+                <!-- submit -->
+                <button type="submit" class="my-button w-full sm:w-auto">
+                    Submit Bid
+                </button>
+            </form>
+        </div>
     </div>
-{% endif %}
+    {% endif %}
+    {% if not user.companies.exists and project.client != user and project.status == "open" %}
+    <div class="my-4 p-6 text-center">
+        <p class="mb-4">You need to create a company profile to place a bid on this project.</p>
+        <a href="{% url 'create_company' %}" class="normal-button inline-block">
+            <i class="fas fa-building"></i> Create Company Profile
+        </a>
     </div>
+    {% endif %}
 </main>
 {% endblock content %}

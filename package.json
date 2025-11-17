@@ -25,6 +25,8 @@
     "jest-environment-jsdom": "^30.1.2",
     "postcss": "^8.5.6",
     "prettier": "^3.6.2",
+    "prettier-plugin-django": "^0.5.18",
+    "prettier-plugin-tailwindcss": "^0.7.1",
     "tailwindcss": "^4.1.16"
   },
   "dependencies": {

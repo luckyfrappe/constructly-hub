@@ -7,6 +7,8 @@ from django.utils import timezone
 from companies.forms import CreateCompanyForm
 from projects.forms import CreateProjectForm
 from .models import Project
+from bids.models import Bid
+from bids.forms import CreateBidForm
 
 # Create your views here.
 
@@ -54,7 +56,7 @@ def view_create_project_page(request):
     """
     if request.method == "POST":
         form = CreateProjectForm(request.POST, request.FILES)
-        if form.is_valid() and request.user.is_authenticated:
+        if form.is_valid():
             if form.cleaned_data['deadline'] < timezone.now().date() + timezone.timedelta(days=1):
                 messages.add_message(request, messages.ERROR, "Deadline must be in the future.")
                 return render(request, "projects/create_project.html", {"form": form,})
@@ -88,18 +90,24 @@ def project_detail(request, pk):
     project = get_object_or_404(queryset, pk=pk)
 
     if request.method == "POST":
-        form = CreateProjectForm(request.POST, request.FILES, instance=project)
-        if form.is_valid() and project.client == request.user:
-            project = form.save(commit=False)
-            project.save()
-            messages.add_message(request, messages.SUCCESS, f"'{project.title}' updated successfully!")
-            return redirect("project-detail", pk=project.pk)
+        bid_form = CreateBidForm(request.POST)
+        if bid_form.is_valid() and request.user.is_authenticated:
+            bid = bid_form.save(commit=False)
+            bid.project = project
+            bid.company_id = request.POST.get("company")
+            bid.save()
+            messages.add_message(request, messages.SUCCESS, "Bid submitted successfully!")
+            return redirect("project_detail", pk=project.pk)
         else:
-            messages.add_message(request, messages.ERROR, 'Please correct the errors and try again.')
+            messages.add_message(request, messages.ERROR, "Please correct the errors and try again.")
             return render(
                 request,
                 "projects/project_details.html",
-                {"project": project, "form": form}
+                {"project": project, "bid_form": bid_form},
             )
+     
+    bid_form = CreateBidForm()
+    bids = Bid.objects.filter(project=project).order_by("-created_on")
+    user_bids = bids.filter(company__owner=request.user) if request.user.is_authenticated else Bid.objects.none()
 
-    return render(request, "projects/project_details.html", {"project": project})
+    return render(request, "projects/project_details.html", {"project": project, "bids": bids, "bid_form": bid_form, "user_bids": user_bids})
