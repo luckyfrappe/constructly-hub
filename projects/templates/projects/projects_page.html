@@ -7,12 +7,12 @@
             {% for project in projects %}
             <a href="#" class="flex justify-between p-2 min-h-16 project-card lg:p-4">
                 <div class="flex flex-col justify-between mr-4">
-                    <h1 class="font-bold tracking-tight">Title, Location</h1>
-                    <p class="mt-2 text-sm">Budget</p>
+                    <h1 class="font-bold tracking-tight">{{ project.title }}, <i class="fas fa-map-marker-alt"></i> {{ project.location }}</h1>
+                    <p class="mt-2 text-sm"><i class="fas fa-euro-sign"></i> {{ project.budget }}</p>
                 </div>
                 <div class="flex flex-col justify-between items-end">
-                    <h1 class="font-bold tracking-tight">Status</h1>
-                    <p class="mt-2 text-sm text-right italic">Created 2025-09-01</p>
+                    <h1 class="font-bold tracking-tight">{% if project.status == "open" %}<i class="fas fa-lock-open"></i>{% else %}<i class="fas fa-lock"></i>{% endif %} {{ project.status }}</h1>
+                    <p class="mt-2 text-sm text-right italic">Deadline: {{ project.deadline }}</p>
                 </div>
             </a>
             {% endfor %}

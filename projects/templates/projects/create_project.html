@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<main class="mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 overflow-x-hidden">
+    <form method="POST" class="mt-4 mb-4 card" id="createProject">
+        <h1 class="text-2xl font-bold">Create Project</h1>
+        <p class="mt-4">This information will be displayed publicly so be careful what
+            you share.</p>
+
+        <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+            <div class="sm:col-span-4">
+                <label for="title" class="block font-medium">Project Title <span
+                        class="text-red-400">*</span></label>
+                <input id="title" type="text" name="title" autofocus autocomplete="organization"
+                    placeholder="e.g. Residential Renovation"
+                    class="block mt-2 w-full grow bg-transparent py-1.5 pr-3 pl-1 sm:text-sm/6 {% if form.title.errors %}wrong-field{% endif %}" />
+                {% for error in form.title.errors %}
+                <p class="wrong-text mt-1">{{ error }}</p>
+                {% endfor %}
+            </div>
+
+            <div class="sm:col-span-4">
+                <label for="location" class="block font-medium">Project Location <span
+                        class="text-red-400">*</span></label>
+                <input id="location" type="text" name="location" autofocus autocomplete="organization"
+                    placeholder="e.g. Residential Renovation"
+                    class="block mt-2 w-full grow bg-transparent py-1.5 pr-3 pl-1 sm:text-sm/6 {% if form.location.errors %}wrong-field{% endif %}" />
+                {% for error in form.location.errors %}
+                <p class="wrong-text mt-1">{{ error }}</p>
+                {% endfor %}
+            </div>
+
+            <div class="col-span-full">
+                <label for="description" class="block font-medium">Project Description <span
+                        class="text-red-400">*</span></label>
+                <div class="mt-2">
+                    <textarea id="description" name="description" rows="3" maxlength="1000"
+                        placeholder="Max length 1000 characters"
+                        class="block w-full rounded-md px-3 py-1.5 {% if form.description.errors %}wrong-field{% endif %}"></textarea>
+                    {% for error in form.description.errors %}
+                    <p class="wrong-text mt-1">{{ error }}</p>
+                    {% endfor %}
+                    <p class="mt-3 text-sm/6">e.g. Full renovation including flooring, painting, and plumbing.</p>
+                </div>
+            </div>
+            <div class="sm:col-span-2">
+                <label for="budget" class="block font-medium">Budget (€) <span
+                        class="text-red-400">*</span></label>
+                <input id="budget" type="number" name="budget" autofocus autocomplete="organization"
+                    placeholder="e.g. 50000"
+                    class="block mt-2 w-full grow bg-transparent py-1.5 pr-3 pl-1 sm:text-sm/6 {% if form.budget.errors %}wrong-field{% endif %}" />
+                {% for error in form.budget.errors %}
+                <p class="wrong-text mt-1">{{ error }}</p>
+                {% endfor %}
+            </div>
+            <div class="sm:col-span-2">
+                <label for="deadline" class="block font-medium">Deadline <span
+                        class="text-red-400">*</span></label>
+                <input id="deadline" type="date" name="deadline" autofocus autocomplete="organization"
+                    class="block mt-2 w-full grow bg-transparent py-1.5 pr-3 pl-1 sm:text-sm/6 {% if form.deadline.errors %}wrong-field{% endif %}" />
+                {% for error in form.deadline.errors %}
+                <p class="wrong-text mt-1">{{ error }}</p>
+                {% endfor %}
+            </div>
+        </div>
+        {% csrf_token %}
+        <div class="mt-6 flex items-center justify-end gap-x-3">
+            <a href="javascript:history.back()" class="btn-cancel"><i class="fa fa-times"></i> Cancel</a>
+            <button type="submit" class="my-button"><i class="fa fa-save"></i> Save</button>
+        </div>
+    </form>
+</main>
+{% endblock content %}
