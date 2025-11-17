@@ -240,7 +240,7 @@ main.hero {
   box-shadow:
     0 1px 3px rgba(0, 0, 0, 0.1),
     0 1px 2px rgba(0, 0, 0, 0.06);
-  padding: 1rem;
+  padding: 11px;
   transition: box-shadow 0.2s;
 }
 
@@ -251,10 +251,6 @@ main.hero {
     0 1px 3px rgba(0, 0, 0, 0.1),
     0 1px 2px rgba(0, 0, 0, 0.06);
   transition: box-shadow 0.2s;
-}
-
-.company-card>img {
-  height: 400px;
 }
 
 .company-card:hover {
@@ -270,6 +266,12 @@ main.hero {
   padding: 1rem;
   transition: box-shadow 0.2s;
   border-radius: var(--border-radius);
+}
+
+.project-card:hover {
+  border-radius: var(--border-radius);
+  background-color: var(--color-lighter-gray);
+  cursor: pointer;
 }
 
 .badge {

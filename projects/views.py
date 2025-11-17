@@ -1,24 +1,11 @@
 from django.shortcuts import render
+from django.views import generic
+from .models import Project
 
 # Create your views here.
 
-def view_projects_page(request):
-    """
-    Display the projects page.
-
-    **Context**
-
-    ``request``
-        The HTTP request object.
-
-    **Template:**
-
-    :template:`projects_page.html`
-    """
-    return render(
-        request,
-        "projects_page.html",
-        {
-            # Context variable placeholder for the projects page view
-        },
-    )
+class ProjectListView(generic.ListView):
+    queryset = Project.objects.order_by("-created_on")
+    template_name = "projects/projects_page.html"
+    context_object_name = "projects"
+    paginate_by = 9

@@ -2,7 +2,6 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
 from django.urls import reverse
 from .models import UserProfile
-from django.shortcuts import get_object_or_404
 from django.contrib import messages
 from .forms import UserProfileForm
 from django.contrib.auth.decorators import login_required
@@ -15,7 +14,7 @@ def view_userprofile_page(request):
     user_profile = UserProfile.objects.filter(user=request.user).first()
 
     if user_profile is None:
-        messages.info(request, "Please update your profile.")
+        messages.error(request, "Please update your profile.")
         return HttpResponseRedirect(reverse("settings"))
     else:
         return render(

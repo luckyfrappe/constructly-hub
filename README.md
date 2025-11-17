@@ -85,6 +85,9 @@ See in PDF format **[Sitemap and User Flow Manifest](documentation/flowcharts/lo
 <!-- Sign In -->
 ![alt text](documentation/wireframes/companies-all.png "Browse all companies")
 
+<!-- Projects -->
+![alt text](documentation/wireframes/projects.png "Browse all projects")
+
 ---
 
 ## Features

@@ -6,11 +6,6 @@
   <div class="max-w-2xl">
     <!-- Change to blog section if created -->
     <div class="hidden sm:mb-8 sm:flex sm:justify-center">
-      <div class="relative rounded-full px-3 py-1 text-sm/6 ring-1 second-text">
-        Exciting updates are coming soon.
-        <a href="https://www.constructionnews.co.uk/" target="_blank" rel="noopener noreferrer" class="special"><span aria-hidden="true" class="absolute inset-0"></span>Stay
-          tuned <span aria-hidden="true">&rarr;</span></a>
-      </div>
     </div>
     <div class="text-center">
       <h1 class="text-5xl tracking-tight text-balance sm:text-7xl">
@@ -22,8 +17,7 @@
         in one place.
       </p>
       <div class="mt-10 flex items-center justify-center gap-x-6">
-        <a href="{% if user.is_authenticated %}{{ insights_url }}{% else %}{{ signin_url }}{% endif %}" class="my-button">Get started</a>
-        <a href="{{ features_url }}" class="text-sm/6 second-text">Learn more <span aria-hidden="true">→</span></a>
+        <a href="{% if user.is_authenticated %}{{ insights_url }}{% else %}{{ signin_url }}{% endif %}" class="mt-10 my-button">Get started</a>
       </div>
     </div>
   </div>
