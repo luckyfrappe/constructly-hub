@@ -246,8 +246,13 @@
         <div class="border-t border-white/10 pt-4 pb-3">
           <div class="flex items-center px-5">
             <div class="shrink-0">
-              <img src="{% static 'images/profile.png' %}" alt="Profile Picture"
-                class="size-10 rounded-full outline -outline-offset-1 outline-white/10" />
+              {% if user.userprofile.avatar.public_id == "default_avatar" or not user.userprofile.avatar %}
+                <img src="{% static 'images/profile.png' %}" alt="Profile Picture"
+                  class="size-10 rounded-full object-cover" />
+                {% else %}
+                <img src="{{ user.userprofile.avatar.url }}" alt="Profile Picture"
+                  class="size-10 rounded-full object-cover" />
+                {% endif %}
             </div>
             <div class="ml-3">
               <div class="text-base/5 font-medium">{% if user.is_authenticated %}{{ user.get_full_name }}{% endif %}
