@@ -289,7 +289,7 @@
                                     </div>
                                     <div
                                         class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 dark:bg-gray-700/25">
-                                        <a href="#" command="close" commandfor="deleteDialog" id="deleteConfirm"
+                                        <a href="{% url 'delete_company' company.slug company.id %}" command="close" commandfor="deleteDialog" id="deleteCompany"
                                             class="inline-flex w-full justify-center text-sm font-semibold sm:ml-3 sm:w-auto btn-delete-confirm">Delete</a>
                                         <button type="button" command="close" commandfor="deleteDialog"
                                             class="mt-3 inline-flex w-full justify-center text-sm font-semibold inset-ring sm:mt-0 sm:w-auto btn-cancel">Cancel</button>
