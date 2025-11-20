@@ -11,9 +11,9 @@
             <div class="sm:col-span-4">
                 <label for="title" class="block font-medium">Project Title <span
                         class="text-red-400">*</span></label>
-                <input id="title" type="text" name="title" autofocus autocomplete="organization"
+                <input id="title" type="text" name="title" autofocus
                     placeholder="e.g. Residential Renovation"
-                    class="block mt-2 w-full grow bg-transparent py-1.5 pr-3 pl-1 sm:text-sm/6 {% if form.title.errors %}wrong-field{% endif %}" />
+                    class="block mt-2 w-full grow bg-transparent py-1.5 pr-3 pl-1 sm:text-sm/6 {% if form.title.errors %}wrong-field{% endif %}" >
                 {% for error in form.title.errors %}
                 <p class="wrong-text mt-1">{{ error }}</p>
                 {% endfor %}
@@ -22,9 +22,9 @@
             <div class="sm:col-span-4">
                 <label for="location" class="block font-medium">Project Location <span
                         class="text-red-400">*</span></label>
-                <input id="location" type="text" name="location" autofocus autocomplete="organization"
+                <input id="location" type="text" name="location"
                     placeholder="e.g. Residential Renovation"
-                    class="block mt-2 w-full grow bg-transparent py-1.5 pr-3 pl-1 sm:text-sm/6 {% if form.location.errors %}wrong-field{% endif %}" />
+                    class="block mt-2 w-full grow bg-transparent py-1.5 pr-3 pl-1 sm:text-sm/6 {% if form.location.errors %}wrong-field{% endif %}" >
                 {% for error in form.location.errors %}
                 <p class="wrong-text mt-1">{{ error }}</p>
                 {% endfor %}
@@ -46,9 +46,9 @@
             <div class="sm:col-span-2">
                 <label for="budget" class="block font-medium">Budget (€) <span
                         class="text-red-400">*</span></label>
-                <input id="budget" type="number" name="budget" autofocus autocomplete="organization"
+                <input id="budget" type="number" name="budget"
                     placeholder="e.g. 50000"
-                    class="block mt-2 w-full grow bg-transparent py-1.5 pr-3 pl-1 sm:text-sm/6 {% if form.budget.errors %}wrong-field{% endif %}" />
+                    class="block mt-2 w-full grow bg-transparent py-1.5 pr-3 pl-1 sm:text-sm/6 {% if form.budget.errors %}wrong-field{% endif %}" >
                 {% for error in form.budget.errors %}
                 <p class="wrong-text mt-1">{{ error }}</p>
                 {% endfor %}
@@ -56,8 +56,8 @@
             <div class="sm:col-span-2">
                 <label for="deadline" class="block font-medium">Deadline <span
                         class="text-red-400">*</span></label>
-                <input id="deadline" type="date" name="deadline" autofocus autocomplete="organization"
-                    class="block mt-2 w-full grow bg-transparent py-1.5 pr-3 pl-1 sm:text-sm/6 {% if form.deadline.errors %}wrong-field{% endif %}" />
+                <input id="deadline" type="date" name="deadline"
+                    class="block mt-2 w-full grow bg-transparent py-1.5 pr-3 pl-1 sm:text-sm/6 {% if form.deadline.errors %}wrong-field{% endif %}" >
                 {% for error in form.deadline.errors %}
                 <p class="wrong-text mt-1">{{ error }}</p>
                 {% endfor %}

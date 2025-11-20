@@ -21,16 +21,18 @@
   <!-- Signup Form -->
   <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
     <form action="{% url 'account_signup' %}" method="POST" class="space-y-6">
-      {% csrf_token %}
-      {% if form.non_field_errors %}
+      {% csrf_token %} {% if form.non_field_errors %}
       <div class="text-red-600 text-sm">
         {% for error in form.non_field_errors %}
         <p>{{ error }}</p>
         {% endfor %}
       </div>
-      {% endif %}
-      {% if redirect_field_value %}
-      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+      {% endif %} {% if redirect_field_value %}
+      <input
+        type="hidden"
+        name="{{ redirect_field_name }}"
+        value="{{ redirect_field_value }}"
+      >
       {% endif %}
 
       <!-- Username -->
@@ -39,8 +41,14 @@
           {% trans "Username" %} <span class="text-red-400">*</span>
         </label>
         <div class="mt-2">
-          <input id="username" name="username" type="text" required autocomplete="username" class="block w-full rounded-md border px-3 py-2 text-sm
-         {% if form.username.errors %}wrong-field{% endif %}" />
+          <input
+            id="username"
+            name="username"
+            type="text"
+            required
+            autocomplete="username"
+            class="block w-full rounded-md border px-3 py-2 text-sm {% if form.username.errors %}wrong-field{% endif %}"
+          >
           {% for error in form.username.errors %}
           <p class="wrong-text mt-1">{{ error }}</p>
           {% endfor %}
@@ -53,7 +61,14 @@
           {% trans "Email" %} <span class="text-red-400">*</span>
         </label>
         <div class="mt-2">
-          <input id="email" name="email" type="email" required autocomplete="email" class="block w-full rounded-md border px-3 py-2 text-sm" />
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            autocomplete="email"
+            class="block w-full rounded-md border px-3 py-2 text-sm {% if form.email.errors %}wrong-field{% endif %}"
+          >
           {% for error in form.email.errors %}
           <p class="wrong-text mt-1">{{ error }}</p>
           {% endfor %}
@@ -65,18 +80,27 @@
         <div class="mt-4 mb-8 space-y-3">
           <div class="password-rules rounded-xl p-3">
             <!-- Rule 1 -->
-            <div class="flex items-start gap-x-3 p-2 rounded-lg current-active transition-colors">
-              <div class="flex items-center justify-center w-11 h-11 rounded-md light-gray flex-none">
+            <div
+              class="flex items-start gap-x-3 p-2 rounded-lg current-active transition-colors"
+            >
+              <div
+                class="flex items-center justify-center w-11 h-11 rounded-md light-gray flex-none"
+              >
                 <i class="fa-solid fa-user-shield text-lg"></i>
               </div>
               <p class="text-sm leading-6 second-text">
-                Your password can’t be too similar to your other personal information.
+                Your password can’t be too similar to your other personal
+                information.
               </p>
             </div>
 
             <!-- Rule 2 -->
-            <div class="flex items-start gap-x-3 p-2 rounded-lg current-active transition-colors">
-              <div class="flex items-center justify-center w-11 h-11 rounded-md light-gray flex-none">
+            <div
+              class="flex items-start gap-x-3 p-2 rounded-lg current-active transition-colors"
+            >
+              <div
+                class="flex items-center justify-center w-11 h-11 rounded-md light-gray flex-none"
+              >
                 <i class="fa-solid fa-key text-lg"></i>
               </div>
               <p class="text-sm leading-6 second-text">
@@ -85,8 +109,12 @@
             </div>
 
             <!-- Rule 3 -->
-            <div class="flex items-start gap-x-3 p-2 rounded-lg current-active transition-colors">
-              <div class="flex items-center justify-center w-11 h-11 rounded-md light-gray flex-none">
+            <div
+              class="flex items-start gap-x-3 p-2 rounded-lg current-active transition-colors"
+            >
+              <div
+                class="flex items-center justify-center w-11 h-11 rounded-md light-gray flex-none"
+              >
                 <i class="fa-solid fa-fingerprint text-lg"></i>
               </div>
               <p class="text-sm leading-6 second-text">
@@ -95,8 +123,12 @@
             </div>
 
             <!-- Rule 4 -->
-            <div class="flex items-start gap-x-3 p-2 rounded-lg current-active transition-colors">
-              <div class="flex items-center justify-center w-11 h-11 rounded-md light-gray flex-none">
+            <div
+              class="flex items-start gap-x-3 p-2 rounded-lg current-active transition-colors"
+            >
+              <div
+                class="flex items-center justify-center w-11 h-11 rounded-md light-gray flex-none"
+              >
                 <i class="fa-solid fa-hashtag text-lg"></i>
               </div>
               <p class="text-sm leading-6 second-text">
@@ -109,7 +141,14 @@
           {% trans "Password" %} <span class="text-red-400">*</span>
         </label>
         <div class="mt-2">
-          <input id="password1" name="password1" type="password" required autocomplete="new-password" class="block w-full rounded-md border px-3 py-2 text-sm {% if form.password1.errors %}wrong-field{% endif %}" />
+          <input
+            id="password1"
+            name="password1"
+            type="password"
+            required
+            autocomplete="new-password"
+            class="block w-full rounded-md border px-3 py-2 text-sm {% if form.password1.errors %}wrong-field{% endif %}"
+          >
           {% for error in form.password1.errors %}
           <p class="wrong-text mt-1">{{ error }}</p>
           {% endfor %}
@@ -122,7 +161,14 @@
           {% trans "Confirm Password" %} <span class="text-red-400">*</span>
         </label>
         <div class="mt-2">
-          <input id="password2" name="password2" type="password" required autocomplete="new-password" class="block w-full rounded-md border px-3 py-2 text-sm {% if form.password2.errors %}wrong-field{% endif %}" />
+          <input
+            id="password2"
+            name="password2"
+            type="password"
+            required
+            autocomplete="new-password"
+            class="block w-full rounded-md border px-3 py-2 text-sm {% if form.password2.errors %}wrong-field{% endif %}"
+          >
           {% for error in form.password2.errors %}
           <p class="wrong-text mt-1">{{ error }}</p>
           {% endfor %}

@@ -1,27 +1,27 @@
 {% extends "base.html" %}
 {% load static %}
-{% block content %}
 
+{% block content %}
 <main class="flex flex-col items-center justify-center text-center hero">
   <div class="max-w-2xl">
-    <!-- Change to blog section if created -->
-    <div class="hidden sm:mb-8 sm:flex sm:justify-center">
-    </div>
+    <div class="hidden sm:mb-8 sm:flex sm:justify-center"></div>
     <div class="text-center">
       <h1 class="text-5xl tracking-tight text-balance sm:text-7xl">
         Build Smarter. Connect Faster.
       </h1>
       <p class="mt-8 text-lg font-medium text-pretty sm:text-xl/8 second-text">
-        Constructly Hub makes construction project management simple. Post
-        your project, browse subcontractors, and find the right match — all
-        in one place.
+        Constructly Hub makes construction project management simple. Post your
+        project, browse subcontractors, and find the right match — all in one
+        place.
       </p>
       <div class="mt-10 flex items-center justify-center gap-x-6">
-        <a href="{% if user.is_authenticated %}{{ projects_url }}{% else %}{{ signin_url }}{% endif %}" class="mt-10 my-button">Get started</a>
+        <a
+          href="{% if user.is_authenticated %}{{ projects_url }}{% else %}{{ signin_url }}{% endif %}"
+          class="mt-10 my-button"
+          >Get started</a
+        >
       </div>
     </div>
   </div>
 </main>
-
-<!-- index.html content ends here -->
 {% endblock %}

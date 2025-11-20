@@ -1,10 +1,10 @@
-{% extends "base.html" %}
-
-{% load i18n %}
-{% load account socialaccount %}
-
-{% block head_title %}{% trans "Sign In" %}{% endblock %}
+{% extends "base.html" %} 
+{% load i18n %} 
+{% load account socialaccount %} 
+{% block head_title %}{% trans "Sign In" %}
+{% endblock %} 
 {% load static %}
+
 {% block content %}
 
 <main class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
@@ -19,11 +19,15 @@
 
   <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
     <form action="{% url 'account_login' %}" method="POST" class="space-y-6">
-      {% csrf_token %}
-      {% if form.non_field_errors %}
-      {% endif %}
+      {% csrf_token %} 
+      {% if form.non_field_errors %} 
+      {% endif %} 
       {% if redirect_field_value %}
-      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+      <input
+        type="hidden"
+        name="{{ redirect_field_name }}"
+        value="{{ redirect_field_value }}"
+      >
       {% endif %}
 
       <!-- Username -->
@@ -32,8 +36,15 @@
           {% trans "Username" %} <span class="text-red-400">*</span>
         </label>
         <div class="mt-2">
-          <input id="login" name="login" type="text" autofocus required autocomplete="username"
-            class="block w-full rounded-md border px-3 py-2 {% if form.non_field_errors %}wrong-field{% endif %}" />
+          <input
+            id="login"
+            name="login"
+            type="text"
+            autofocus
+            required
+            autocomplete="username"
+            class="block w-full rounded-md border px-3 py-2 {% if form.non_field_errors %}wrong-field{% endif %}"
+          >
         </div>
       </div>
       <div>
@@ -42,12 +53,20 @@
             {% trans "Password" %} <span class="text-red-400">*</span>
           </label>
           <div class="text-sm">
-            <a href="{% url 'account_reset_password' %}" class="special">{% trans "Forgot Password?" %}</a>
+            <a href="{% url 'account_reset_password' %}" class="special"
+              >{% trans "Forgot Password?" %}</a
+            >
           </div>
         </div>
         <div class="mt-2">
-          <input id="password" name="password" type="password" required autocomplete="current-password"
-            class="block w-full rounded-md border px-3 py-2 {% if form.non_field_errors %}wrong-field{% endif %}" />
+          <input
+            id="password"
+            name="password"
+            type="password"
+            required
+            autocomplete="current-password"
+            class="block w-full rounded-md border px-3 py-2 {% if form.non_field_errors %}wrong-field{% endif %}"
+          >
           {% for error in form.non_field_errors %}
           <p class="wrong-text mt-1">{{ error }}</p>
           {% endfor %}

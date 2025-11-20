@@ -16,12 +16,12 @@
                     <div class="relative mt-8 flex items-center gap-x-4">
                         {% if project.client.userprofile.avatar.public_id == "default_avatar" or not project.client.userprofile.avatar %}
                         <img src="{% static 'images/profile.png' %}" alt=""
-                            class="size-10 rounded-full bg-gray-700" />
+                            class="size-10 rounded-full bg-gray-700" >
                         {% else %}
-                        <img src="{{ project.client.userprofile.avatar.url }}" alt="" class="size-10 rounded-full object-cover" />
+                        <img src="{{ project.client.userprofile.avatar.url }}" alt="" class="size-10 rounded-full object-cover" >
                         {% endif %}
                         <div class="text-sm/6">
-                            <p class=""><i class="fas fa-user"></i> {% if project.client.userprofile.full_name %}{{ project.client.userprofile.full_name }}{% else %}{{ project.client.username }}{% endif %}</p>
+                            <p class=""><i class="fas fa-user"></i> {% if project.client.userprofile.full_name %}{{ project.client.userprofile.full_name }}{% else %}{{ project.client.username }}{% endif %}
                             </p>
                             {% if project.client.userprofile.display_email %} <p><i class="fas fa-envelope"></i> {{ project.client.userprofile.display_email }}</p>{% endif %}
                         </div>
@@ -107,7 +107,7 @@
                     </a>
 
                     {% if bid.project.status != "completed" %}
-                    <a href="{% url 'select_bid' bid.id %}" data-bid_id="{{ bid.id }}" data-bid_id="{{ bid.id }}"
+                    <a href="{% url 'select_bid' bid.id %}" data-bid_id="{{ bid.id }}"
                     class="normal-button w-full sm:w-auto text-center bg-lime-600 hover:bg-lime-700">
                     <i class="fas fa-check-circle"></i> Select Bid
                     </a>
@@ -227,6 +227,7 @@
                         class="mt-1 w-full rounded-md py-1.5 px-3 border {% if bid_form.company.errors %}border-red-500{% endif %}"
                         required
                     >
+                        <option value="" disabled selected>Select a company</option>
                         {% for company in user.companies.all %}
                             <option value="{{ company.pk }}">{{ company.company_name }}</option>
                         {% endfor %}
@@ -254,15 +255,15 @@
                 </button>
             </form>
         </div>
+        {% endif %}
+        {% if not user.companies.exists and project.client != user and project.status == "open" %}
+        <div class="my-4 p-6 text-center">
+            <p class="mb-4">You need to create a company profile to place a bid on this project.</p>
+            <a href="{% url 'create_company' %}" class="normal-button inline-block">
+                <i class="fas fa-building"></i> Create Company Profile
+            </a>
+        </div>
+        {% endif %}
     </div>
-    {% endif %}
-    {% if not user.companies.exists and project.client != user and project.status == "open" %}
-    <div class="my-4 p-6 text-center">
-        <p class="mb-4">You need to create a company profile to place a bid on this project.</p>
-        <a href="{% url 'create_company' %}" class="normal-button inline-block">
-            <i class="fas fa-building"></i> Create Company Profile
-        </a>
-    </div>
-    {% endif %}
 </main>
 {% endblock content %}

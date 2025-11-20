@@ -7,44 +7,44 @@
         <div class="p-4 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-10 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             {% for company in companies %}
             <a href="{% url 'company_detail' company.slug %}"
-   class="flex flex-col justify-between max-w-xl company-card transition rounded-lg overflow-hidden bg-gray-800/30 hover:bg-gray-800/50">
+            class="flex flex-col justify-between max-w-xl company-card transition rounded-lg overflow-hidden bg-gray-800/30 hover:bg-gray-800/50">
 
-    {% if "placeholder" in company.logo.url %}
-        <img src="{% static 'images/company-placeholder.jpg' %}"
-             alt="place holder"
-             class="!h-90 w-full object-cover object-center" />
-    {% else %}
-        <img src="{{ company.logo.url }}"
-             alt="{{ company.company_name }}"
-             class="!h-90 w-full object-cover object-center" />
-    {% endif %}
-    <div class="flex flex-col flex-grow p-4 justify-between">
-        <div>
-            <div class="flex items-center gap-x-4 text-xs text-gray-400">
-                <p><i class="fas fa-map-marker-alt"></i> {{ company.city }}, {{ company.country }}</p>
-            </div>
+                {% if "placeholder" in company.logo.url %}
+                    <img src="{% static 'images/company-placeholder.jpg' %}"
+                        alt="place holder"
+                        class="!h-90 w-full object-cover object-center" >
+                {% else %}
+                    <img src="{{ company.logo.url }}"
+                        alt="{{ company.company_name }}"
+                        class="!h-90 w-full object-cover object-center" >
+                {% endif %}
+                <div class="flex flex-col flex-grow p-4 justify-between">
+                    <div>
+                        <div class="flex items-center gap-x-4 text-xs text-gray-400">
+                            <p><i class="fas fa-map-marker-alt"></i> {{ company.city }}, {{ company.country }}</p>
+                        </div>
 
-            <h3 class="mt-3 text-lg font-semibold text-white group-hover:text-gray-300">
-                {{ company.company_name }}
-            </h3>
-            <p class="mt-2 line-clamp-3 text-sm text-gray-400">{{ company.description }}</p>
-        </div>
-        <div class="mt-4 flex items-center gap-x-4 pt-4 border-t border-white/10">
+                        <h3 class="mt-3 text-lg font-semibold text-white group-hover:text-gray-300">
+                            {{ company.company_name }}
+                        </h3>
+                        <p class="mt-2 line-clamp-3 text-sm text-gray-400">{{ company.description }}</p>
+                    </div>
+                    <div class="mt-4 flex items-center gap-x-4 pt-4 border-t border-white/10">
 
-            {% if company.owner.userprofile.avatar.public_id == "default_avatar" or not company.owner.userprofile.avatar %}
-            <img src="{% static 'images/profile.png' %}" alt=""
-                 class="size-10 rounded-full bg-gray-700" />
-            {% else %}
-            <img src="{{ company.owner.userprofile.avatar.url }}" alt=""
-                 class="size-10 rounded-full bg-gray-700" />
-            {% endif %}
-            <div class="text-sm">
-                <p class="font-semibold text-white">{{ company.owner }}</p>
-                <p class="text-gray-400">{{ company.role }}</p>
-            </div>
-        </div>
-    </div>
-</a>
+                        {% if company.owner.userprofile.avatar.public_id == "default_avatar" or not company.owner.userprofile.avatar %}
+                        <img src="{% static 'images/profile.png' %}" alt=""
+                            class="size-10 rounded-full bg-gray-700" >
+                        {% else %}
+                        <img src="{{ company.owner.userprofile.avatar.url }}" alt=""
+                            class="size-10 rounded-full bg-gray-700" >
+                        {% endif %}
+                        <div class="text-sm">
+                            <p class="font-semibold text-white">{{ company.owner }}</p>
+                            <p class="text-gray-400">{{ company.role }}</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
 
             {% endfor %}
         </div>
@@ -64,7 +64,7 @@
                     <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="size-5">
                         <path
                             d="M11.78 5.22a.75.75 0 0 1 0 1.06L8.06 10l3.72 3.72a.75.75 0 1 1-1.06 1.06l-4.25-4.25a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 0 1 1.06 0Z"
-                            clip-rule="evenodd" fill-rule="evenodd" />
+                            clip-rule="evenodd" fill-rule="evenodd" >
                     </svg>
                     Previous
                 </a>
@@ -94,7 +94,7 @@
                     <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="size-5">
                         <path
                             d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"
-                            clip-rule="evenodd" fill-rule="evenodd" />
+                            clip-rule="evenodd" fill-rule="evenodd" >
                     </svg>
                 </a>
                 {% endif %}

@@ -44,7 +44,41 @@ Automated tools were used throughout the project to ensure code quality and acce
 **HTML & CSS Validation:**  
 Use the **W3C HTML** and **CSS validators** to ensure clean, semantic, and standards-compliant code.  
 
-- [ ] Check HTML syntax, nesting, and semantics.
+During HTML validation, some errors appeared in the base template related to the command and commandfor attributes used in the mobile menu button. These attributes are part of the TailwindPlus Elements component system and are not standard HTML5, so the W3C validator flags them as errors. However, they are fully supported by modern browsers and required for the mobile navigation to function correctly.
+
+Since these attributes do not affect performance, accessibility, or user experience, the validation warnings were acknowledged and accepted as a normal consequence of using this component library. I have therefore hidden these specific warnings for future automated testing.
+
+![alt text](documentation/testing/automated-testing/html-css/Screenshot%202025-11-20%20at%2022.13.26.png "base template testing results")
+
+| Page Name                                      | Status               | Notes |
+|-----------------------------------------------|----------------------|-------|
+| Base Template (logged out)                      | ⚠️ Accepted Warning   | `command` / `commandfor` are non-HTML5 but required |
+| Base Template (logged in)                       | ⚠️ Accepted Warning   | Same as above |
+| Landing Page                                    | ✅ Passed             | All errors fixed |
+| Login Page                                      | ✅ Passed             | - |
+| Sign-Up Page                                    | ✅ Passed             | - |
+| Verify Your Email Address Page                  | ✅ Passed             | - |
+| Confirm Your Email Address Page                 | ✅ Passed             | - |
+| Sign Out Page                                   | ✅ Passed             | - |
+| Unable to Confirm Page                          | ✅ Passed             | - |
+| Password Reset Request Page                     | ✅ Passed             | - |
+| Password Reset Sent Page                        | ✅ Passed             | - |
+| Password Reset Done Page                        | ✅ Passed             | - |
+| Password Reset Used Link Page                   | ✅ Passed             | - |
+| Email Verification Sent Page                    | ✅ Passed             | - |
+| Companies Page                                  | ✅ Passed             | - |
+| Company Details Page                            | ✅ Passed             | - |
+| Create Company Page                             | ✅ Passed             | - |
+| User Companies Page                             | ✅ Passed             | - |
+| User Profile Page                               | ✅ Passed             | - |
+| Settings Page                                   | ✅ Passed             | - |
+| Projects Page                                   | ✅ Passed             | - |
+| User Projects Page                              | ✅ Passed             | - |
+| Project Details Page                            | ✅ Passed             | All `<div>` / `<p>` validated |
+| Bids Page                                       | ✅ Passed             | - |
+| Remaining Pages                                 | ✅ Passed             | No unresolved issues |
+
+
 - [ ] Check CSS syntax, prefixes, and warnings.
 
 **JavaScript Validation:**  

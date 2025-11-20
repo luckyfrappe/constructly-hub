@@ -2,8 +2,8 @@
 {% load static %}
 {% if company.owner == user %}
 {% block extras_head %}
-<link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet" />
-<link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet" />
+<link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet" >
+<link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet" >
 {% endblock extras_head %}
 {% endif %}
 {% block content %}
@@ -16,10 +16,10 @@
             <div class="flex flex-col md:flex-row md:items-center w-full">
                 {% if "placeholder" in company.logo.url %}
                 <img src="{% static 'images/company-placeholder.jpg' %}" alt="Company placeholder"
-                    class="h-100 w-full sm:w-1/2 object-cover rounded-lg mb-4 md:mb-0 md:mr-8" />
+                    class="h-100 w-full sm:w-1/2 object-cover rounded-lg mb-4 md:mb-0 md:mr-8" >
                 {% else %}
                 <img src="{{ company.logo.url }}" alt="{{ company.company_name }}"
-                    class="h-100 w-full sm:w-1/2 object-cover rounded-lg mb-4 md:mb-0 md:mr-8" />
+                    class="h-100 w-full sm:w-1/2 object-cover rounded-lg mb-4 md:mb-0 md:mr-8" >
                 {% endif %}
                 <div>
                     <h1 class="text-5xl mb-2">{{ company.company_name }}</h1>
@@ -30,9 +30,9 @@
                     <div class="relative mt-8 flex items-center gap-x-4">
                         {% if company.owner.userprofile.avatar.public_id == "default_avatar" or not company.owner.userprofile.avatar %}
                         <img src="{% static 'images/profile.png' %}" alt=""
-                            class="size-10 rounded-full bg-gray-700" />
+                            class="size-10 rounded-full bg-gray-700" >
                         {% else %}
-                        <img src="{{ company.owner.userprofile.avatar.url }}" alt="" class="size-10 rounded-full object-cover" />
+                        <img src="{{ company.owner.userprofile.avatar.url }}" alt="" class="size-10 rounded-full object-cover" >
                         {% endif %}
                         <div class="text-sm/6">
                             <p class=""><i class="fas fa-user"></i> {{ company.owner }}
@@ -105,7 +105,7 @@
                                     class="relative transform overflow-hidden lg:rounded-lg bg-white text-left shadow-xl transition-all data-closed:translate-y-4 data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in sm:my-8 sm:w-full sm:max-w-7xl data-closed:sm:translate-y-0 data-closed:sm:scale-95 dark:bg-gray-800 dark:outline dark:-outline-offset-1 dark:outline-white/10">
                                     <form method="POST" action="{% url 'company_detail' company.slug %}" class="p-8"
                                         id="createCompany" enctype="multipart/form-data">
-                                        <h1 class="text-2xl font-bold">Editing {{ company.company_name }}</h1>
+                                        <h2 class="text-2xl font-bold">Editing {{ company.company_name }}</h2>
                                         <p class="mt-4">Please fill out the form below to update your company
                                             information.</p>
 
@@ -116,7 +116,7 @@
                                                 <input id="company_name" type="text" name="company_name" autofocus
                                                     autocomplete="organization" placeholder="e.g. Groundwork Solutions Ltd."
                                                     value="{{ company.company_name}}"
-                                                    class="block mt-2 w-full grow bg-transparent py-1.5 pr-3 pl-1 sm:text-sm/6 {% if form.company_name.errors %}wrong-field{% endif %}" />
+                                                    class="block mt-2 w-full grow bg-transparent py-1.5 pr-3 pl-1 sm:text-sm/6 {% if form.company_name.errors %}wrong-field{% endif %}" >
                                                 {% for error in form.company_name.errors %}
                                                 <p class="wrong-text mt-1">{{ error }}</p>
                                                 {% endfor %}
@@ -125,10 +125,10 @@
                                             <div class="sm:col-span-4">
                                                 <label for="role" class="block font-medium">Your role at the company
                                                     <span class="text-red-400">*</span></label>
-                                                <input id="role" type="text" name="role" autocomplete="role"
+                                                <input id="role" type="text" name="role" autocomplete="organization-title"
                                                     placeholder="e.g. Owner, Manager, Director"
                                                     value=" {{ company.role }}"
-                                                    class="block mt-2 w-full grow bg-transparent py-1.5 pr-3 pl-1 sm:text-sm/6 {% if form.role.errors %}wrong-field{% endif %}" />
+                                                    class="block mt-2 w-full grow bg-transparent py-1.5 pr-3 pl-1 sm:text-sm/6 {% if form.role.errors %}wrong-field{% endif %}" >
                                                 {% for error in form.role.errors %}
                                                 <p class="wrong-text mt-1">{{ error }}</p>
                                                 {% endfor %}
@@ -172,15 +172,15 @@
                                                     {% if "placeholder" in company.logo.url %}
                                                     <img src="{% static 'images/company-placeholder.jpg' %}"
                                                         alt="place holder"
-                                                        class="!h-full w-full object-cover object-center" />
+                                                        class="!h-full w-full object-cover object-center" >
                                                     {% else %}
                                                     <img src="{{ company.logo.url }}" alt="{{ company.company_name }}"
-                                                        class="!h-full w-full object-cover object-center" />
+                                                        class="!h-full w-full object-cover object-center" >
                                                     {% endif %}
                                                 </div>
                                                 <div
                                                     class="mt-2 rounded-lg border p-2 {% if form.logo.errors %}wrong-field{% else %}border-dashed{% endif %}">
-                                                    <input type="file" class="filepond" name="logo" />
+                                                    <input type="file" class="filepond" name="logo" >
                                                 </div>
                                             </div>
                                         </div>
@@ -194,8 +194,8 @@
                                                     <label for="city" class="block text-sm/6 font-medium">City <span
                                                             class="text-red-400">*</span></label>
                                                     <div class="mt-2">
-                                                        <input id="city" type="text" name="city" autocomplete="city" value="{{ company.city }}"
-                                                            class="block w-full rounded-md bg-white/5 px-3 py-1.5 {% if form.city.errors %}wrong-field{% endif %}" />
+                                                        <input id="city" type="text" name="city" autocomplete="organization-title" value="{{ company.city }}"
+                                                            class="block w-full rounded-md bg-white/5 px-3 py-1.5 {% if form.city.errors %}wrong-field{% endif %}" >
                                                         {% for error in form.city.errors %}
                                                         <p class="wrong-text mt-1">{{ error }}</p>
                                                         {% endfor %}
@@ -208,7 +208,7 @@
                                                     <div class="mt-2">
                                                         <input id="country" type="text" name="country"
                                                             autocomplete="country" value="{{ company.country }}"
-                                                            class="block w-full rounded-md bg-white/5 px-3 py-1.5 {% if form.country.errors %}wrong-field{% endif %}" />
+                                                            class="block w-full rounded-md bg-white/5 px-3 py-1.5 {% if form.country.errors %}wrong-field{% endif %}" >
                                                         {% for error in form.country.errors %}
                                                         <p class="wrong-text mt-1">{{ error }}</p>
                                                         {% endfor %}
@@ -219,7 +219,7 @@
                                                     <label for="website"
                                                         class="block text-sm/6 font-medium">Website</label>
                                                     <div class="mt-2">
-                                                        <input id="website" type="url" name="website" autocomplete="url" {% if company.website %} value="{{ company.website }}"{% endif %} class="block w-full rounded-md bg-white/5 px-3 py-1.5" />
+                                                        <input id="website" type="url" name="website" autocomplete="url" {% if company.website %} value="{{ company.website }}"{% endif %} class="block w-full rounded-md bg-white/5 px-3 py-1.5" >
                                                     </div>
                                                 </div>
 
@@ -228,9 +228,9 @@
                                                         <span class="text-red-400">*</span></label>
                                                     <div class="mt-2">
                                                         <input id="services" type="text" name="services"
-                                                            autocomplete="services" value="{{ company.services }}"
+                                                            value="{{ company.services }}"
                                                             placeholder="Enter a brief list of your services, separated by commas (e.g. Excavation, Drainage, Paving)."
-                                                            class="block w-full rounded-md bg-white/5 px-3 py-1.5 {% if form.services.errors %}wrong-field{% endif %}" />
+                                                            class="block w-full rounded-md bg-white/5 px-3 py-1.5 {% if form.services.errors %}wrong-field{% endif %}" >
                                                         {% for error in form.services.errors %}
                                                         <p class="wrong-text mt-1">{{ error }}</p>
                                                         {% endfor %}
@@ -273,7 +273,7 @@
                                                     class="size-6 text-red-600 dark:text-red-400">
                                                     <path
                                                         d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"
-                                                        stroke-linecap="round" stroke-linejoin="round" />
+                                                        stroke-linecap="round" stroke-linejoin="round" ></path>
                                                 </svg>
                                             </div>
                                             <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
@@ -315,7 +315,6 @@
 <script src="https://unpkg.com/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.js"></script>
 <script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
 <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
-
 
 <script>
     FilePond.registerPlugin(
