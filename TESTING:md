@@ -48,7 +48,7 @@ During HTML validation, some errors appeared in the base template related to the
 
 Since these attributes do not affect performance, accessibility, or user experience, the validation warnings were acknowledged and accepted as a normal consequence of using this component library. I have therefore hidden these specific warnings for future automated testing.
 
-![alt text](documentation/testing/automated-testing/html-css/Screenshot%202025-11-20%20at%2022.13.26.png "base template testing results")
+![alt text](documentation/testing/automated-testing/html-js/Screenshot%202025-11-20%20at%2022.13.26.png "base template testing results")
 
 | Page Name                                       | Status                | Notes |
 |-------------------------------------------------|-----------------------|-------|
@@ -82,7 +82,9 @@ Since these attributes do not affect performance, accessibility, or user experie
 During validation, two warnings appeared related to imported CSS and CSS variables. These are caused by the @import "tailwindcss"; line, as Tailwind is generated dynamically and the W3C validator cannot inspect imported stylesheets or statically check CSS variables. These warnings are expected and do not affect functionality or performance.
 
 **JavaScript Validation:**  
-Validate JavaScript using **JSLint/JSHint** and fix formatting or functional issues.
+No issues in JS code.
+
+![alt text](documentation/testing/automated-testing/html-js/Screenshot%202025-11-21%20at%2010.10.45.png "JShint results")
 
 **Python**
 

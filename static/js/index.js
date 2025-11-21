@@ -1,12 +1,3 @@
-const banner = document.querySelector(".banner");
-
-if (banner) {
-  const closeButton = banner.querySelector("button");
-  closeButton.addEventListener("click", () => {
-    banner.style.display = "none";
-  });
-}
-
 /**
  * Adds real-time validation styling to all form inputs.
  * 
