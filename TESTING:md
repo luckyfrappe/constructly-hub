@@ -50,14 +50,13 @@ Since these attributes do not affect performance, accessibility, or user experie
 
 ![alt text](documentation/testing/automated-testing/html-css/Screenshot%202025-11-20%20at%2022.13.26.png "base template testing results")
 
-| Page Name                                      | Status               | Notes |
-|-----------------------------------------------|----------------------|-------|
+| Page Name                                       | Status                | Notes |
+|-------------------------------------------------|-----------------------|-------|
 | Base Template (logged out)                      | ⚠️ Accepted Warning   | `command` / `commandfor` are non-HTML5 but required |
 | Base Template (logged in)                       | ⚠️ Accepted Warning   | Same as above |
 | Landing Page                                    | ✅ Passed             | All errors fixed |
 | Login Page                                      | ✅ Passed             | - |
 | Sign-Up Page                                    | ✅ Passed             | - |
-| Verify Your Email Address Page                  | ✅ Passed             | - |
 | Confirm Your Email Address Page                 | ✅ Passed             | - |
 | Sign Out Page                                   | ✅ Passed             | - |
 | Unable to Confirm Page                          | ✅ Passed             | - |
@@ -68,18 +67,19 @@ Since these attributes do not affect performance, accessibility, or user experie
 | Email Verification Sent Page                    | ✅ Passed             | - |
 | Companies Page                                  | ✅ Passed             | - |
 | Company Details Page                            | ✅ Passed             | - |
-| Create Company Page                             | ✅ Passed             | - |
+| Create Company Page                             | ✅ Passed             | autocomplete wrong use validated |
 | User Companies Page                             | ✅ Passed             | - |
 | User Profile Page                               | ✅ Passed             | - |
 | Settings Page                                   | ✅ Passed             | - |
 | Projects Page                                   | ✅ Passed             | - |
 | User Projects Page                              | ✅ Passed             | - |
 | Project Details Page                            | ✅ Passed             | All `<div>` / `<p>` validated |
+| Project Create Page                             | ✅ Passed             | All `<div>` / `<p>` validated |
 | Bids Page                                       | ✅ Passed             | - |
 | Remaining Pages                                 | ✅ Passed             | No unresolved issues |
 
 
-- [ ] Check CSS syntax, prefixes, and warnings.
+During validation, two warnings appeared related to imported CSS and CSS variables. These are caused by the @import "tailwindcss"; line, as Tailwind is generated dynamically and the W3C validator cannot inspect imported stylesheets or statically check CSS variables. These warnings are expected and do not affect functionality or performance.
 
 **JavaScript Validation:**  
 Validate JavaScript using **JSLint/JSHint** and fix formatting or functional issues.
