@@ -515,15 +515,13 @@ textarea::placeholder {
     --color-darkest: #ffffff;
     --color-darkest-static-50: rgba(31, 41, 55, 0.8);
   }
-}
 
-@media (prefers-color-scheme: dark) {
   main.hero {
     background-image: url('../images/design/hero-img-dark.png');
   }
 
   .card {
-    background-color: var(--color-darkest);
+    background-color: var(--color-darkest-static);
   }
 
   .card-services {
