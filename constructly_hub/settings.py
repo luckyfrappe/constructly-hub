@@ -12,7 +12,9 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os
+
 import dj_database_url
+
 if os.path.isfile('env.py'):
     import env
 
@@ -48,10 +50,10 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'cloudinary',
-    'landing',
-    'companies',
-    'projects',
     'bids',
+    'companies',
+    'landing',
+    'projects',
     'userprofile',
 ]
 
@@ -61,7 +63,6 @@ LOGOUT_REDIRECT_URL = '/'
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -122,7 +123,10 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
-]# Email account setup was build with help from AI
+]
+
+
+# Email account setup was build with help from AI
 # https://docs.djangoproject.com/en/5.2/topics/email/
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 ACCOUNT_EMAIL_REQUIRED = True

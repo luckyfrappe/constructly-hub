@@ -1,18 +1,11 @@
 from django.shortcuts import render
 
-# Create your views here.
+
 def view_landing_page(request):
     """
-    Display the landing page.
+    Renders the public landing page.
 
-    **Context**
-
-    ``request``
-        The HTTP request object.
-
-    **Template:**
-
-    :template:`landing_page.html`
+    template: landing_page.html
     """
 
     return render(

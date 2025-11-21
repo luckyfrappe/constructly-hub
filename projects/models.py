@@ -1,10 +1,21 @@
-from django.utils import timezone
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 
-# Create your models here.
+
 class Project(models.Model):
-    client = models.ForeignKey(User, on_delete=models.CASCADE, related_name="projects")
+    """
+    Represents a project created by a user (client).
+
+    model: `User` (ForeignKey client)
+    Stores project details such as title, description, location,
+    budget, status, and deadline.
+
+    Used in project listings, detail views, and bid interactions.
+    """
+
+    client = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="projects")
     title = models.CharField(max_length=255)
     description = models.TextField(max_length=1000)
     location = models.CharField(max_length=255)
