@@ -2,7 +2,7 @@
 
 Constructly Hub is a modern marketplace platform designed to simplify construction project management. Clients can post project requests, browse available subcontractors, and compare offers, while subcontractors can create profiles, showcase their expertise, and apply for relevant projects. The platform streamlines the entire process, making it easier for both sides to connect and collaborate effectively.
 
-![Mockup image of Constructly Hub website on different devices]()
+![Landing page](documentation/showcase/landing.png "Mockup image of Constructly Hub website on different devices")
 
 🔗 [**Live site**]()
 
@@ -254,5 +254,17 @@ https://www.freepik.com/free-photo/eyeglasses-paper-plan-table_3716871.htm#fromV
 Photo by <a href="https://unsplash.com/@christopher__burns?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Christopher Burns</a> on <a href="https://unsplash.com/photos/person-holding-tool-during-daytime-8KfCR12oeUM?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
       
 https://www.flaticon.com/free-icon/profile_17446833?term=user&page=1&position=52&origin=search&related_id=17446833 profile placeholder
+
+Bild av Andrea Piacquadio: https://www.pexels.com/sv-se/foto/affarsman-man-oskarpa-ansikte-3778673/ avatar
+
+Bild av Spolyakov : https://www.pexels.com/sv-se/foto/man-konst-malning-kreativitet-16762332/ avatar
+
+Bild av Tima Miroshnichenko: https://www.pexels.com/sv-se/foto/arkitektur-foretag-rum-staende-6474481/ avatar
+
+Bild av 𓇼 BABIX VISUALS 𓇼: https://www.pexels.com/sv-se/foto/leende-man-i-vit-skjorta-i-elegant-hall-33344803/ avatar
+
+Bild av Alax Matias: https://www.pexels.com/sv-se/foto/portratt-av-en-leende-traarbetare-i-verkstad-28513049/ avatar
+
+Bild av IslandHopper X: https://www.pexels.com/sv-se/foto/konstruktion-industri-arbete-arbetare-15109993/ company card
 
 ### Acknowledgments
