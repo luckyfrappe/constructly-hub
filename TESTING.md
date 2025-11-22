@@ -1,6 +1,6 @@
 # Constructly Hub - Testing Documentation
 
-![Landing page](documentation/testing/manual-testing/landing.png "Overview image of landing page")
+![alt text](documentation/testing/manual-testing/landing.png "Overview image of landing page")
 
 🔗 [**Live site**](https://constructly-hub-ee092254593a.herokuapp.com/)
 
@@ -107,29 +107,29 @@ Automated tools were used throughout the project to ensure code quality and acce
 
 | Page | Screenshot |
 |------|------------|
-| 404 Page | ![404 page](documentation/testing/automated-testing/lighthouse/404.png "404") |
-| All Companies (Guest View) | ![All companies guest](documentation/testing/automated-testing/lighthouse/all-companies-guest-view.png "all-companies-guest-view") |
-| All Companies (Signed In) | ![All companies signed in](documentation/testing/automated-testing/lighthouse/all-companies-signed-in.png "all-companies-signed-in") |
-| All Projects | ![All projects](documentation/testing/automated-testing/lighthouse/all-projects.png "all-projects") |
-| Change Your Password | ![Change password](documentation/testing/automated-testing/lighthouse/change-your-password.png "change-your-password") |
-| Company Details | ![Company details](documentation/testing/automated-testing/lighthouse/company-details.png "company-details") |
-| Confirm Email | ![Confirm email](documentation/testing/automated-testing/lighthouse/confirm-email.png "confirm-email") |
-| Create Company | ![Create company](documentation/testing/automated-testing/lighthouse/create-company.png "create-company") |
-| Create Project | ![Create project](documentation/testing/automated-testing/lighthouse/create-project.png "create-project") |
-| Forgot Password | ![Forgot password](documentation/testing/automated-testing/lighthouse/forgot-password.png "forgot-password") |
-| Landing Page (Guest View) | ![Landing guest](documentation/testing/automated-testing/lighthouse/landing-page-guest-view.png "landing-page-guest-view") |
-| Landing Page (Signed In) | ![Landing signed in](documentation/testing/automated-testing/lighthouse/landing-signed-in.png "landing-signed-in") |
-| My Bids | ![My bids](documentation/testing/automated-testing/lighthouse/my-bids.png "my-bids") |
-| My Companies | ![My companies](documentation/testing/automated-testing/lighthouse/my-companies.png "my-companies") |
-| My Projects | ![My projects](documentation/testing/automated-testing/lighthouse/my-projects.png "my-projects") |
-| Profile Settings | ![Profile settings](documentation/testing/automated-testing/lighthouse/profile-settings.png "profile-settings") |
-| Profile | ![Profile](documentation/testing/automated-testing/lighthouse/profile.png "profile") |
-| Project Review | ![Project review](documentation/testing/automated-testing/lighthouse/project-review.png "project-review") |
-| Reset Password Sent | ![Reset password sent](documentation/testing/automated-testing/lighthouse/reset-password-sent.png "reset-password-sent") |
-| Sign In | ![Sign in](documentation/testing/automated-testing/lighthouse/sign-in.png "sign-in") |
-| Sign Out | ![Sign out](documentation/testing/automated-testing/lighthouse/sign-out.png "sign-out") |
-| Sign Up | ![Sign up](documentation/testing/automated-testing/lighthouse/sign-up.png "sign-up") |
-| Verify Email | ![Verify email](documentation/testing/automated-testing/lighthouse/verify-email.png "verify-email") |
+| 404 Page | ![alt text](documentation/testing/automated-testing/lighthouse/404.png "404") |
+| All Companies (Guest View) | ![alt text](documentation/testing/automated-testing/lighthouse/all-companies-guest-view.png "all-companies-guest-view") |
+| All Companies (Signed In) | ![alt text](documentation/testing/automated-testing/lighthouse/all-companies-signed-in.png "all-companies-signed-in") |
+| All Projects | ![alt text](documentation/testing/automated-testing/lighthouse/all-projects.png "all-projects") |
+| Change Your Password | ![alt text](documentation/testing/automated-testing/lighthouse/change-your-password.png "change-your-password") |
+| Company Details | ![alt text](documentation/testing/automated-testing/lighthouse/company-details.png "company-details") |
+| Confirm Email | ![alt text](documentation/testing/automated-testing/lighthouse/confirm-email.png "confirm-email") |
+| Create Company | ![alt text](documentation/testing/automated-testing/lighthouse/create-company.png "create-company") |
+| Create Project | ![alt text](documentation/testing/automated-testing/lighthouse/create-project.png "create-project") |
+| Forgot Password | ![alt text](documentation/testing/automated-testing/lighthouse/forgot-password.png "forgot-password") |
+| Landing Page (Guest View) | ![alt text](documentation/testing/automated-testing/lighthouse/landing-page-guest-view.png "landing-page-guest-view") |
+| Landing Page (Signed In) | ![alt text](documentation/testing/automated-testing/lighthouse/landing-signed-in.png "landing-signed-in") |
+| My Bids | ![alt text](documentation/testing/automated-testing/lighthouse/my-bids.png "my-bids") |
+| My Companies | ![alt text](documentation/testing/automated-testing/lighthouse/my-companies.png "my-companies") |
+| My Projects | ![alt text](documentation/testing/automated-testing/lighthouse/my-projects.png "my-projects") |
+| Profile Settings | ![alt text](documentation/testing/automated-testing/lighthouse/profile-settings.png "profile-settings") |
+| Profile | ![alt text](documentation/testing/automated-testing/lighthouse/profile.png "profile") |
+| Project Review | ![alt text](documentation/testing/automated-testing/lighthouse/project-review.png "project-review") |
+| Reset Password Sent | ![alt text](documentation/testing/automated-testing/lighthouse/reset-password-sent.png "reset-password-sent") |
+| Sign In | ![alt text](documentation/testing/automated-testing/lighthouse/sign-in.png "sign-in") |
+| Sign Out | ![alt text](documentation/testing/automated-testing/lighthouse/sign-out.png "sign-out") |
+| Sign Up | ![alt text](documentation/testing/automated-testing/lighthouse/sign-up.png "sign-up") |
+| Verify Email | ![alt text](documentation/testing/automated-testing/lighthouse/verify-email.png "verify-email") |
 
 **HTML & CSS Validation:**  
 Use the **W3C HTML** and **CSS validators** to ensure clean, semantic, and standards-compliant code.  
@@ -183,30 +183,30 @@ I have used the recommended [PEP8 CI Python Linter](https://pep8ci.herokuapp.com
 
 | File | Linting Screenshot | Warnings |
 |------|--------------------|----------|
-| companies-admin | ![companies-admin](documentation/testing/automated-testing/python/companies-admin.png "companies-admin") | — |
-| companies-forms | ![companies-forms](documentation/testing/automated-testing/python/companies-forms.png "companies-forms") | — |
-| companies-models | ![companies-models](documentation/testing/automated-testing/python/companies-models.png "companies-models") | — |
-| companies-urls | ![companies-urls](documentation/testing/automated-testing/python/companies-urls.png "companies-urls") | — |
-| companies-views | ![companies-views](documentation/testing/automated-testing/python/companies-views.png "companies-views") | — |
-| settings | ![settings](documentation/testing/automated-testing/python/settings.png "settings") | Line 114, 117, 120, 123 too long |
-| global-urls | ![global-urls](documentation/testing/automated-testing/python/global-urls.png "global-urls") | — |
-| landing-urls | ![landing-urls](documentation/testing/automated-testing/python/landing-urls.png "landing-urls") | — |
-| landing-views | ![landing-views](documentation/testing/automated-testing/python/landing-views.png "landing-views") | — |
-| projects-admin | ![projects-admin](documentation/testing/automated-testing/python/projects-admin.png "projects-admin") | — |
-| projects-forms | ![projects-forms](documentation/testing/automated-testing/python/projects-forms.png "projects-forms") | — |
-| projects-models | ![projects-models](documentation/testing/automated-testing/python/projects-models.png "projects-models") | — |
-| projects-urls | ![projects-urls](documentation/testing/automated-testing/python/projects-urls.png "projects-urls") | — |
-| projects-views | ![projects-views](documentation/testing/automated-testing/python/projects-views.png "projects-views") | Line 85 & 158 too long |
-| bids-admin | ![bids-admin](documentation/testing/automated-testing/python/bids-admin.png "bids-admin") | — |
-| bids-forms | ![bids-forms](documentation/testing/automated-testing/python/bids-forms.png "bids-forms") | — |
-| bids-models | ![bids-models](documentation/testing/automated-testing/python/bids-models.png "bids-models") | — |
-| bids-urls | ![bids-urls](documentation/testing/automated-testing/python/bids-urls.png "bids-urls") | — |
-| bids-views | ![bids-views](documentation/testing/automated-testing/python/bids-views.png "bids-views") | — |
-| userprofile-admin | ![userprofile-admin](documentation/testing/automated-testing/python/userprofile-admin.png "userprofile-admin") | — |
-| userprofile-forms | ![userprofile-forms](documentation/testing/automated-testing/python/userprofile-forms.png "userprofile-forms") | — |
-| userprofile-models | ![userprofile-models](documentation/testing/automated-testing/python/userprofile-models.png "userprofile-models") | — |
-| userprofile-urls | ![userprofile-urls](documentation/testing/automated-testing/python/userprofile-urls.png "userprofile-urls") | — |
-| userprofile-views | ![userprofile-views](documentation/testing/automated-testing/python/userprofile-views.png "userprofile-views") | — |
+| companies-admin | ![alt text](documentation/testing/automated-testing/python/companies-admin.png "companies-admin") | — |
+| companies-forms | ![alt text](documentation/testing/automated-testing/python/companies-forms.png "companies-forms") | — |
+| companies-models | ![alt text](documentation/testing/automated-testing/python/companies-models.png "companies-models") | — |
+| companies-urls | ![alt text](documentation/testing/automated-testing/python/companies-urls.png "companies-urls") | — |
+| companies-views | ![alt text](documentation/testing/automated-testing/python/companies-views.png "companies-views") | — |
+| settings | ![alt text](documentation/testing/automated-testing/python/settings.png "settings") | Line 114, 117, 120, 123 too long |
+| global-urls | ![alt text](documentation/testing/automated-testing/python/global-urls.png "global-urls") | — |
+| landing-urls | ![alt text](documentation/testing/automated-testing/python/landing-urls.png "landing-urls") | — |
+| landing-views | ![alt text](documentation/testing/automated-testing/python/landing-views.png "landing-views") | — |
+| projects-admin | ![alt text](documentation/testing/automated-testing/python/projects-admin.png "projects-admin") | — |
+| projects-forms | ![alt text](documentation/testing/automated-testing/python/projects-forms.png "projects-forms") | — |
+| projects-models | ![alt text](documentation/testing/automated-testing/python/projects-models.png "projects-models") | — |
+| projects-urls | ![alt text](documentation/testing/automated-testing/python/projects-urls.png "projects-urls") | — |
+| projects-views | ![alt text](documentation/testing/automated-testing/python/projects-views.png "projects-views") | Line 85 & 158 too long |
+| bids-admin | ![alt text](documentation/testing/automated-testing/python/bids-admin.png "bids-admin") | — |
+| bids-forms | ![alt text](documentation/testing/automated-testing/python/bids-forms.png "bids-forms") | — |
+| bids-models | ![alt text](documentation/testing/automated-testing/python/bids-models.png "bids-models") | — |
+| bids-urls | ![alt text](documentation/testing/automated-testing/python/bids-urls.png "bids-urls") | — |
+| bids-views | ![alt text](documentation/testing/automated-testing/python/bids-views.png "bids-views") | — |
+| userprofile-admin | ![alt text](documentation/testing/automated-testing/python/userprofile-admin.png "userprofile-admin") | — |
+| userprofile-forms | ![alt text](documentation/testing/automated-testing/python/userprofile-forms.png "userprofile-forms") | — |
+| userprofile-models | ![alt text](documentation/testing/automated-testing/python/userprofile-models.png "userprofile-models") | — |
+| userprofile-urls | ![alt text](documentation/testing/automated-testing/python/userprofile-urls.png "userprofile-urls") | — |
+| userprofile-views | ![alt text](documentation/testing/automated-testing/python/userprofile-views.png "userprofile-views") | — |
 
 **Accessibility Testing:**
 
@@ -219,11 +219,11 @@ contrast, and typography. Since the base template passed WAVE checks without
 critical errors, the same accessibility level is consistently applied across the
 entire platform.
 
-![Companies Guest](documentation/testing/automated-testing/wave/companies-guest.png "Companies Guest")
-![Landing Page](documentation/testing/automated-testing/wave/landing-page-guest.png "Landing Page")
-![Reset](documentation/testing/automated-testing/wave/reset.png "Reset")
-![Sign In](documentation/testing/automated-testing/wave/sign-in.png "Sign In")
-![Sign Up](documentation/testing/automated-testing/wave/sign-up.png "Sign Up")
+![alt text](documentation/testing/automated-testing/wave/companies-guest.png "Companies Guest")
+![alt text](documentation/testing/automated-testing/wave/landing-page-guest.png "Landing Page")
+![alt text](documentation/testing/automated-testing/wave/reset.png "Reset")
+![alt text](documentation/testing/automated-testing/wave/sign-in.png "Sign In")
+![alt text](documentation/testing/automated-testing/wave/sign-up.png "Sign Up")
 
 ---
 
