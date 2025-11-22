@@ -18,6 +18,7 @@ Constructly Hub is a modern marketplace platform designed to simplify constructi
   - [Typography](#typography)
   - [Imagery](#imagery)
   - [Wireframes](#wireframes)
+  - [Initial sitemap and Database Design](#initial-sitemap-and-database-design)
 - [Features](#features)
   - [Common to All Pages](#common-to-all-pages)
   - [Page-Specific Features](#page-specific-features)
@@ -28,6 +29,11 @@ Constructly Hub is a modern marketplace platform designed to simplify constructi
   - [Frameworks, Libraries & Programs Used](#frameworks-libraries--programs-used)
 - [Deployment](#deployment)
 - [Local Development](#local-development)
+  - [Cloning and Forking](#cloning-and-forking)
+  - [Cloning](#cloning)
+  - [Forking](#forking)
+  - [Local vs Deployed Version](#local-vs-deployed-version)
+- [Agile Development Process](#agile-development-process)
 - [Testing](#testing)
 - [Credits](#credits)
   - [Code Used](#code-used)
@@ -186,7 +192,7 @@ See in PDF format **[Sitemap and User Flow Manifest](documentation/flowcharts/lo
 ![alt text](documentation/showcase/reset-sent.png "Reset sent page")
 ![alt text](documentation/showcase/email-confirm.png "Confirm email message")
 ![alt text](documentation/showcase/password-reset.png "Password reset message")
-
+![alt text](documentation/showcase/sign-out.png "Sign Out message")
 
 #### 404 Page
 - Custom 404 with navigation back to main pages.
@@ -436,7 +442,7 @@ User stories, tasks, and issues were organized into columns such as **Ideas**, *
 The board also served as a central hub for refining features, and planning upcoming iterations throughout the development cycle.
 
 The full list of user stories and tasks can be viewed in the  
-**[GitHub Project board](https://github.com/users/luckyfrappe/projects/6/views/1)**.
+[GitHub Project board](documentation/showcase/agile.png).
 
 ## Testing
 
@@ -495,3 +501,7 @@ The textual content and platform descriptions for this fictional construction ma
 - [Daniel Adesina – Industrial scene](https://www.pexels.com/sv-se/foto/32427309/)
 
 ### Acknowledgments
+
+I want to express my gratitude to my cat James, who provided emotional support and mandatory “pause the coding session” moments throughout the project. His dedication to lying on the laptop whenever I needed rest was invaluable.
+
+A huge thank you as well to my best friend in the construction industry. His guidance, feedback, and professional knowledge were essential in shaping the concept and making the project feel grounded in real industry needs. His support was a major inspiration.

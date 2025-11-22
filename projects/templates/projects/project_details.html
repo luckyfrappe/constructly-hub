@@ -15,10 +15,10 @@
                     </p>
                     <div class="relative mt-8 flex items-center gap-x-4">
                         {% if project.client.userprofile.avatar.public_id == "default_avatar" or not project.client.userprofile.avatar %}
-                        <img src="{% static 'images/profile.png' %}" alt=""
+                        <img src="{% static 'images/profile.png' %}" alt="default avatar"
                             class="size-10 rounded-full bg-gray-700" >
                         {% else %}
-                        <img src="{{ project.client.userprofile.avatar.url }}" alt="" class="size-10 rounded-full object-cover" >
+                        <img src="{{ project.client.userprofile.avatar.url }}" alt="user avatar" class="size-10 rounded-full object-cover" >
                         {% endif %}
                         <div class="text-sm/6">
                             <p class=""><i class="fas fa-user"></i> {% if project.client.userprofile.full_name %}{{ project.client.userprofile.full_name }}{% else %}{{ project.client.username }}{% endif %}

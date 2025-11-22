@@ -31,10 +31,10 @@
                     </div>
                     <div class="mt-4 flex items-center gap-x-4 pt-4 border-t border-white/10">
                         {% if company.owner.userprofile.avatar.public_id == "default_avatar" or not company.owner.userprofile.avatar %}
-                        <img src="{% static 'images/profile.png' %}" alt=""
+                        <img src="{% static 'images/profile.png' %}" alt="default avatar"
                             class="size-10 rounded-full bg-gray-700" >
                         {% else %}
-                        <img src="{{ company.owner.userprofile.avatar.url }}" alt=""
+                        <img src="{{ company.owner.userprofile.avatar.url }}" alt="user avatar"
                             class="size-10 rounded-full bg-gray-700" >
                         {% endif %}
                         <div class="text-sm">
