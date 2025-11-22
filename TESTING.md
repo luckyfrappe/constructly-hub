@@ -4,9 +4,7 @@
 
 🔗 [**Live site**](https://constructly-hub-ee092254593a.herokuapp.com/)
 
-Testing for this project was a continuous and integral part of the development process. The focus was on achieving **good responsiveness and sufficient functionality**.
-
----
+Testing for this project was a continuous part of the development process.
 
 ## Contents
 
@@ -21,14 +19,9 @@ Testing for this project was a continuous and integral part of the development p
 
 ### User Stories
 
-## User Stories – Acceptance Testing Summary
+Below is a summary confirming that each user story was manually tested across desktop and mobile devices.
 
-Below is a summary confirming that each user story was manually tested across desktop and mobile devices.  
-Screenshots will be added in the placeholders provided.
-
----
-
-### Story 1: Guest Access & Restricted Features (#1)
+**Story 1: Guest Access & Restricted Features**
 
 **Test Summary:**  
 The platform was tested as an unauthenticated guest. Navigation from the landing page to the subcontractors list works, and all restricted features (bidding, creating projects, creating companies) are hidden. No authentication-only buttons appear.
@@ -37,10 +30,7 @@ The platform was tested as an unauthenticated guest. Navigation from the landing
 
 ![Guest Access Test](documentation/testing/manual-testing/guest-companies.png)
 
-
----
-
-### Story 2: User Registration & Login (#2)
+**Story 2: User Registration & Login**
 
 **Test Summary:**  
 User registration and login were tested via Django AllAuth. Users can sign up and sign in successfully. Incorrect login credentials trigger the correct error messages. Session remains active until logout.
@@ -50,10 +40,7 @@ User registration and login were tested via Django AllAuth. Users can sign up an
 ![Auth Test](documentation/testing/manual-testing/sign-in.png)
 ![Auth Test](documentation/testing/manual-testing/sign-up.png)
 
-
----
-
-### Story 4: Create New Project (#4)
+**Story 4: Create New Project**
 
 **Test Summary:**  
 A logged-in client can create a new project, view it in the projects list. All required fields validate correctly. Deadlines, budget, and descriptions save and display as expected.
@@ -62,10 +49,7 @@ A logged-in client can create a new project, view it in the projects list. All r
 
 ![Create Project Test](documentation/testing/manual-testing/create-project.png)
 
-
----
-
-### Story 6: Review Bids & Award Winner (#6)
+**Story 6: Review Bids & Award Winner**
 
 **Test Summary:**  
 Bid comparison was tested using multiple test bids. Client can view all bids, see price and delivery info, and select a winning bid. Project status updates to *Completed*, and other bids correctly switch to *Rejected*.
@@ -74,10 +58,7 @@ Bid comparison was tested using multiple test bids. Client can view all bids, se
 
 ![Bid Selection Test](documentation/testing/manual-testing/review-bids.png)
 
-
----
-
-### Story 5: CRUD Companies (#23)
+**Story 5: CRUD Companies**
 
 **Test Summary:**  
 Users can view all companies, create new ones, edit details, update logos, and delete their own companies. Owner-only restrictions and permission checks work correctly. Company cards show logo, name, location, and owner info.
@@ -88,10 +69,7 @@ Users can view all companies, create new ones, edit details, update logos, and d
 ![CRUD Companies Test](documentation/testing/manual-testing/crud.png)
 ![CRUD Companies Test](documentation/testing/manual-testing/create-company.png)
 
-
----
-
-### Story 7: Filter User-Owned Companies (#7)
+**Story 7: Filter User-Owned Companies**
 
 **Test Summary:**  
 The “Your Companies” page only displays companies owned by the logged-in user. Layout, pagination, cards, and owner info display correctly. 
@@ -100,10 +78,7 @@ The “Your Companies” page only displays companies owned by the logged-in use
 
 ![User Companies Test](documentation/testing/manual-testing/my-companies.png)
 
-
----
-
-### Story 9: Admin & Project Management (#9)
+**Story 9: Admin & Project Management**
 
 **Test Summary:**  
 Admin dashboard lists all users and projects. Admin permissions allow editing and deleting records. Non-admin users are correctly blocked from accessing the admin area.
@@ -112,10 +87,7 @@ Admin dashboard lists all users and projects. Admin permissions allow editing an
 
 ![Admin Test](documentation/testing/manual-testing/django-admin.png)
 
-
----
-
-### Story 10: Bidding (#22)
+**Story 10: Bidding**
 
 **Test Summary:**  
 Subcontractors can browse open projects, submit bids with price, duration, and comments. Bids appear on their “Your Bids” page. Bidding is blocked on completed projects, and validation works correctly.
@@ -132,8 +104,6 @@ Subcontractors can browse open projects, submit bids with price, duration, and c
 Automated tools were used throughout the project to ensure code quality and accessibility.
 
 **Google Lighthouse:**
-
-## Google Lighthouse Testing Results
 
 | Page | Screenshot |
 |------|------------|
@@ -198,8 +168,7 @@ Since these attributes do not affect performance, accessibility, or user experie
 | Bids Page                                       | ✅ Passed             | - |
 | Remaining Pages                                 | ✅ Passed             | No unresolved issues |
 
-
-During validation, two warnings appeared related to imported CSS and CSS variables. These are caused by the @import "tailwindcss"; line, as Tailwind is generated dynamically and the W3C validator cannot inspect imported stylesheets or statically check CSS variables. These warnings are expected and do not affect functionality or performance.
+During validation, two warnings appeared related to imported CSS and CSS variables. These are caused by the @import "tailwindcss".
 
 Autoprefixer: This tool was used to automatically add vendor prefixes to the CSS properties, ensuring the website's styles render correctly across a wide range of browsers. This step was essential for maintaining a consistent look and feel, even for older browser versions.
 
@@ -239,16 +208,28 @@ I have used the recommended [PEP8 CI Python Linter](https://pep8ci.herokuapp.com
 | userprofile-urls | ![userprofile-urls](documentation/testing/automated-testing/python/userprofile-urls.png "userprofile-urls") | — |
 | userprofile-views | ![userprofile-views](documentation/testing/automated-testing/python/userprofile-views.png "userprofile-views") | — |
 
-**Accessibility Testing:**  
-Use the **WAVE** tool to ensure compliance with accessibility standards.
+**Accessibility Testing:**
+
+WAVE was used to check accessibility on all publicly available pages.  
+Because WAVE cannot access authenticated sessions, private pages (projects, bids,
+settings, companies, etc.) could not be tested directly.
+
+However, all private pages use the same base template for layout, navigation,
+contrast, and typography. Since the base template passed WAVE checks without
+critical errors, the same accessibility level is consistently applied across the
+entire platform.
+
+![Companies Guest](documentation/testing/automated-testing/wave/companies-guest.png "Companies Guest")
+![Landing Page](documentation/testing/automated-testing/wave/landing-page-guest.png "Landing Page")
+![Reset](documentation/testing/automated-testing/wave/reset.png "Reset")
+![Sign In](documentation/testing/automated-testing/wave/sign-in.png "Sign In")
+![Sign Up](documentation/testing/automated-testing/wave/sign-up.png "Sign Up")
 
 ---
 
 ## Manual Testing
 
 Extensive manual testing ensures consistent layout, functionality, and responsiveness across devices and browsers.
-
----
 
 **1. Global Layout & Navigation**
 
@@ -262,7 +243,6 @@ Extensive manual testing ensures consistent layout, functionality, and responsiv
 | 006 | Flash messages | Display correctly + can be dismissed | pass |
 | 007 | No console errors | No JS errors in browser console | pass |
 
----
 
 **2. Authentication (Basic)**
 
@@ -271,7 +251,6 @@ Extensive manual testing ensures consistent layout, functionality, and responsiv
 | 101 | Sign-in/out links work | Redirect to login/logout as expected | pass |
 | 102 | Auth-required pages redirect | Unauthenticated users cannot access restricted pages | pass |
 
----
 
 **3. Landing Page**
 
@@ -280,7 +259,6 @@ Extensive manual testing ensures consistent layout, functionality, and responsiv
 | 201 | Hero section loads | Heading, text, call-to-action visible | pass |
 | 202 | CTA button works | Redirects correctly depending on auth state | pass |
 
----
 
 **4. 404 Page**
 
@@ -290,7 +268,6 @@ Extensive manual testing ensures consistent layout, functionality, and responsiv
 | 302 | Back button | Returns to previous page | pass |
 | 303 | Responsive layout | Works on all screen sizes | pass |
 
----
 
 **5. Profile Page**
 
@@ -301,7 +278,6 @@ Extensive manual testing ensures consistent layout, functionality, and responsiv
 | 403 | Delete account modal | Opens and closes correctly | pass |
 | 404 | Responsive layout | Stacks correctly on mobile | pass |
 
----
 
 **6. Settings Page**
 
@@ -314,7 +290,6 @@ Extensive manual testing ensures consistent layout, functionality, and responsiv
 | 505 | Save button | Updates profile | pass |
 | 506 | Back button | Returns to profile | pass |
 
----
 
 **7. Projects Page (List)**
 
@@ -326,7 +301,6 @@ Extensive manual testing ensures consistent layout, functionality, and responsiv
 | 604 | Pagination | Next/Prev & page numbers work | pass |
 | 605 | Responsive layout | Grid adjusts between screen sizes | pass |
 
----
 
 **8. Project Detail Page**
 
@@ -339,7 +313,6 @@ Extensive manual testing ensures consistent layout, functionality, and responsiv
 | 705 | Bid submission | Valid form submits correctly | pass |
 | 706 | Responsive layout | Works on all breakpoints | pass |
 
----
 
 **9. Create Project**
 
@@ -350,7 +323,6 @@ Extensive manual testing ensures consistent layout, functionality, and responsiv
 | 803 | Save button | Creates project | pass |
 | 804 | Cancel button | Goes back | pass |
 
----
 
 **10. Your Companies Page**
 
@@ -362,7 +334,6 @@ Extensive manual testing ensures consistent layout, functionality, and responsiv
 | 904 | Pagination | Works correctly | pass |
 | 905 | Responsive grid | 1 column mobile, 3 columns desktop | pass |
 
----
 
 **11. Create Company**
 
@@ -374,7 +345,6 @@ Extensive manual testing ensures consistent layout, functionality, and responsiv
 | 1004 | Save button | Creates company | pass |
 | 1005 | Cancel button | Goes back | pass |
 
----
 
 **12. Company Detail Page**
 
@@ -387,7 +357,6 @@ Extensive manual testing ensures consistent layout, functionality, and responsiv
 | 1105 | Delete modal | Opens and deletes correctly | pass |
 | 1106 | Responsive layout | Works across breakpoints | pass |
 
----
 
 **13. Your Bids Page**
 
@@ -399,7 +368,7 @@ Extensive manual testing ensures consistent layout, functionality, and responsiv
 | 1204 | Pagination | Works correctly | pass |
 | 1205 | Responsive layout | Works on mobile and desktop | pass |
 
-### Cross-Browser & Device Quick Testing
+**14. Cross-Browser & Device Quick Testing**
 
 These core features were manually tested on **Chrome**, **Safari**, **Firefox**, **Edge**, and real devices (**iPhone 16**, **iPad Air**).
 
@@ -428,6 +397,7 @@ Main closing tag in footer on home page causng footer take container width. Move
 Login and signup pages didn’t show form errors. Fixed by adding blocks for form.non_field_errors and field-specific errors.
 
 Update button for companies had a wrong attributes so Update button did not work on iPhone.
+
 ---
 
 [Back to README.md](README.md) • [Back to Top](#constructly-hub---testing-documentation)
