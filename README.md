@@ -302,7 +302,7 @@ Inside **Settings → Reveal Config Vars**, set the following:
 | Key | Value |
 |-----|-------|
 | `CLOUDINARY_URL` | Your own Cloudinary URL |
-| `DATABASE_URL` | Automatically provided by Heroku Postgres |
+| `DATABASE_URL` | Your own value |
 | `SECRET_KEY` | Your own Django secret key |
 | `EMAIL_HOST_PASSWORD` | Gmail App Password (for email verification) |
 | `EMAIL_HOST_USER` | Your domain email address (if you want email functionality) |
@@ -310,6 +310,9 @@ Inside **Settings → Reveal Config Vars**, set the following:
 These environment variables correspond to the Django settings:
 
 ```py
+DATABASES = {
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+}
 SECRET_KEY = os.environ.get('SECRET_KEY')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 EMAIL_HOST_USER = 'your_email_here@gmail.com'
@@ -502,6 +505,6 @@ The textual content and platform descriptions for this fictional construction ma
 
 ### Acknowledgments
 
-I want to express my gratitude to my cat James, who provided emotional support and mandatory “pause the coding session” moments throughout the project. His dedication to lying on the laptop whenever I needed rest was invaluable.
+I want to express my gratitude to my cat James, who provided emotional support throughout the project.
 
 A huge thank you as well to my best friend in the construction industry. His guidance, feedback, and professional knowledge were essential in shaping the concept and making the project feel grounded in real industry needs. His support was a major inspiration.
